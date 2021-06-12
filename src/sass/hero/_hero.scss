@@ -1,0 +1,72 @@
+.hero {
+  background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+    url('../images/hero-mobile.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 78px;
+  padding-bottom: 242px;
+
+  &-title {
+    margin: 0;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.222;
+
+    text-align: center;
+    text-transform: uppercase;
+    color: $accent-color;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: $mobile),
+  screen and (min-resolution: 192dpi) and (min-width: $mobile),
+  screen and (min-resolution: 2dppx) and (min-width: $mobile) {
+  .hero {
+    background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url('../images/hero-mobile@2x.jpg');
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .hero {
+    background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url('../images/hero-tablet.jpg');
+    padding-top: 40px;
+    padding-bottom: 250px;
+    &-title {
+      font-size: 30px;
+      line-height: 1.333;
+    }
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: $tablet),
+  screen and (min-resolution: 192dpi) and (min-width: $tablet),
+  screen and (min-resolution: 2dppx) and (min-width: $tablet) {
+  .hero {
+    background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url('../images/hero-tablet@2x.jpg');
+  }
+}
+@media screen and (min-width: $desktop) {
+  .hero {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1600px;
+    background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url('../images/hero.jpg');
+    &-title {
+      font-size: 50px;
+      line-height: 1.22;
+    }
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: $desktop),
+  screen and (min-resolution: 192dpi) and (min-width: $desktop),
+  screen and (min-resolution: 2dppx) and (min-width: $desktop) {
+  .hero {
+    background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url('../images/hero@2x.jpg');
+  }
+}
