@@ -1,4 +1,4 @@
-.gallery__search-form {
+.events__search-form {
   position: relative;
 
   display: flex;
@@ -19,7 +19,7 @@
     margin-bottom: 133px;
   }
 }
-.gallery__search-label {
+.events__search-label {
   position: absolute;
   top: 13px;
   right: 30px;
@@ -28,7 +28,7 @@
     left: 225px;
   }
 }
-.gallery__select-label {
+.events__select-label {
   position: absolute;
   top: 79px;
   right: 30px;
@@ -40,7 +40,7 @@
     right: 555px;
   }
 }
-.gallery__input {
+.events__input {
   color: $secondary-text-color;
   font-size: 16px;
   line-height: 1.15;
@@ -54,7 +54,7 @@
 
   //   border-color: transparent;
 }
-.gallery__search-query {
+.events__search-query {
   @media screen and(max-width: $to-tablet) {
     margin-bottom: 25px;
   }
@@ -63,7 +63,7 @@
     margin-right: 30px;
   }
 }
-.gallery__search-country {
+.events__search-country {
   @media screen and(min-width: $tablet) {
     width: 270px;
   }
