@@ -34,10 +34,10 @@
   right: 30px;
   @media screen and(min-width: $tablet) {
     top: 13px;
-    right: 180px;
+    right: 25px;
   }
   @media screen and(min-width: $desktop) {
-    right: 555px;
+    // right: 555px;
   }
 }
 .events__input {
