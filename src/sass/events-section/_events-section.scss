@@ -16,7 +16,7 @@
     width: 100%;
   }
 
-  @media screen and(min-width: $desctop) {
+  @media screen and(min-width: $desktop) {
     margin-left: 240px;
   }
 }
@@ -35,6 +35,10 @@
   right: 30px;
   @media screen and(min-width: $tablet) {
     top: 13px;
+    right: 180px;
+  }
+  @media screen and(min-width: $desktop) {
+    right: 555px;
   }
 }
 .gallery__input {
