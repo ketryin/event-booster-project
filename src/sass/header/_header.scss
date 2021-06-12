@@ -1,0 +1,20 @@
+@media screen and (max-width: 767px) {
+  .header-logo {
+    width: 213.97px;
+    height: 180px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header-logo {
+    width: 302px;
+    height: 359px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header-logo {
+    width: 402px;
+    height: 477px;
+  }
+}
