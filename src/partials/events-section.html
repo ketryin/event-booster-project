@@ -1,6 +1,23 @@
 <section class="gallery container">
   <form class="gallery__search-form">
-    <input type="text" class="gallery__search-query" />
-    <select name="" id="" class="gallery__search-country"></select>
+    <input
+      id="query-input"
+      type="text"
+      class="gallery__search-query gallery__input"
+      placeholder="Start searching"
+    />
+    <label class="gallery__search-label" for="query-input"
+      ><svg width="12" height="12" class="gallery__search-icon">
+        <use href="./../src/images/svg/gallery-sprite.svg#icon-search"></use></svg
+    ></label>
+    <select name="" id="country-select" class="gallery__search-country gallery__input">
+      <option value="">Choose country</option>
+    </select>
+    <label class="gallery__select-label" for="country-select">
+      <svg width="15" height="10" class="gallery__arrow-icon">
+        <use href="./../src/images/svg/gallery-sprite.svg#icon-arrow"></use>
+      </svg>
+    </label>
   </form>
+  <ul class="gallery__list"></ul>
 </section>
