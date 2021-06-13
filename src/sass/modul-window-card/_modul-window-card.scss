@@ -1,3 +1,6 @@
+.backdrop .is--hidden {
+  display: none;
+}
 .modal__box {
   @media screen and (min-width: 320px) {
     width: 272px;
