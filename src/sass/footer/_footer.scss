@@ -8,9 +8,9 @@
   font-weight: normal;
 }
 .students {
+  padding-right: 0;
   color: #939393;
   border-style: none;
-  text-align: center;
   margin: 0;
   background-color: black;
 }
@@ -19,7 +19,6 @@
 }
 @media screen and (max-width: 767px) {
   .footer-text {
-    width: 100%;
     font-size: 14px;
     line-height: 17px;
     padding-top: 60px;
@@ -30,7 +29,6 @@
 }
 @media screen and (min-width: 768px) {
   .footer-text {
-    width: 100%;
     font-size: 16px;
     line-height: 20px;
     padding-top: 60px;
