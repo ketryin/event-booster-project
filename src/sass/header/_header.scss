@@ -1,0 +1,53 @@
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .logo {
+    width: 106px;
+    height: 90px;
+    background-image: url('../images/logo-mob.png');
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .logo {
+      background-image: url('../images/logo-mob@2x.png');
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .logo {
+    width: 179px;
+    height: 150px;
+    background-image: url('../images/logo-tablet.png');
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .logo {
+      background-image: url('../images/logo-tablet@2x.png');
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .logo {
+    width: 239px;
+    height: 200px;
+    background-image: url('../images/logo-laptop.png');
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .logo {
+      background-image: url('../images/logo-laptop@2x.png');
+    }
+  }
+}
