@@ -10,7 +10,7 @@ export default class EventApiService {
   constructor() {
     this.searchEventByKeywordQuery = '';
     this.searchCountryQuery = '';
-    this.page = 1;
+    this.page = 0;
   }
 
   fetchEvents() {

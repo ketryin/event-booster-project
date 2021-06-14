@@ -15,7 +15,7 @@
     >
     <span class="event-image-span"></span>
     <h2 class="event-name">{{name}}</h2>
-    <p class="event-date">{{dates.start}}</p>
-    <p class="event-location">{{location}}</p>
+    <p class="event-date">{{dates.start.localDate}}</p>
+    <p class="event-location">{{_embedded.venues.name}}</p>
 </li>
 {{/each}}
