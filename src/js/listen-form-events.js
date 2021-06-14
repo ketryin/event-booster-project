@@ -1,14 +1,24 @@
-const formRef = document.querySelector('.events__search-form');
+import ApiService from './fetch-events.js';
+import cardTpl from './../templates/event-card.hbs';
 
-formRef.addEventListener('change', event => {
-  event.preventDefault();
+export default function handleFormChange(form, list) {
+  const api = new ApiService();
 
-  if (event.target.nodeName === 'INPUT') {
-    const apiQuery = event.target.value;
-    console.log('API Query: ', apiQuery);
-  }
-  if (event.target.nodeName === 'SELECT') {
-    const apiCountry = event.target.value;
-    console.log('API country name: ', apiCountry);
-  }
-});
+  form.addEventListener('change', event => {
+    event.preventDefault();
+
+    if (event.target.nodeName === 'INPUT') {
+      api.apiQuery = event.target.value;
+    }
+    if (event.target.nodeName === 'SELECT') {
+      api.apiCountry = event.target.value;
+    }
+    api.incrementPage();
+    api
+      .fetchEvents()
+      .then(data => {
+        list.innerHTML = cardTpl(data._embedded.events);
+      })
+      .catch(alert);
+  });
+}

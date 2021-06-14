@@ -1,11 +1,14 @@
+{{#each this}}
 <li class="event-list__item">
 
     <img class="event-image"
-        srcset="
+        {{!-- srcset="
             {{}} 1x,
             {{}} 2x,
-        " 
+        "  --}}
+        {{#each images}}
         src="{{url}}" 
+        {{/each}}
         alt="{{Id}}" 
         width="180" 
         height="227"
@@ -15,3 +18,4 @@
     <p class="event-date">{{dates.start}}</p>
     <p class="event-location">{{location}}</p>
 </li>
+{{/each}}
