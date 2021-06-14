@@ -94,7 +94,7 @@
   cursor: pointer;
 }
 
-.modal__superbtn::before {
+.modal__btn_close::before {
   transform: rotate(-45deg);
   transition: transform 300ms linear;
 
@@ -106,14 +106,14 @@
 
   background-color: #4c00fe;
 }
-.modal__btn:hover .modal__superbtn::before {
+.modal__btn:hover .modal__btn_close::before {
   transform: rotate(-130deg);
 }
-.modal__btn:hover .modal__superbtn::after {
+.modal__btn:hover .modal__btn_close::after {
   transform: rotate(130deg);
 }
 
-.modal__superbtn::after {
+.modal__btn_close::after {
   transform: rotate(45deg);
   transition: transform 300ms linear;
 
