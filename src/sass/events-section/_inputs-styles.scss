@@ -24,6 +24,7 @@
   top: 13px;
   right: 30px;
 
+  pointer-events: none;
   @media screen and(min-width: $tablet) {
     left: 225px;
   }
@@ -32,6 +33,8 @@
   position: absolute;
   top: 79px;
   right: 30px;
+
+  pointer-events: none;
   @media screen and(min-width: $tablet) {
     top: 13px;
     right: 25px;

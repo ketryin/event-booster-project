@@ -23,11 +23,13 @@ export default class EventApiService {
         const url = `https://app.ticketmaster.com/discovery/v2/events.json?page=${this.page}&size=20&keyword=${this.searchEventByKeywordQuery}&countryCode=${this.searchCountryQuery}&apikey=${CONSUMER_KEY}`;
         
 
-        fetch(url)
+        return fetch(url)
             .then(responce => responce.json())
             .then(data => {
                 console.log(data);
                 this.incrementPage()
+
+                return data;
             })
     }
 
