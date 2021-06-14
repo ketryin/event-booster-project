@@ -7,7 +7,7 @@ import removeLoader from './remove-loader';
 export default function handleFormChange(form, list, select, input, loader) {
   const api = new ApiService();
 
-  input.addEventListener('keydown', debounce(handleInput, 500));
+  input.addEventListener('input', debounce(handleInput, 500));
 
   select.addEventListener('change', handleSelect);
 
