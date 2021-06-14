@@ -1,0 +1,31 @@
+.pagenumbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagenumbers button {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #FFFFFF;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.pagenumbers button:hover {
+    border: 1px solid #DC56DC;
+    border-radius: 10px 0px 10px 0px;
+    color: #DC56C5;
+}
+
+.pagenumbers button.active {
+    border: 1px solid #DC56DC;
+    border-radius: 10px 0px 10px 0px;
+    color: #DC56C5;
+}
