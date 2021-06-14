@@ -1,8 +1,10 @@
 import ApiService from './fetch-events.js';
 import cardTpl from './../templates/event-card.hbs';
 import debounce from 'lodash.debounce';
+import animateLoader from './show-loader';
+import removeLoader from './remove-loader';
 
-export default function handleFormChange(form, list, select, input) {
+export default function handleFormChange(form, list, select, input, loader) {
   const api = new ApiService();
 
   input.addEventListener('keydown', debounce(handleInput, 500));
@@ -22,10 +24,17 @@ export default function handleFormChange(form, list, select, input) {
   }
 
   function handleInput(event) {
+    animateLoader();
+    if (event.target.value === '') {
+      removeLoader();
+      return;
+    }
     api.apiQuery = event.target.value;
     populatePage();
   }
+
   function handleSelect() {
+    animateLoader();
     api.apiCountry = select.options[select.selectedIndex].value;
     populatePage();
   }
@@ -35,6 +44,9 @@ export default function handleFormChange(form, list, select, input) {
       .then(data => {
         list.innerHTML = cardTpl(data._embedded.events);
       })
-      .catch(alert);
+      .catch(alert)
+      .finally(() => {
+        removeLoader();
+      });
   }
 }

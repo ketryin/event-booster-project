@@ -1,0 +1,21 @@
+.spinner {
+  position: absolute;
+  top: 550px;
+  left: 700px;
+  &.opacity {
+    opacity: 0;
+  }
+}
+.spinner-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  &.opacity {
+    opacity: 0;
+  }
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+}
