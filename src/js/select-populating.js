@@ -1,8 +1,6 @@
-export default function (countries) {
-  const selectRef = document.querySelector('#country-select');
-
+export default function (countries, select) {
   const markUp = countries.map(country => {
     return `<option value="${Object.keys(country)}">${Object.values(country)}</option>`;
   });
-  selectRef.insertAdjacentHTML('beforeend', markUp.join(''));
+  select.insertAdjacentHTML('beforeend', markUp.join(''));
 }
