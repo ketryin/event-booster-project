@@ -5,7 +5,7 @@ import debounce from 'lodash.debounce';
 export default function handleFormChange(form, list, select, input) {
   const api = new ApiService();
 
-  input.addEventListener('keydown', debounce(handleInput, 500));
+  input.addEventListener('input', debounce(handleInput, 500));
 
   select.addEventListener('change', handleSelect);
   //   form.addEventListener('change', event => {
