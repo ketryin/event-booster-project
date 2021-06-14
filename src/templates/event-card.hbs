@@ -1,21 +1,15 @@
 {{#each this}}
-<li class="event-list__item">
-
-    <img class="event-image"
-        {{!-- srcset="
-            {{}} 1x,
-            {{}} 2x,
-        "  --}}
-        {{#each images}}
-        src="{{url}}" 
-        {{/each}}
-        alt="{{Id}}" 
+<li class="events-list__item" id="{{id}}">
+    <img class="event-image" 
+        {{#each images}} 
+            src="{{url}}" 
+        {{/each}} 
+        alt="тест-картинка" 
         width="180" 
-        height="227"
-    >
+        height="227" />
     <span class="event-image-span"></span>
     <h2 class="event-name">{{name}}</h2>
     <p class="event-date">{{dates.start.localDate}}</p>
-    <p class="event-location">{{_embedded.venues.name}}</p>
+    <p>{{location}}</p>
 </li>
 {{/each}}
