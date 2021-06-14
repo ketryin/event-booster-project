@@ -15,7 +15,7 @@
     opacity: 0;
     pointer-events: none;
 }
-.backdrop.is-hidden .modal {
+.backdrop.is-hidden .modal-team {
     transform: translate(-50%, -50%) scale(1.1);
 }
 .modal-team {
@@ -25,7 +25,7 @@
     transform: translate(-50%, -50%) scale(1);
     width: 1100px;
     height: 640px;
-    background-color: red;
+    background-color: #FFF2FD;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 120px 0;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -35,7 +35,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    background-color: rgb(255, 202, 246);
+    background-color: #FFF2FD;
     padding: 0;
     top: 8px;
     right: 8px;
@@ -64,9 +64,13 @@
     height: 260px;
     margin-right: 20px;
     padding-bottom: 30px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 15px 0;
-    background: black;
+    
+    background: #FFF2FD;
+    &:hover,
+    &:focus {
+        box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.12), 2px 1px 1px rgba(0, 0, 0, 0.14), -1px -2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 15px 0;
+    }
 }
 
 .personal-item:nth-child(5n) {
@@ -95,7 +99,7 @@
     font-size: 12px;
     margin: 0;
     line-height: 1.19;
-    color: #FFFFFF;
+    color: #242424;
 }
 .headlines-list1 {
     display: flex;
@@ -118,8 +122,8 @@
     height: 28px;
     border-radius: 10px 0;
     border: 1px solid #DC56C5;
-    background-color: white;
-    fill: black;
+    background-color: black;
+    fill: white;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
     &:hover,
