@@ -14,7 +14,7 @@ export default class EventApiService {
   }
 
   fetchEvents() {
-    console.log(this);
+    // console.log(this);
     const CONSUMER_KEY = '21thx8JLVbOdavwqxpr1UpomSd3AvkEA';
     const url = `https://app.ticketmaster.com/discovery/v2/events.json?page=${this.page}&size=20&keyword=${this.searchEventByKeywordQuery}&countryCode=${this.searchCountryQuery}&apikey=${CONSUMER_KEY}`;
 
