@@ -10,3 +10,4 @@ const inputRef = document.querySelector('#query-input');
 
 populateSelect(countries, selectRef);
 handleFormChange(formRef, eventsListRef, selectRef, inputRef);
+// animateSpinner(spinnerRef);
