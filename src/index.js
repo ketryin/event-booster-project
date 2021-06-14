@@ -1,5 +1,6 @@
 import './sass/main.scss';
 import countries from './js/countries.js';
+import modal from './js/modal.js'
 import populateSelect from './js/select-populating.js';
 import handleFormChange from './js/listen-form-events.js';
 
