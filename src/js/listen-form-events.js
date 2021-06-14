@@ -1,14 +1,52 @@
-const formRef = document.querySelector('.events__search-form');
+import ApiService from './fetch-events.js';
+import cardTpl from './../templates/event-card.hbs';
+import debounce from 'lodash.debounce';
+import animateLoader from './show-loader';
+import removeLoader from './remove-loader';
 
-formRef.addEventListener('change', event => {
-  event.preventDefault();
+export default function handleFormChange(form, list, select, input, loader) {
+  const api = new ApiService();
 
-  if (event.target.nodeName === 'INPUT') {
-    const apiQuery = event.target.value;
-    console.log('API Query: ', apiQuery);
+  input.addEventListener('input', debounce(handleInput, 500));
+
+  select.addEventListener('change', handleSelect);
+
+  // form.addEventListener('change', handleFormChange);
+  function handleFormChange(event) {
+    event.preventDefault();
+    if (event.target.nodeName === 'INPUT') {
+      api.apiQuery = event.target.value;
+    }
+    if (event.target.nodeName === 'SELECT') {
+      api.apiCountry = event.target.value;
+    }
+    populatePage();
   }
-  if (event.target.nodeName === 'SELECT') {
-    const apiCountry = event.target.value;
-    console.log('API country name: ', apiCountry);
+
+  function handleInput(event) {
+    animateLoader();
+    if (event.target.value === '') {
+      removeLoader();
+      return;
+    }
+    api.apiQuery = event.target.value;
+    populatePage();
   }
-});
+
+  function handleSelect() {
+    animateLoader();
+    api.apiCountry = select.options[select.selectedIndex].value;
+    populatePage();
+  }
+  function populatePage() {
+    api
+      .fetchEvents()
+      .then(data => {
+        list.innerHTML = cardTpl(data._embedded.events);
+      })
+      .catch(alert)
+      .finally(() => {
+        removeLoader();
+      });
+  }
+}
