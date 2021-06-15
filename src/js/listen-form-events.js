@@ -38,15 +38,25 @@ export default function handleFormChange(form, list, select, input, loader) {
     api.apiCountry = select.options[select.selectedIndex].value;
     populatePage();
   }
+  
   function populatePage() {
     api
       .fetchEvents()
       .then(data => {
-        list.innerHTML = cardTpl(data._embedded.events);
+        updatePaginator(data._embedded.events);
       })
       .catch(alert)
       .finally(() => {
         removeLoader();
       });
+  }
+
+  function updatePaginator(data) {
+    $('.pagenumbers').pagination({
+      dataSource: data,
+      callback: function (data, pagination) {
+        list.innerHTML = cardTpl(data)
+      }
+    });
   }
 }
