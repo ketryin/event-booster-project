@@ -2,6 +2,7 @@ import ApiService from './fetch-events.js';
 import cardTpl from './../templates/event-card.hbs';
 import animateLoader from './show-loader';
 import removeLoader from './remove-loader';
+import myError from './listen-form-events';
 
 export default function initialPopulatePage(list) {
   animateLoader();
@@ -11,7 +12,7 @@ export default function initialPopulatePage(list) {
     .then(data => {
       list.innerHTML = cardTpl(data._embedded.attractions);
     })
-    .catch(alert)
+    .catch(myError)
     .finally(() => {
       removeLoader();
     });

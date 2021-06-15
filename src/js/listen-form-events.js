@@ -3,6 +3,9 @@ import cardTpl from './../templates/event-card.hbs';
 import debounce from 'lodash.debounce';
 import animateLoader from './show-loader';
 import removeLoader from './remove-loader';
+import { error } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
 
 export default function handleFormChange(form, list, select, input, loader) {
   const api = new ApiService();
@@ -44,9 +47,15 @@ export default function handleFormChange(form, list, select, input, loader) {
       .then(data => {
         list.innerHTML = cardTpl(data._embedded.events);
       })
-      .catch(alert)
+      .catch(myError)
       .finally(() => {
         removeLoader();
       });
   }
+}
+
+function myError() {
+  error({
+    text: 'There is no such event! Please try again.',
+  });
 }
