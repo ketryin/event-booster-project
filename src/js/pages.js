@@ -1,3 +1,20 @@
+import ApiService from './fetch-events.js'
+
+const paginationApi = new ApiService();
+const formRef = document.querySelector('.events__search-form');
+
+function testApi(e) {
+    if (e.target.nodeName === 'INPUT') {
+        paginationApi.apiQuery = e.target.value;
+    }
+
+    paginationApi.fetchEvents().then(data => console.log(data))
+
+    return console.log(paginationApi.fetchEvents());
+}
+
+testApi(formRef)
+
 const testDate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
 $('.pagenumbers').pagination({
@@ -17,3 +34,4 @@ function template(data) {
     html += '</ul>';
     return html;
 }
+
