@@ -7,6 +7,9 @@
  */
 
 export default class EventApiService {
+  #CONSUMER_KEY = '21thx8JLVbOdavwqxpr1UpomSd3AvkEA';
+  #BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
+
   constructor() {
     this.searchEventByKeywordQuery = '';
     this.searchCountryQuery = '';
@@ -14,10 +17,14 @@ export default class EventApiService {
   }
 
   fetchEvents() {
-    // console.log(this);
-    const CONSUMER_KEY = '21thx8JLVbOdavwqxpr1UpomSd3AvkEA';
-    const url = `https://app.ticketmaster.com/discovery/v2/events.json?page=${this.page}&size=20&keyword=${this.searchEventByKeywordQuery}&countryCode=${this.searchCountryQuery}&apikey=${CONSUMER_KEY}`;
+    const url = `${this.#BASE_URL}events.json?page=${this.page}&size=20&keyword=${
+      this.searchEventByKeywordQuery
+    }&countryCode=${this.searchCountryQuery}&apikey=${this.#CONSUMER_KEY}`;
 
+    return fetch(url).then(responce => responce.json());
+  }
+  fetchPopular() {
+    const url = `${this.#BASE_URL}attractions.json?apikey=${this.#CONSUMER_KEY}`;
     return fetch(url).then(responce => responce.json());
   }
 
