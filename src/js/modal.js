@@ -1,8 +1,3 @@
-import EventApiService from './fetch-events.js';
-import modalTemplate from '../templates/modal-card-details.hbs';
-
-const api = new EventApiService();
-
 const refs = {
   eventCards: document.querySelector('.events-list'),
   modalWindow: document.querySelector('#modal-card'),
@@ -11,6 +6,7 @@ const refs = {
 };
 
 refs.eventCards.addEventListener('click', onEventCardClick);
+
 refs.modalBtnClose.addEventListener('click', onCLicklBtnClose);
 refs.backdrop.addEventListener('click', onClickBackdrop);
 
@@ -30,17 +26,5 @@ function onEventCardClick(e) {
   if (!currentCard.closest('.events-list__item')) {
     return;
   }
-
-  const eventSingleCard = currentCard.closest('.events-list__item');
-
-  if (e.target.nodeName === 'IMG' || e.target.nodeName === 'SPAN') {
-    api.fetchModalDetails(eventSingleCard.id)
-      .then(data => {
-        console.log(refs.modalWindow);
-        console.log(modalTemplate(data));
-
-        refs.modalWindow.innerHTML = modalTemplate(data)
-      });
-    }
-    refs.modalWindow.classList.toggle('is--hidden');
+  refs.modalWindow.classList.toggle('is--hidden');
 }
