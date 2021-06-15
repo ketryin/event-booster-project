@@ -4,6 +4,7 @@ import modal from './js/modal.js'
 import populateSelect from './js/select-populating.js';
 import modalTeam from './js/modal-team.js'
 import handleFormChange from './js/listen-form-events.js';
+import './js/pages.js';
 
 
 const selectRef = document.querySelector('#country-select');
