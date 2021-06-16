@@ -1,5 +1,6 @@
 .pagenumbers {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -11,7 +12,9 @@
     }
 }
 
-.pagenumbers button {
+.paginationjs-pages ul {
+    display: flex;
+    flex-direction: row;
     width: 30px;
     height: 30px;
     background-color: #000;
@@ -24,13 +27,26 @@
     transition: 0.3s;
 }
 
-.pagenumbers button:hover {
+.paginationjs-pages ul li {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #FFFFFF;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.paginationjs-pages ul li:hover {
     border: 1px solid #DC56DC;
     border-radius: 10px 0px 10px 0px;
     color: #DC56C5;
 }
 
-.pagenumbers button.active {
+.paginationjs-pages ul li.active {
     border: 1px solid #DC56DC;
     border-radius: 10px 0px 10px 0px;
     color: #DC56C5;
