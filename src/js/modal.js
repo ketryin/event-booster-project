@@ -23,7 +23,7 @@ function onClickBackdrop(e) {
 }
 
 function onCLickBtnClose() {
-  const btnRef = document.querySelector('.modal__btn');
+  const btnRef = document.querySelector('[data-modal-window-close]');
 
   btnRef.addEventListener('click', () => {
     refs.modalWindow.classList.toggle('is--hidden');
@@ -45,7 +45,7 @@ function onEventCardClick(e) {
       .fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
       .then(data => {
         refs.modalWindow.innerHTML = modalTemplate(data);
-        
+
         onCLickBtnClose();
       })
       .catch(error => console.log(error));
