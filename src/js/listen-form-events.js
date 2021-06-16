@@ -54,9 +54,13 @@ export default function handleFormChange(form, list, select, input, loader) {
   function updatePaginator(data) {
     $('.pagenumbers').pagination({
       dataSource: data,
+      pageSize: 8,
+      showPrevious: false,
+      showNext: false,
       callback: function (data, pagination) {
         list.innerHTML = cardTpl(data)
       }
     });
   }
 }
+
