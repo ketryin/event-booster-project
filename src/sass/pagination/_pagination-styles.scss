@@ -28,6 +28,8 @@
 }
 
 .paginationjs-pages ul li {
+    display: flex;
+    align-items: center;
     width: 30px;
     height: 30px;
     background-color: #000;
@@ -36,17 +38,35 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 5px;
+    padding-left: 5px;
+    padding-top: 12px;
+    padding-right: 5px;
+    padding-bottom: 12px;
     transition: 0.3s;
+}
+
+.paginationjs-pages ul li a {
+    color: #FFFFFF;
+    padding-left: 5px;
+    padding-top: 12px;
+    padding-right: 5px;
+    padding-bottom: 12px;
 }
 
 .paginationjs-pages ul li:hover {
     border: 1px solid #DC56DC;
     border-radius: 10px 0px 10px 0px;
+}
+
+.paginationjs-pages ul li a:hover {
     color: #DC56C5;
 }
 
-.paginationjs-pages ul li.active {
+.paginationjs-pages ul li.active a{
+    color: #DC56C5;
+}
+
+.paginationjs-pages ul li.active{
     border: 1px solid #DC56DC;
     border-radius: 10px 0px 10px 0px;
     color: #DC56C5;
