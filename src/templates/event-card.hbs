@@ -1,12 +1,9 @@
 {{#each this}}
-<li class="events-list__item" id="{{id}}">
+<li class="events-list__item animate__animated animate__bounceInUp" id="{{id}}" data-type="{{type}}">
     <img class="event-image" 
         {{#each images}} 
             src="{{url}}" 
         {{/each}} 
-        alt="тест-картинка" 
-        width="180" 
-        height="227" />
     <span class="event-image-span"></span>
     <h2 class="event-name">{{name}}</h2>
     <p class="event-date">{{dates.start.localDate}}</p>
