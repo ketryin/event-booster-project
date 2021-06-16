@@ -47,15 +47,15 @@ export default function handleFormChange(form, list, select, input, loader) {
       .then(data => {
         list.innerHTML = cardTpl(data._embedded.events);
       })
-      .catch(myError)
+      .catch(notifyOnError)
       .finally(() => {
         removeLoader();
       });
   }
 }
 
-function myError() {
+function notifyOnError() {
   error({
-    text: 'There is no such event! Please try again.',
+    text: 'There are no events in this country!',
   });
 }
