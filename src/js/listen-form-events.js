@@ -64,3 +64,26 @@ export default function handleFormChange(form, list, select, input, loader) {
   }
 }
 
+/* 
+function updatePaginator(data) {
+  $('.pagenumbers').pagination({
+    dataSource: api.fetchEvents(),
+    locator: data, или такая запись '_embeded.events'
+    totalNumberLocator: function(response) {  //Это у меня page data.page
+        // you can return totalNumber by analyzing response content
+        return Math.floor(Math.random() * (1000 - 100)) + 100;
+    },
+    pageSize: 20,
+    showPrevious: false,
+    showNext: false,
+    ajax: {  // тут не совсем понял
+        beforeSend: function() {
+            dataContainer.html('Loading data from flickr.com ...');
+        }
+    },
+      callback: function (data, pagination) {
+        list.innerHTML = cardTpl(data)
+      }
+  })
+}
+*/
