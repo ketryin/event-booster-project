@@ -1,15 +1,19 @@
-.backdrop.is--hidden {
+body.modal-open {
+  overflow: hidden;
+}
+.backdrop__modal.is--hidden {
   opacity: 0;
   pointer-events: none;
 }
-.backdrop.is--hidden .modal-box {
+.backdrop__modal.is--hidden .modal-box {
   transform: translate(-50%, -50%) scale(2);
 }
-.backdrop {
+.backdrop__modal {
   position: fixed;
   top: 0;
   left: 0;
 
+  overflow: auto;
   width: 100%;
   height: 100%;
 
@@ -22,43 +26,47 @@
 
 .modal-box {
   @media screen and (min-width: 320px) {
+    top: 65%;
     width: 272px;
     height: 915px;
 
     border-radius: 150px 0 150px 0;
   }
   @media screen and (min-width: 595px) {
+    top: 65%;
     width: 595px;
     height: 831px;
+
     border-radius: 300px 0 300px 0;
   }
   @media screen and (min-width: 1050px) {
+    top: 65%;
     width: 942px;
     height: 1023px;
     border-radius: 300px 0 300px 0;
   }
 
   position: absolute;
-  top: 50%;
+
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms linear;
 
   background-color: rgba(255, 242, 253, 1);
 }
-.modal__form {
+.backdrop__modal::-webkit-scrollbar {
+  width: 0;
+}
+.modal__window {
   @media screen and (min-width: 320px) {
     padding: 75px 12px 104px 12px;
   }
   @media screen and (min-width: 595px) {
-    padding: 28px 12px 56px 50px;
+    padding: 28px 17px 56px 50px;
   }
   @media screen and (min-width: 1050px) {
     padding: 62px 30px;
   }
-
-  width: 100%;
-  height: 100%;
 }
 .modal__circle {
   @media screen and (min-width: 320px) {
@@ -77,9 +85,10 @@
     margin-bottom: 40px;
   }
 
+  position: relative;
+  overflow: hidden;
   margin: 0 auto;
 
-  background-color: #009688;
   border-radius: 50%;
 }
 .modal__btn {
@@ -137,7 +146,8 @@
   justify-content: space-between;
 }
 .modal__img {
-  object-fit: cover;
+  position: relative;
+  overflow: hidden;
   @media screen and (min-width: 320px) {
     display: none;
   }
@@ -150,8 +160,6 @@
     width: 360px;
     height: 640px;
   }
-
-  background-color: tomato;
 }
 .modal__info {
   width: 450px;
@@ -248,7 +256,7 @@
   color: #ffffff;
   border-radius: 5px;
 }
-.modal__btn_submit {
+.modal__btn__more {
   @media screen and (min-width: 320px) {
     width: 230px;
     height: 40px;
@@ -268,6 +276,7 @@
 
   display: block;
   margin: 0 auto;
+  padding: 0;
 
   font-weight: 500;
   font-size: 16px;
@@ -277,4 +286,23 @@
   color: #4c00fe;
   border-radius: 5px;
   border-color: #4c00fe;
+}
+.modal__circle img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 100%;
+  width: auto;
+}
+
+.modal__img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 100%;
+  width: auto;
 }
