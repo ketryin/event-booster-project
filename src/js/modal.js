@@ -39,17 +39,15 @@ function onEventCardClick(e) {
   console.log(eventSingleCard);
 
   if (e.target.nodeName === 'IMG' || e.target.nodeName === 'SPAN') {
-    api
-      .fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
+    api.fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
       .then(data => {
         console.log(data);
         // console.log(refs.modalWindow);
         // console.log(modalTemplate(data));
 
-        refs.modalWindow.innerHTML = modalTemplate(data);
-        refs.modalWindow.classList.toggle('is--hidden');
-        refs.body.classList.toggle('modal-open');
+        refs.modalWindow.innerHTML = modalTemplate(data)
       })
       .catch(error => console.log(error));
-  }
+    }
+    refs.modalWindow.classList.toggle('is--hidden');
 }
