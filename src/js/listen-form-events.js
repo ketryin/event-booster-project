@@ -24,7 +24,7 @@ export default function handleFormChange(form, list, select, input, loader) {
   }
 
   function handleInput(event) {
-    api.page = 0;
+    api.resetPage();
     animateLoader();
     if (event.target.value === '') {
       removeLoader();
@@ -35,7 +35,7 @@ export default function handleFormChange(form, list, select, input, loader) {
   }
 
   function handleSelect() {
-    api.page = 0;
+    api.resetPage();
     animateLoader();
     api.apiCountry = select.options[select.selectedIndex].value;
     populatePage();
