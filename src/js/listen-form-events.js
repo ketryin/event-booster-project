@@ -56,6 +56,6 @@ export default function handleFormChange(form, list, select, input, loader) {
 
 function notifyOnError() {
   error({
-    text: 'There are no events in this country!',
+    text: 'Nothing was found for your query!',
   });
 }
