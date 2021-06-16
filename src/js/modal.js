@@ -12,14 +12,7 @@ const refs = {
 };
 
 refs.eventCards.addEventListener('click', onEventCardClick);
-
-refs.modalBtnClose.addEventListener('click', onCLicklBtnClose);
 refs.backdrop.addEventListener('click', onClickBackdrop);
-
-function onCLicklBtnClose() {
-  refs.modalWindow.classList.toggle('is--hidden');
-  refs.body.classList.toggle('modal-open');
-}
 
 function onClickBackdrop(e) {
   if (!e.target.classList.contains('backdrop__modal')) {
@@ -29,6 +22,15 @@ function onClickBackdrop(e) {
   refs.body.classList.toggle('modal-open');
 }
 
+function onCLickBtnClose() {
+  const btnRef = document.querySelector('.modal__btn');
+
+  btnRef.addEventListener('click', () => {
+    refs.modalWindow.classList.toggle('is--hidden');
+    refs.body.classList.toggle('modal-open');
+  });
+}
+
 function onEventCardClick(e) {
   const currentCard = e.target;
   if (!currentCard.closest('.events-list__item')) {
@@ -36,19 +38,15 @@ function onEventCardClick(e) {
   }
 
   const eventSingleCard = currentCard.closest('.events-list__item');
-  console.log(eventSingleCard);
-
+  refs.modalWindow.classList.toggle('is--hidden');
+  refs.body.classList.toggle('modal-open');
   if (e.target.nodeName === 'IMG' || e.target.nodeName === 'SPAN') {
     api
       .fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
       .then(data => {
-        console.log(data);
-        // console.log(refs.modalWindow);
-        // console.log(modalTemplate(data));
-
         refs.modalWindow.innerHTML = modalTemplate(data);
-        refs.modalWindow.classList.toggle('is--hidden');
-        refs.body.classList.toggle('modal-open');
+        
+        onCLickBtnClose();
       })
       .catch(error => console.log(error));
   }
