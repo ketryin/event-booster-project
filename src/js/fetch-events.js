@@ -23,14 +23,7 @@ export default class EventApiService {
 
     return fetch(url).then(responce => {
       console.log(responce);
-      return responce.json()
-    });
-  }
-  fetchPopular() {
-    const url = `${this.#BASE_URL}attractions.json?apikey=${this.#CONSUMER_KEY}`;
-    return fetch(url).then(responce => {
-      console.log(responce);
-      return responce.json()
+      return responce.json();
     });
   }
 
