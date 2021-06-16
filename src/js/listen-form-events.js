@@ -39,51 +39,24 @@ export default function handleFormChange(form, list, select, input, loader) {
     populatePage();
   }
   
-  function populatePage() {
-    api
-      .fetchEvents()
-      .then(data => {
-        updatePaginator(data._embedded.events);
-      })
-      .catch(alert)
-      .finally(() => {
-        removeLoader();
-      });
-  }
-
-  function updatePaginator(data) {
-    $('.pagenumbers').pagination({
-      dataSource: data,
-      pageSize: 20,
-      showPrevious: false,
-      showNext: false,
-      callback: function (data, pagination) {
-        list.innerHTML = cardTpl(data)
-      }
+   function populatePage() {
+    $('#pagenumbers').pagination({
+      ajax: function (options, refresh, $target) {
+        debugger
+        api.page = options.current-1;
+        api.fetchEvents().then(function (data) {
+          refresh({
+            total: data.page.totalElements,
+            length: data.page.size
+          });
+          list.innerHTML = cardTpl(data._embedded.events);
+        }).catch(alert)
+          .finally(() => {
+            removeLoader();
+          });
+      },
     });
   }
-}
 
-/* 
-function updatePaginator(data) {
-  $('.pagenumbers').pagination({
-    dataSource: api.fetchEvents(),
-    locator: data, или такая запись '_embeded.events'
-    totalNumberLocator: function(response) {  //Это у меня page data.page
-        // you can return totalNumber by analyzing response content
-        return Math.floor(Math.random() * (1000 - 100)) + 100;
-    },
-    pageSize: 20,
-    showPrevious: false,
-    showNext: false,
-    ajax: {  // тут не совсем понял
-        beforeSend: function() {
-            dataContainer.html('Loading data from flickr.com ...');
-        }
-    },
-      callback: function (data, pagination) {
-        list.innerHTML = cardTpl(data)
-      }
-  })
+  populatePage()
 }
-*/
