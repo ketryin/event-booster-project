@@ -35,8 +35,8 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    background-color: #FFF2FD;
     padding: 0;
+    background-color: #FFF2FD;
     top: 8px;
     right: 8px;
     width: 30px;
@@ -144,4 +144,11 @@
     margin-top: 8px;
     justify-content: center;
     align-items: center;
+}
+.closeLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    fill: black;
 }

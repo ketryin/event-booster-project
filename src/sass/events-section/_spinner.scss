@@ -1,7 +1,14 @@
 .spinner {
   position: absolute;
-  top: 550px;
-  left: 700px;
+  top: 287px;
+  left: 50%;
+  transform: translateX(-50%);
+  @media screen and(min-width: $tablet) {
+    top: 241px;
+  }
+  @media screen and(min-width: $desktop) {
+    top: 314px;
+  }
   &.opacity {
     opacity: 0;
   }

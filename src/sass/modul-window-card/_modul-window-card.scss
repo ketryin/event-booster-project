@@ -144,6 +144,7 @@ body.modal-open {
   justify-content: space-between;
 }
 .modal__img {
+  object-fit: cover;
   @media screen and (min-width: 320px) {
     display: none;
   }
