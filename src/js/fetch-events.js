@@ -17,7 +17,7 @@ export default class EventApiService {
   }
 
   fetchEvents() {
-    const url = `${this.#BASE_URL}events.json?page=${this.page}&size=100&keyword=${
+    const url = `${this.#BASE_URL}events.json?page=${this.page}&size=200&keyword=${
       this.searchEventByKeywordQuery
     }&countryCode=${this.searchCountryQuery}&apikey=${this.#CONSUMER_KEY}`;
 

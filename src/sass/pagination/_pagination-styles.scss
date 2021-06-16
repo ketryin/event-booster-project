@@ -4,12 +4,18 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
     @media screen and (max-width: $to-desktop) {
         margin-top: 60px;
     }
     @media screen and (min-width: $desktop) {
         margin-top: 80px;
     }
+}
+
+.paginationjs {
+    width: 233px;
+    height: 30px;
 }
 
 .paginationjs-pages ul {
