@@ -20,7 +20,6 @@ export default function onModalButtonMoreClick(event) {
     api.apiQuery = event.target.dataset.name;
     api.fetchEvents()
         .then(data => {
-        console.log(data);
       eventsListRef.innerHTML = cardTpl(data._embedded.events);
     })
     .catch(alert)
