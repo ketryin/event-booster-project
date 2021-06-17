@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce';
 import animateLoader from './show-loader';
 import removeLoader from './remove-loader';
 
-export default function handleFormChange(form, list, select, input, loader) {
+export default function handleFormChange(form, list, select, input, customSelect) {
   const api = new ApiService();
 
   input.addEventListener('input', debounce(handleInput, 500));
@@ -41,15 +41,27 @@ export default function handleFormChange(form, list, select, input, loader) {
     populatePage();
   }
   
-  function populatePage() {
-    api
-      .fetchEvents()
-      .then(data => {
-        list.innerHTML = cardTpl(data._embedded.events);
-      })
-      .catch(alert)
-      .finally(() => {
-        removeLoader();
-      });
+   function populatePage() {
+    $('#pagenumbers').pagination({
+      ajax: function (options, refresh, $target) {
+        debugger
+        api.page = options.current-1;
+        api.fetchEvents().then(function (data) {
+          refresh({
+            total: data.page.totalElements,
+            length: data.page.size
+          });
+          list.innerHTML = cardTpl(data._embedded.events);
+        }).catch(alert)
+          .finally(() => {
+            removeLoader();
+            form.reset();
+            console.log(customSelect.setChoiceByValue);
+            customSelect.setChoiceByValue('');
+          });
+      },
+    });
+
   }
+  populatePage()
 }
