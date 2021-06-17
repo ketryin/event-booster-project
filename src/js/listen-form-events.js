@@ -44,7 +44,6 @@ export default function handleFormChange(form, list, select, input, customSelect
    function populatePage() {
     $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
-        debugger
         api.page = options.current-1;
         api.fetchEvents().then(function (data) {
           refresh({
