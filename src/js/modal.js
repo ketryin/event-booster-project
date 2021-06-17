@@ -19,12 +19,14 @@ export function onClickBackdrop(e) {
   if (!e.target.classList.contains('backdrop__modal')) {
     return;
   }
+  // refs.modalWindow.innerHTML = '';
   refs.backdrop.classList.toggle('is--hidden');
   refs.body.classList.toggle('modal-open');
 }
 
 function onCLickBtnClose() {
   const btnRef = document.querySelector('[data-modal-window-close]');
+  // refs.modalWindow.innerHTML = '';
 
   btnRef.addEventListener('click', () => {
     refs.modalWindow.classList.toggle('is--hidden');
@@ -48,6 +50,11 @@ function onEventCardClick(e) {
         refs.modalWindow.innerHTML = modalTemplate(data);
 
         onCLickBtnClose();
+
+        const modalTitleRef = document.querySelector('.modal__text');
+        modalTitleRef.textContent = `${modalTitleRef.textContent.slice(0,150)}...`;
+        console.log(modalTitleRef.textContent);
+
 
         const modalButtonMore = document.querySelector('.modal__btn__more');
         modalButtonMore.addEventListener('click', onModalButtonMoreClick);
