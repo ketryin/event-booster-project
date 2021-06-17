@@ -1,4 +1,7 @@
 .events-section .events-container {
+    @media screen and (max-width: $mobile) {
+        width: auto;
+    }
     @media screen and (max-width: $to-tablet) {
         padding-left: 25px;
         padding-right: 15px;
@@ -15,6 +18,9 @@
 }
 
 .events-list {
+    @media screen and (max-width: $mobile) {
+        justify-content: center;
+    }
     display: flex;
     flex-wrap: wrap;
 }
