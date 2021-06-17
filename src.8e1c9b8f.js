@@ -34,4 +34,4 @@ const o=document.querySelector("#btn-arrow-up-js");function e(){document.body.sc
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=c(require("./js/countries.js")),r=c(require("./js/modal.js")),s=c(require("./js/select-populating.js")),t=c(require("./js/modal-team.js")),u=c(require("./js/listen-form-events.js")),i=c(require("./js/initial-fetch.js")),o=c(require("./js/arrow-up.js"));function c(e){return e&&e.__esModule?e:{default:e}}const l=document.querySelector("#country-select"),n=document.querySelector(".events__search-form"),a=document.querySelector(".js-list"),j=document.querySelector("#query-input");(0,i.default)(a),(0,s.default)(e.default,l),(0,u.default)(n,a,l,j);
 },{"./sass/main.scss":"clu1","./js/countries.js":"QNx4","./js/modal.js":"RSqK","./js/select-populating.js":"gNBf","./js/modal-team.js":"O9Th","./js/listen-form-events.js":"UeeB","./js/initial-fetch.js":"XDLP","./js/arrow-up.js":"KvgK"}]},{},["Focm"], null)
-//# sourceMappingURL=/event-booster-project/src.46f1f98a.js.map
+//# sourceMappingURL=/event-booster-project/src.8e1c9b8f.js.map
