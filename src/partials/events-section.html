@@ -1,46 +1,30 @@
 <section class="events-section">
-  <div class="container events-container">
-    <form class="events__search-form">
-      <input
-        id="query-input"
-        type="text"
-        class="events__search-query events__input"
-        placeholder="Start searching"
-        autocomplete="off"
-      />
-      <label class="events__search-label" for="query-input">
-        <svg width="12" height="12" class="events__search-icon">
-          <use href="./../src/images/svg/gallery-sprite.svg#icon-search"></use>
-        </svg>
-      </label>
-      <select name="" id="country-select" class="events__search-country events__input">
-        <option value="">Choose country</option>
-      </select>
-      <label class="events__select-label" for="country-select">
-        <svg width="15" height="10">
-          <use
-            class="events__arrow-icon"
-            href="./../src/images/svg/gallery-sprite.svg#icon-arrow"
-          ></use>
-          <use
-            class="events__arrow-icon--up"
-            href="./../src/images/svg/gallery-sprite.svg#icon-up"
-          ></use>
-        </svg>
-      </label>
-    </form>
-
-    <ul class="events-list js-list"></ul>
-
-    <div class="spinner opacity"></div>
-
-    <div class="pagenumbers" id="pagination">
-      <button class="active">1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-      <button>5</button>
+    <div class="container events-container">
+        <form class="events__search-form">
+        <input
+            id="query-input"
+            type="text"
+            class="events__search-query events__input"
+            placeholder="Start searching"
+            autocomplete="off"
+        />
+        <label class="events__search-label" for="query-input">
+            <svg width="12" height="12" class="events__search-icon">
+            <use href="./../src/images/svg/gallery-sprite.svg#icon-search"></use>
+            </svg>
+        </label>
+        <select name="" id="country-select" class="events__search-country events__input">
+            <option value="">Choose country</option>
+        </select>
+        <label class="events__select-label" for="country-select">
+            <svg width="15" height="10" class="events__arrow-icon">
+            <use href="./../src/images/svg/gallery-sprite.svg#icon-arrow"></use>
+            </svg>
+        </label>
+        </form>
+        <ul class="events-list js-list"></ul>
+        <div class="spinner opacity"></div>
+        <ul id="pagenumbers" class="pagination"></ul>
+        <button class="btn-arrow-up is--hiden--btn" id="btn-arrow-up-js">&#129121</button>
     </div>
-    <button class="btn-arrow-up is--hiden--btn" id="btn-arrow-up-js">&#129121</button>
-  </div>
 </section>

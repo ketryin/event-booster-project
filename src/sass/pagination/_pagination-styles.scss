@@ -1,8 +1,10 @@
-.pagenumbers {
+.pagination {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    // width: 233px;
+    height: 33px;
     @media screen and (max-width: $to-desktop) {
         margin-top: 60px;
     }
@@ -11,7 +13,10 @@
     }
 }
 
-.pagenumbers button {
+.pagination li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
     background-color: #000;
@@ -21,17 +26,24 @@
     outline: none;
     cursor: pointer;
     padding: 5px;
-    transition: 0.3s;
+    transition: 0.1s;
 }
 
-.pagenumbers button:hover {
+.pagination li:hover {
     border: 1px solid #DC56DC;
     border-radius: 10px 0px 10px 0px;
     color: #DC56C5;
 }
 
-.pagenumbers button.active {
+.pagination li.active {
     border: 1px solid #DC56DC;
     border-radius: 10px 0px 10px 0px;
     color: #DC56C5;
+}
+
+.pagination li a {
+  padding-left: 5px;
+  padding-top: 12px;
+  padding-right: 5px;
+  padding-bottom: 12px;
 }

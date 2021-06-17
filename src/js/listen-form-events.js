@@ -40,18 +40,28 @@ export default function handleFormChange(form, list, select, input, customSelect
     api.apiCountry = select.options[select.selectedIndex].value;
     populatePage();
   }
-  function populatePage() {
-    api
-      .fetchEvents()
-      .then(data => {
-        list.innerHTML = cardTpl(data._embedded.events);
-      })
-      .catch(alert)
-      .finally(() => {
-        removeLoader();
-        form.reset();
-        console.log(customSelect.setChoiceByValue);
-        customSelect.setChoiceByValue('');
-      });
+  
+   function populatePage() {
+    $('#pagenumbers').pagination({
+      ajax: function (options, refresh, $target) {
+        debugger
+        api.page = options.current-1;
+        api.fetchEvents().then(function (data) {
+          refresh({
+            total: data.page.totalElements,
+            length: data.page.size
+          });
+          list.innerHTML = cardTpl(data._embedded.events);
+        }).catch(alert)
+          .finally(() => {
+            removeLoader();
+            form.reset();
+            console.log(customSelect.setChoiceByValue);
+            customSelect.setChoiceByValue('');
+          });
+      },
+    });
+
   }
+  populatePage()
 }
