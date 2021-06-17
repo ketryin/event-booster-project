@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce';
 import animateLoader from './show-loader';
 import removeLoader from './remove-loader';
 
-export default function handleFormChange(form, list, select, input, loader) {
+export default function handleFormChange(form, list, select, input, customSelect) {
   const api = new ApiService();
 
   input.addEventListener('input', debounce(handleInput, 500));
@@ -47,6 +47,9 @@ export default function handleFormChange(form, list, select, input, loader) {
       .catch(alert)
       .finally(() => {
         removeLoader();
+        form.reset();
+        console.log(customSelect.setChoiceByValue);
+        customSelect.setChoiceByValue('');
       });
   }
 }

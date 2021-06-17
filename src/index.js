@@ -14,5 +14,5 @@ const inputRef = document.querySelector('#query-input');
 
 initialPagePopulate(eventsListRef);
 populateSelect(countries, selectRef);
-customizeSelect(selectRef);
-handleFormChange(formRef, eventsListRef, selectRef, inputRef);
+const customSelect = customizeSelect(selectRef);
+handleFormChange(formRef, eventsListRef, selectRef, inputRef, customSelect);
