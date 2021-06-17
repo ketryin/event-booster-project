@@ -6,6 +6,7 @@ import removeLoader from './remove-loader';
 import { error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
+import { notice } from '@pnotify/core';
 
 export default function handleFormChange(form, list, select, input, loader) {
   const api = new ApiService();
@@ -23,7 +24,8 @@ export default function handleFormChange(form, list, select, input, loader) {
     if (event.target.nodeName === 'SELECT') {
       api.apiCountry = event.target.value;
     }
-    populatePage();
+    populatePageForArtists();
+    populatePageForCountries();
   }
 
   function handleInput(event) {
@@ -33,29 +35,47 @@ export default function handleFormChange(form, list, select, input, loader) {
       return;
     }
     api.apiQuery = event.target.value;
-    populatePage();
+    populatePageForArtists();
   }
 
   function handleSelect() {
     animateLoader();
     api.apiCountry = select.options[select.selectedIndex].value;
-    populatePage();
+    populatePageForCountries();
   }
-  function populatePage() {
+  function populatePageForArtists() {
     api
       .fetchEvents()
       .then(data => {
         list.innerHTML = cardTpl(data._embedded.events);
       })
-      .catch(notifyOnError)
+      .catch(notifyErrorForArtists)
+      .finally(() => {
+        removeLoader();
+      });
+  }
+
+  function populatePageForCountries() {
+    api
+      .fetchEvents()
+      .then(data => {
+        list.innerHTML = cardTpl(data._embedded.events);
+      })
+      .catch(notifyErrorForCountries)
       .finally(() => {
         removeLoader();
       });
   }
 }
 
-function notifyOnError() {
-  error({
-    text: 'Nothing was found for your query!',
+function notifyErrorForArtists() {
+  notice({
+    text: 'There are no concerts of this artist!',
+  });
+}
+
+function notifyErrorForCountries() {
+  notice({
+    text: 'There are no events in this country!',
   });
 }

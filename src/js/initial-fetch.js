@@ -12,7 +12,7 @@ export default function initialPopulatePage(list) {
     .then(data => {
       list.innerHTML = cardTpl(data._embedded.attractions);
     })
-    .catch(notifyOnError)
+    .catch(alert)
     .finally(() => {
       removeLoader();
     });
