@@ -22,13 +22,13 @@ export default class EventApiService {
     }&countryCode=${this.searchCountryQuery}&apikey=${this.#CONSUMER_KEY}`;
 
     return fetch(url).then(responce => {
-      console.log(responce);
+      // console.log(responce);
       return responce.json();
     });
   }
 
   fetchModalDetails(id, type) {
-    console.log(id);
+    // console.log(id);
     const url = `${this.#BASE_URL}${type}s/${id}.json?apikey=${this.#CONSUMER_KEY}`;
     return fetch(url).then(responce => responce.json());
   }
