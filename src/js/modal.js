@@ -1,5 +1,6 @@
 import EventApiService from './fetch-events.js';
 import modalTemplate from '../templates/modal-card-details.hbs';
+import onModalButtonMoreClick from './modal-button-more-fetch';
 
 const api = new EventApiService();
 
@@ -14,7 +15,7 @@ const refs = {
 refs.eventCards.addEventListener('click', onEventCardClick);
 refs.backdrop.addEventListener('click', onClickBackdrop);
 
-function onClickBackdrop(e) {
+export function onClickBackdrop(e) {
   if (!e.target.classList.contains('backdrop__modal')) {
     return;
   }
@@ -47,7 +48,12 @@ function onEventCardClick(e) {
         refs.modalWindow.innerHTML = modalTemplate(data);
 
         onCLickBtnClose();
+
+        const modalButtonMore = document.querySelector('.modal__btn__more');
+        modalButtonMore.addEventListener('click', onModalButtonMoreClick);
+        console.log(data.name);
       })
       .catch(error => console.log(error));
   }
 }
+

@@ -40,6 +40,7 @@ export default function handleFormChange(form, list, select, input, loader) {
     api.apiCountry = select.options[select.selectedIndex].value;
     populatePage();
   }
+  
   function populatePage() {
     api
       .fetchEvents()

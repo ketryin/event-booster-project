@@ -51,8 +51,8 @@
                             <li class="modal__text">
                                 <span class="modal__barcode"> {{type}} {{min}} - {{max}} {{currency}}</span>
                             </li>
-                            <li class="modal_buy">
-                                <button class="btn">BUY TICKETS</button>
+                            <li class="modal_buy" >
+                                <button class="btn" ><a class="modal_buy--btn-link" href="{{../url}}" target="blanck">BUY TICKETS</a></button>
                             </li>
                             {{/each}}
                         </ul>
@@ -61,6 +61,6 @@
             </div>
         </div>
 
-        <button class="modal__btn__more" type="submit">MORE FROM THIS AUTHOR</button>
+        <button class="modal__btn__more" type="submit" data-name="{{name}}">MORE FROM THIS AUTHOR</button>
     </div>
 </div>
