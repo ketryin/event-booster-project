@@ -7,7 +7,7 @@ import removeLoader from './remove-loader';
 export default function handleFormChange(form, list, select, input, customSelect) {
   const api = new ApiService();
 
-  input.addEventListener('input', debounce(handleInput, 500));
+  input.addEventListener('input', debounce(handleInput, 1000));
 
   select.addEventListener('change', handleSelect);
 
@@ -40,28 +40,32 @@ export default function handleFormChange(form, list, select, input, customSelect
     api.apiCountry = select.options[select.selectedIndex].value;
     populatePage();
   }
-  
-   function populatePage() {
+
+  function populatePage() {
     $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
-        debugger
-        api.page = options.current-1;
-        api.fetchEvents().then(function (data) {
-          refresh({
-            total: data.page.totalElements,
-            length: data.page.size
-          });
-          list.innerHTML = cardTpl(data._embedded.events);
-        }).catch(alert)
+        // debugger;
+        api.page = options.current - 1;
+        api
+          .fetchEvents()
+          .then(function (data) {
+            refresh({
+              total: data.page.totalElements,
+              length: data.page.size,
+            });
+            list.innerHTML = cardTpl(data._embedded.events);
+          })
+          .catch(error => {
+            alert(error);
+
+            form.reset();
+            customSelect.setChoiceByValue('');
+          })
           .finally(() => {
             removeLoader();
-            form.reset();
-            console.log(customSelect.setChoiceByValue);
-            customSelect.setChoiceByValue('');
           });
       },
     });
-
   }
-  populatePage()
+  populatePage();
 }

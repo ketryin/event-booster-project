@@ -55,6 +55,11 @@
   border-radius: 20px;
 
   border-color: transparent;
+
+  &:focus {
+    background-color: #fff;
+    color: $secondary-text-color;
+  }
 }
 .events__search-query {
   @media screen and(max-width: $to-tablet) {
