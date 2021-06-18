@@ -6,8 +6,8 @@ import removeLoader from './remove-loader';
 export default function handleFormChange(form, list, select, input) {
   const api = new ApiService();
 
-  select.addEventListener('change', handleSelect);
-  form.addEventListener('submit', handleFormChange);
+  // select.addEventListener('change', handleSelect);
+  // form.addEventListener('submit', handleFormChange);
 
   function handleFormChange(event) {
     animateLoader();
