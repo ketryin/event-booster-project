@@ -26,7 +26,6 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "choices.js": "^9.0.1",
-    "lodash.debounce": "^4.0.8"
+    "choices.js": "^9.0.1"
   }
 }

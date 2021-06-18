@@ -1,51 +1,51 @@
 import ApiService from './fetch-events.js';
 import cardTpl from './../templates/event-card.hbs';
-import debounce from 'lodash.debounce';
 import animateLoader from './show-loader';
 import removeLoader from './remove-loader';
 
 export default function handleFormChange(form, list, select, input, customSelect) {
   const api = new ApiService();
 
-  input.addEventListener('input', debounce(handleInput, 1000));
+  form.addEventListener('submit', handleFormChange);
+  select.addEventListener('change', handleSelectChange);
 
-  select.addEventListener('change', handleSelect);
-
-  // form.addEventListener('change', handleFormChange);
   function handleFormChange(event) {
+    animateLoader();
     event.preventDefault();
-    if (event.target.nodeName === 'INPUT') {
-      api.apiQuery = event.target.value;
-    }
-    if (event.target.nodeName === 'SELECT') {
-      api.apiCountry = event.target.value;
-    }
-    populatePage();
+    api.apiQuery = input.value;
+
+    handleFetch();
   }
 
-  function handleInput(event) {
-    api.resetPage();
+  function handleSelectChange() {
     animateLoader();
-    if (event.target.value === '') {
-      removeLoader();
-      return;
-    }
-    api.apiQuery = event.target.value;
-    populatePage();
+    api.apiCountry = select.value;
+    console.log(select.textContent.length);
+
+    handleFetch();
   }
 
-  function handleSelect() {
+  function handleFetch() {
     api.resetPage();
-    animateLoader();
-    api.apiCountry = select.options[select.selectedIndex].value;
-    populatePage();
+    api
+      .fetchEvents()
+      .then(data => {
+        list.innerHTML = cardTpl(data._embedded.events);
+      })
+      .catch(error => {
+        alert(error);
+        list.innerHTML = '';
+      })
+      .finally(removeLoader);
   }
 
   function populatePage() {
+    animateLoader();
+    api.searchCountryQuery = 'DK';
+
     $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
-        // debugger;
-        api.page = options.current - 1;
+        api.page = options.current;
         api
           .fetchEvents()
           .then(function (data) {
@@ -55,17 +55,13 @@ export default function handleFormChange(form, list, select, input, customSelect
             });
             list.innerHTML = cardTpl(data._embedded.events);
           })
-          .catch(error => {
-            alert(error);
-
-            form.reset();
-            customSelect.setChoiceByValue('');
-          })
+          .catch(alert)
           .finally(() => {
             removeLoader();
           });
       },
     });
   }
+
   populatePage();
 }

@@ -13,7 +13,7 @@ export default class EventApiService {
   constructor() {
     this.searchEventByKeywordQuery = '';
     this.searchCountryQuery = '';
-    this.page = 0;
+    this.page = 1;
   }
 
   fetchEvents() {
@@ -22,7 +22,7 @@ export default class EventApiService {
     }&countryCode=${this.searchCountryQuery}&apikey=${this.#CONSUMER_KEY}`;
 
     return fetch(url).then(responce => {
-      console.log(responce);
+      // console.log(responce);
       return responce.json();
     });
   }
@@ -37,7 +37,7 @@ export default class EventApiService {
     this.page += 1;
   }
   resetPage() {
-    this.page = 0;
+    this.page = 1;
   }
 
   set apiQuery(newApiQuery) {
