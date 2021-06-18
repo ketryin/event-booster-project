@@ -28,7 +28,7 @@ export default class EventApiService {
   }
 
   fetchModalDetails(id, type) {
-    console.log(id);
+    // console.log(id);
     const url = `${this.#BASE_URL}${type}s/${id}.json?apikey=${this.#CONSUMER_KEY}`;
     return fetch(url).then(responce => responce.json());
   }

@@ -44,17 +44,15 @@ export default function handleFormChange(form, list, select, input) {
 
     $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
-        api.page = options.current;
-        api
-          .fetchEvents()
-          .then(function (data) {
-            refresh({
-              total: data.page.totalElements,
-              length: data.page.size,
-            });
-            list.innerHTML = cardTpl(data._embedded.events);
-          })
-          .catch(alert)
+
+        api.page = options.current-1;
+        api.fetchEvents().then(function (data) {
+          refresh({
+            total: data.page.totalElements,
+            length: data.page.size
+          });
+          list.innerHTML = cardTpl(data._embedded.events);
+        }).catch(alert)
           .finally(() => {
             removeLoader();
           });
