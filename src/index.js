@@ -13,5 +13,5 @@ const eventsListRef = document.querySelector('.js-list');
 const inputRef = document.querySelector('#query-input');
 
 populateSelect(countries, selectRef);
-const customSelect = customizeSelect(selectRef);
+customizeSelect(selectRef);
 handleFormChange(formRef, eventsListRef, selectRef, inputRef);

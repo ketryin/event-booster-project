@@ -3,7 +3,7 @@ import cardTpl from './../templates/event-card.hbs';
 import animateLoader from './show-loader';
 import removeLoader from './remove-loader';
 
-export default function handleFormChange(form, list, select, input, customSelect) {
+export default function handleFormChange(form, list, select, input) {
   const api = new ApiService();
 
   form.addEventListener('submit', handleFormChange);
@@ -20,7 +20,6 @@ export default function handleFormChange(form, list, select, input, customSelect
   function handleSelectChange() {
     animateLoader();
     api.apiCountry = select.value;
-    console.log(select.textContent.length);
 
     handleFetch();
   }
