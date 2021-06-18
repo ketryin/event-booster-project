@@ -13,7 +13,6 @@ export default function handleFormChange(form, list, select, input) {
     animateLoader();
     event.preventDefault();
     api.apiQuery = input.value;
-    console.log(api);
     handleFetch();
   }
 
@@ -26,7 +25,6 @@ export default function handleFormChange(form, list, select, input) {
 
   function handleFetch() {
     api.resetPage();
-    console.log('in handle', api);
     api
       .fetchEvents()
       .then(data => {
