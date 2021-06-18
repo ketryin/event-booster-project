@@ -7,6 +7,7 @@ import handleFormChange from './js/listen-form-events.js';
 import initialPagePopulate from './js/initial-fetch';
 import customizeSelect from './js/customize-select';
 import arrowUp from './js/arrow-up.js';
+import paginationScrollUp from './js/pagination-scroll-up.js';
 
 
 const selectRef = document.querySelector('#country-select');

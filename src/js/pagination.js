@@ -78,7 +78,7 @@
       }
 
       for (var i = page.start; i <= page.end; i++) {
-        $target.append('<li><a herf="javascript:void(0)" data-page="' + i + '">' + i + '</a></li>');
+        $target.append('<li><a class="pagination-btn" herf="javascript:void(0)" data-page="' + i + '">' + i + '</a></li>');
       }
       if (page.end < Math.ceil(options.total / options.length)) {
         $target.append('<li><span>...</span></li>');
@@ -189,4 +189,5 @@
     });
     return this;
   }
+
 });
