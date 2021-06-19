@@ -7,7 +7,7 @@ import handleFormChange from './js/listen-form-events.js';
 import initialPagePopulate from './js/initial-fetch';
 import customizeSelect from './js/customize-select';
 import arrowUp from './js/arrow-up.js';
-
+import changeTheme from './js/change-theme.js';
 
 const selectRef = document.querySelector('#country-select');
 const formRef = document.querySelector('.events__search-form');
