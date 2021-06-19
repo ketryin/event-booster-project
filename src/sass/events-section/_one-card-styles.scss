@@ -1,6 +1,7 @@
 .events-list__item {
   text-align: center;
   position: relative;
+  cursor: pointer;
   @media screen and (max-width: $to-tablet) {
     width: 138px;
     padding-top: 9px;
