@@ -1,115 +1,120 @@
 .events-list__item {
-    text-align: center;
-    position: relative;
-    @media screen and (max-width: $to-tablet) {
-        width: 138px;
-        padding-top: 9px;
-        padding-right: 10px;
-    }
-    @media screen and (min-width: $tablet) {
-        width: 194px;
-        padding-top: 13px;
-        padding-right: 14px;
-        margin-right: 13px;
-    }
-    @media screen and (min-width: $desktop) {
-        width: 194px;
-        margin-right: 56px;
-    }
+  text-align: center;
+  position: relative;
+  @media screen and (max-width: $to-tablet) {
+    width: 138px;
+    padding-top: 9px;
+    padding-right: 10px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 194px;
+    padding-top: 13px;
+    padding-right: 14px;
+    margin-right: 13px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 194px;
+    margin-right: 56px;
+  }
 }
 
 @media screen and (max-width: $to-mobile) {
-    .events-list__item+.events-list__item {
-        margin-top: 30px;
-    }
+  .events-list__item + .events-list__item {
+    margin-top: 30px;
+  }
 }
 
 @media screen and (min-width: $mobile) and (max-width: $to-tablet) {
-    .events-list__item:nth-child(2n + 1) {
-        margin-right: 4px;
-    }
-    .events-list__item:nth-child(n + 3) {
-        margin-top: 33px;
-    }
+  .events-list__item:nth-child(2n + 1) {
+    margin-right: 4px;
+  }
+  .events-list__item:nth-child(n + 3) {
+    margin-top: 33px;
+  }
 }
 
 @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
-    .events-list__item:nth-child(3n + 3) {
-        margin-right: 0px;
-    }
-    .events-list__item:nth-child(n + 4) {
-        margin-top: 45px;
-    }
+  .events-list__item:nth-child(3n + 3) {
+    margin-right: 0px;
+  }
+  .events-list__item:nth-child(n + 4) {
+    margin-top: 45px;
+  }
 }
 
 @media screen and (min-width: $desktop) {
-    .events-list__item:nth-child(4n + 4) {
-        margin-right: 0px;
-    }
-    .events-list__item:nth-child(n + 5) {
-        margin-top: 50px;
-    }
+  .events-list__item:nth-child(4n + 4) {
+    margin-right: 0px;
+  }
+  .events-list__item:nth-child(n + 5) {
+    margin-top: 50px;
+  }
 }
-
+.for-hover {
+  transition: transform 250ms ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
 .event-image {
-    object-fit: cover;
-    @media screen and (max-width: $to-tablet) {
-        width: 128px;
-        height: 161px;
-    }
-    @media screen and (min-width: $tablet) {
-        width: 180px;
-        height: 277px;
-    }
-    border-radius: 50px 0px;
+  object-fit: cover;
+  @media screen and (max-width: $to-tablet) {
+    width: 128px;
+    height: 161px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 180px;
+    height: 277px;
+  }
+  border-radius: 50px 0px;
 }
 
 .event-image-span {
-    position: absolute;
-    top: 0;
-    right: 0;
-    @media screen and (max-width: $to-tablet) {
-        width: 109px;
-        height: 101px;
-    }
-    @media screen and (min-width: $tablet) {
-        width: 153px;
-        height: 143px;
-    }
-    border: 1px solid rgba(220, 86, 197, 0.3);
-    box-sizing: border-box;
-    border-radius: 50px 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  @media screen and (max-width: $to-tablet) {
+    width: 109px;
+    height: 101px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 153px;
+    height: 143px;
+  }
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  box-sizing: border-box;
+  border-radius: 50px 0px;
 }
 
 .event-name {
-    margin-top: 5px;
-    color: $accent-color;
-    font-size: 14px;
+  margin-top: 5px;
+  color: $accent-color;
+  font-size: 14px;
 }
 
 .event-date {
-    margin: 0;
-    margin-top: 5px;
-    color: $darc-theme-main-text-color;
-    font-size: 14px;
-    font-weight: 400;
+  margin: 0;
+  margin-top: 5px;
+  color: $darc-theme-main-text-color;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .event-location {
-    display: block;
-    margin: 0;
-    margin-top: 5px;
-    color: $darc-theme-main-text-color;
-    font-size: 12px;
-    font-weight: 600;
+  display: block;
+  margin: 0;
+  margin-top: 5px;
+  color: $darc-theme-main-text-color;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .event-location::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 9px;
-    margin-right: 3px;
-    background-image: url(/images/location-point.svg);
-    background-size: 6px 9px;
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 9px;
+  margin-right: 3px;
+  background-image: url(/images/location-point.svg);
+  background-size: 6px 9px;
 }

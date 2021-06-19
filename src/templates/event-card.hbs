@@ -1,16 +1,14 @@
 {{#each this}}
     <li class="events-list__item animate__animated animate__bounceInUp" id="{{id}}" data-type="{{type}}">
-    <img class="event-image" 
-        {{#each images}} 
-            src="{{url}}" 
-        {{/each}} 
-    >
-    <span class="event-image-span"></span>
-    <h2 class="event-name">{{name}}</h2>
-    <p class="event-date">{{dates.start.localDate}}</p>
-    {{#each _embedded.venues}}
+    <div class="for-hover">
+        <img class="event-image" {{#each images}} src="{{url}}" {{/each}}>
+        <span class="event-image-span"></span>
+        <h2 class="event-name">{{name}}</h2>
+        <p class="event-date">{{dates.start.localDate}}</p>
+        {{#each _embedded.venues}}
         <p class="event-location">{{name}}</p>
-    {{/each}}
+        {{/each}}
+    </div>
     
 </li>
 {{/each}}

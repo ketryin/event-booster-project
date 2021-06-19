@@ -1,26 +1,26 @@
 .events-section .events-container {
-    @media screen and (max-width: $mobile) {
-        width: auto;
-    }
-    @media screen and (max-width: $to-tablet) {
-        padding-left: 25px;
-        padding-right: 15px;
-    }
-    @media screen and (min-width: $tablet) {
-        padding-left: 87px;
-        padding-right: 73px;
-    }
-    @media screen and (min-width: $desktop) {
-        width: 1050px;
-        padding-left: 60px;
-        padding-right: 46px;
-    }
+  @media screen and (max-width: $mobile) {
+    width: auto;
+  }
+  @media screen and (max-width: $to-tablet) {
+    padding-left: 25px;
+    padding-right: 15px;
+  }
+  @media screen and (min-width: $tablet) {
+    padding-left: 87px;
+    padding-right: 73px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 1050px;
+    padding-left: 60px;
+    padding-right: 46px;
+  }
 }
 
 .events-list {
-    @media screen and (max-width: $mobile) {
-        justify-content: center;
-    }
-    display: flex;
-    flex-wrap: wrap;
+  @media screen and (max-width: $mobile) {
+    justify-content: center;
+  }
+  display: flex;
+  flex-wrap: wrap;
 }
