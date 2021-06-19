@@ -16,3 +16,14 @@ const inputRef = document.querySelector('#query-input');
 populateSelect(countries, selectRef);
 const customSelect = customizeSelect(selectRef);
 handleFormChange(formRef, eventsListRef, selectRef, inputRef, customSelect);
+
+// eventsListRef.addEventListener('mouseout', event => {
+//   if (event.target.nodeName === 'LI') {
+//     console.log('exited', event.target);
+//   }
+// });
+// eventsListRef.addEventListener('mouseover', event => {
+//   if (event.target.nodeName === 'LI') {
+//     console.log('entered', event.target);
+//   }
+// });
