@@ -65,7 +65,7 @@ export default function handleFormChange(form, list, select, input) {
             // list.innerHTML = cardTpl(data._embedded.events);
             const insertData = data._embedded.events.map(event => {
                 const eventImage = filterBiggerImage(event.images);
-                console.log(eventImage.url);
+                // console.log(eventImage.url);
                 event.images = [eventImage];
                 
                 return cardTpl(event);
