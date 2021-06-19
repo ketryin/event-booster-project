@@ -24,26 +24,10 @@ export default function handleFormChange(form, list, select, input) {
   }
 
   function handleFetch() {
-    api.resetPage();
-    api
-      .fetchEvents()
-      .then(data => {
-        list.innerHTML = cardTpl(data._embedded.events);
-      })
-      .catch(error => {
-        alert(error);
-        list.innerHTML = '';
-      })
-      .finally(removeLoader);
-  }
-
-  function populatePage() {
-    animateLoader();
-    api.searchCountryQuery = 'DK';
-
+    api.resetPage()
     $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
-        api.page = options.current - 1;
+        api.page = options.current -1;
         api
           .fetchEvents()
           .then(function (data) {
@@ -56,7 +40,29 @@ export default function handleFormChange(form, list, select, input) {
           .catch(alert)
           .finally(() => {
             removeLoader();
-            api.searchCountryQuery = '';
+          });
+      },
+    });
+  }
+
+  function populatePage() {
+    animateLoader();
+    api.searchCountryQuery = 'DK';
+    $('#pagenumbers').pagination({
+      ajax: function (options, refresh, $target) {
+        api.page = options.current -1;
+        api
+          .fetchEvents()
+          .then(function (data) {
+            refresh({
+              total: data.page.totalElements,
+              length: data.page.size,
+            });
+            list.innerHTML = cardTpl(data._embedded.events);
+          })
+          .catch(alert)
+          .finally(() => {
+            removeLoader();
           });
       },
     });
