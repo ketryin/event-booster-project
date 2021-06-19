@@ -67,8 +67,11 @@ function onEventCardClick(e) {
 
         // let lagestImage = data.images[0];
 
-        const beggestImage = filterBiggerImage(data.images)
-        imageElement.setAttribute('src', beggestImage.url)
+        const biggestImage = filterBiggerImage(data.images);
+        imageElement.setAttribute('src', biggestImage.url);
+
+        const imageElementCircle = document.querySelector('.modal__circle-img');
+        imageElementCircle.setAttribute('src', biggestImage.url);
         
 
 
