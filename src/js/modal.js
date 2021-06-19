@@ -1,6 +1,7 @@
 import EventApiService from './fetch-events.js';
 import modalTemplate from '../templates/modal-card-details.hbs';
 import onModalButtonMoreClick from './modal-button-more-fetch';
+import filterBiggerImage from './filter-lagest-image.js'
 
 const api = new EventApiService();
 
@@ -53,12 +54,24 @@ function onEventCardClick(e) {
 
         const modalTitleRef = document.querySelector('.modal__text');
         modalTitleRef.textContent = `${modalTitleRef.textContent.slice(0,150)}...`;
-        console.log(modalTitleRef.textContent);
+        // console.log(modalTitleRef.textContent);
 
 
         const modalButtonMore = document.querySelector('.modal__btn__more');
         modalButtonMore.addEventListener('click', onModalButtonMoreClick);
-        console.log(data.name);
+        // console.log(data.name);
+
+
+        const imageElement = document.querySelector('.modal-img-test');
+        // console.dir(data.images)
+
+        // let lagestImage = data.images[0];
+
+        const beggestImage = filterBiggerImage(data.images)
+        imageElement.setAttribute('src', beggestImage.url)
+        
+
+
       })
       .catch(error => console.log(error));
   }

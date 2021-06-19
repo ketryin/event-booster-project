@@ -22,7 +22,7 @@ export default class EventApiService {
     }&countryCode=${this.searchCountryQuery}&apikey=${this.#CONSUMER_KEY}`;
 
     return fetch(url).then(responce => {
-      // console.log(responce);
+      console.log(responce);
       return responce.json();
     });
   }

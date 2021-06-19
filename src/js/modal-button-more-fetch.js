@@ -16,14 +16,25 @@ export default function onModalButtonMoreClick(event) {
     backdropRef.classList.toggle('is--hidden');
     bodyRef.classList.toggle('modal-open');
 
-  const api = new ApiService();
+    const api = new ApiService();
     api.apiQuery = event.target.dataset.name;
-    api.fetchEvents()
+    api.resetPage();
+  
+  $('#pagenumbers').pagination({
+    ajax: function (options, refresh, $target) {
+      api.page = options.current - 1;
+      api.fetchEvents()
         .then(data => {
-      eventsListRef.innerHTML = cardTpl(data._embedded.events);
-    })
-    .catch(alert)
-    .finally(() => {
-      removeLoader();
-    });
+          refresh({
+            total: data.page.totalElements,
+            length: data.page.size
+          });
+          eventsListRef.innerHTML = cardTpl(data._embedded.events);
+        })
+        .catch(alert)
+        .finally(() => {
+          removeLoader();
+        });
+    },
+  });
 }
