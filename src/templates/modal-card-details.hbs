@@ -4,11 +4,11 @@
     </button>
     <div class="modal__window">
         <div class="modal__circle">
-            <img src="{{images.[9].url}}" alt="" />
+            <img class="modal__circle-img" src="" alt="" />
         </div>
         <div class="modal__container">
             <div class="modal__img">
-                <img class="modal-img-test" src="{{images.[9].url}}"         
+                <img class="modal-img-test" src=""         
                 alt="тест-картинка" 
                 width="180" 
                 height="227"/>
@@ -18,35 +18,57 @@
                     <li class="modal__item">
                         <b class="modal__title">INFO</b>
                         <p class="modal__text">
+                            {{#if info}}
                             {{info}}
+                            {{else}}Oops! No info here :(
+                            {{/if}}
                         </p>
                     </li>
                     <li class="modal__item">
                         <b class="modal__title">WHEN </b>
                         <ul class="modal__text">
-                            <li>{{dates.start.localDate}}</li>
-                            <li>{{dates.start.localTime}} ({{dates.timezone}})
+                            <li>
+                                {{#if dates.start.localDate}}
+                                {{dates.start.localDate}}
+                                {{else}}Oops! No date here :(
+                                {{/if}}
+                                </li>
+                            <li>
+                                {{#if dates.start.localTime}}
+                                {{dates.start.localTime}} ({{dates.timezone}})
+                                {{else}}Oops! No time here :(
+                                {{/if}}
                             </li>
                         </ul>
                     </li>
                     <li class="modal__item">
                         <b class="modal__title">WHERE </b>
                         <ul class="modal__text">
+                            {{#if _embedded.venues}}
                                 {{#each _embedded.venues}}
+                                
                             <li> {{city.name}}, {{country.name}} </li>
                             <li> {{name}}</li>
                                 {{/each}}
+                                {{else}}Oops! No location here :(
+                                {{/if}}
                         </ul>
                     </li>
                     <li class="modal__item">
                         <b class="modal__title">WHO</b>
                         <ul class="modal__text">
-                            <li>{{name}}</li>
+                            <li>
+                                {{#if name}}
+                                {{name}}
+                                {{else}}Oops! No info here :(
+                                {{/if}}
+                                </li>
                         </ul>
                     </li>
                     <li class="modal__item">
                         <b class="modal__title">PRICES</b>
                         <ul>
+                            {{#if priceRanges}}
                             {{#each priceRanges}}
                             <li class="modal__text">
                                 <span class="modal__barcode"> {{type}} {{min}} - {{max}} {{currency}}</span>
@@ -55,12 +77,13 @@
                                 <button class="btn" ><a class="modal_buy--btn-link" href="{{../url}}" target="blanck">BUY TICKETS</a></button>
                             </li>
                             {{/each}}
+                            {{else}}Oops! No tickets available yet :(
+                            {{/if}}
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
-
         <button class="modal__btn__more" type="submit" data-name="{{name}}">MORE FROM THIS AUTHOR</button>
     </div>
 </div>

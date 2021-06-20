@@ -55,6 +55,9 @@
   border-radius: 20px;
 
   border-color: transparent;
+  &:hover {
+    cursor: pointer;
+  }
 
   &:focus {
     background-color: #fff;

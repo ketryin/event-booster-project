@@ -1,6 +1,5 @@
 .events-list__item {
   text-align: center;
-  position: relative;
   cursor: pointer;
   @media screen and (max-width: $to-tablet) {
     width: 138px;
@@ -52,6 +51,7 @@
   }
 }
 .for-hover {
+  position: relative;
   transition: transform 250ms ease;
   &:hover {
     transform: scale(1.1);
@@ -72,8 +72,8 @@
 
 .event-image-span {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -13px;
+  right: -14px;
   @media screen and (max-width: $to-tablet) {
     width: 109px;
     height: 101px;
