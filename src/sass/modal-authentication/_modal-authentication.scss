@@ -1,3 +1,6 @@
+.hero-main {
+  position: relative;
+}
 .modal-authentication {
   position: absolute;
   left: 50%;
@@ -66,14 +69,16 @@
 }
 
 .btn-authentication-modal {
+  padding: 4px;
   background-color: transparent;
   border: 1px solid $accent-color;
   cursor: pointer;
+  color: #7c7c7c;
 }
 
 .btn-authentication-modal:hover {
   background-color: $accent-color;
-  color: white;
+  color: #939393;
 }
 
 .authentication-overlay.is--open {
@@ -95,4 +100,16 @@
   backdrop-filter: blur(3px);
 
   transition: opacity 250ms linear;
+}
+.greeting-authentication {
+  text-align: center;
+}
+.disabled-btn {
+  display: none;
+}
+.btn-action {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
 }

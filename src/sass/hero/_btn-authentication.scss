@@ -1,7 +1,8 @@
 .btn-authentication {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
   padding: 5px;
   text-align: center;
   text-transform: uppercase;
@@ -17,22 +18,19 @@
 @media screen and (min-width: $tablet) {
   .btn-authentication {
     position: absolute;
-    top: 20px;
-    right: 40px;
+    bottom: 20px;
+    left: 90%;
     border: 3px solid $accent-color;
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 
 @media screen and (min-width: $desktop) {
   .btn-authentication {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 .btn-authentication:hover {
   background-color: $accent-color;
-  color: $darc-theme-main-text-color;
+  color: #d4d3d3;
 }
