@@ -10,6 +10,7 @@ import changeTheme from './js/change-theme.js';
 import paginationScrollUp from './js/pagination-scroll-up.js';
 
 
+
 const selectRef = document.querySelector('#country-select');
 const formRef = document.querySelector('.events__search-form');
 const eventsListRef = document.querySelector('.js-list');
