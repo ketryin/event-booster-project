@@ -1,5 +1,5 @@
 export default [
-  { US: 'United States Of America' },
+  { US: 'USA' },
   { AD: 'Andorra' },
   { AI: 'Anguilla' },
   { AR: 'Argentina' },
@@ -63,7 +63,7 @@ export default [
   { PL: 'Poland' },
   { PT: 'Portugal' },
   { RO: 'Romania' },
-  { RU: 'Russian Federation' },
+  { RU: 'Russia' },
   { LC: 'Saint Lucia' },
   { SA: 'Saudi Arabia' },
   { RS: 'Serbia' },
@@ -79,7 +79,7 @@ export default [
   { TT: 'Trinidad and Tobago' },
   { TR: 'Turkey' },
   { UA: 'Ukraine' },
-  { AE: 'United Arab Emirates' },
+  { AE: 'UAE' },
   { UY: 'Uruguay' },
   { VE: 'Venezuela' },
 ];

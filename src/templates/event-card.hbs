@@ -1,11 +1,33 @@
  <li class="events-list__item animate__animated animate__bounceInUp" id="{{id}}" data-type="{{type}}">
     <div class="for-hover">
-        <img class="event-image" {{#each images}} src="{{url}}" {{/each}}>
+        <img class="event-image"
+         {{#each images}}
+         {{#if url}} src="{{url}}" alt="{{name}}"
+         {{else}}
+         src="https://image.flaticon.com/icons/png/512/4076/4076525.png" alt="Broken image"
+         {{/if}}
+         {{/each}}>
         <span class="event-image-span"></span>
-        <h2 class="event-name">{{name}}</h2>
-        <p class="event-date">{{dates.start.localDate}}</p>
+        <h2 class="event-name">
+        {{#if name}}
+        {{name}}
+        {{else}}
+    Oops! No info here :(
+        {{/if}}
+        </h2>
+        <p class="event-date">
+            {{#if dates.start.localDate}}
+            {{dates.start.localDate}}
+            {{else}}Oops! No info here :(
+        {{/if}}    
+        </p>
         {{#each _embedded.venues}}
-        <p class="event-location">{{name}}</p>
+        <p class="event-location">
+            {{#if name}}
+            {{name}}
+            {{else}} Oops! No info here :(
+            {{/if}}
+            </p>
         {{/each}}
     </div>
 </li>
