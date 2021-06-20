@@ -44,7 +44,8 @@ function onEventCardClick(e) {
   const eventSingleCard = currentCard.closest('.events-list__item');
   refs.modalWindow.classList.toggle('is--hidden');
   refs.body.classList.toggle('modal-open');
-  if (e.target.nodeName === 'IMG' || e.target.nodeName === 'SPAN') {
+
+  if (e.target.nodeName === 'IMG' || e.target.nodeName === 'SPAN' || e.target.nodeName === 'H2' || e.target.nodeName === 'P' || e.target.nodeName === 'LI') {
     api
       .fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
       .then(data => {

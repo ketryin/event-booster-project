@@ -61,7 +61,7 @@ export default function handleFormChange(form, list, select, input) {
 
   function populatePage() {
     animateLoader();
-    api.searchCountryQuery = 'DK';
+    // api.searchCountryQuery = 'DK';
     $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
         api.page = options.current -1;
