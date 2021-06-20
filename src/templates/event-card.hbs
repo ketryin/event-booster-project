@@ -1,6 +1,12 @@
  <li class="events-list__item animate__animated animate__bounceInUp" id="{{id}}" data-type="{{type}}">
     <div class="for-hover">
-        <img class="event-image" {{#each images}} src="{{url}}" {{/each}}>
+        <img class="event-image"
+         {{#each images}}
+         {{#if urla}} src="{{url}}" alt="name"
+         {{else}}
+         src="./images/logo.png" alt="Broken image"
+         {{/if}}
+         {{/each}}>
         <span class="event-image-span"></span>
         <h2 class="event-name">{{name}}</h2>
         <p class="event-date">{{dates.start.localDate}}</p>
