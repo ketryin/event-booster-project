@@ -7,7 +7,6 @@ import handleFormChange from './js/listen-form-events.js';
 import customizeSelect from './js/customize-select';
 import arrowUp from './js/arrow-up.js';
 import changeTheme from './js/change-theme.js';
-import paginationScrollUp from './js/pagination-scroll-up.js';
 
 
 
