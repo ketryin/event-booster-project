@@ -6,7 +6,6 @@ import modalTeam from './js/modal-team.js';
 import handleFormChange from './js/listen-form-events.js';
 import customizeSelect from './js/customize-select';
 import arrowUp from './js/arrow-up.js';
-import paginationScrollUp from './js/pagination-scroll-up.js';
 
 const selectRef = document.querySelector('#country-select');
 const formRef = document.querySelector('.events__search-form');

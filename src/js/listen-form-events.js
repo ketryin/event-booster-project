@@ -27,34 +27,44 @@ export default function handleFormChange(form, list, select, input) {
 
   function handleFetch() {
     api.resetPage();
-    api
-      .fetchEvents()
-      .then(data => {
+    $('#pagenumbers').pagination({
+      ajax: function (options, refresh, $target) {
+        api.page = options.current -1;
+        api
+        .fetchEvents()
+          .then(data => {
+            refresh({
+                total: data.page.totalElements,
+                length: data.page.size,
+              });
         // list.innerHTML = cardTpl(data._embedded.events); 
-        const insertData = data._embedded.events.map(event => {
-            const eventImage = filterBiggerImage(event.images);
-            // console.log(eventImage.url);
-            event.images = [eventImage];
-            
-            return cardTpl(event);
-          })
+          const insertData = data._embedded.events.map(event => {
+              const eventImage = filterBiggerImage(event.images);
+              // console.log(eventImage.url);
+              event.images = [eventImage];
+              
+              return cardTpl(event);
+            })
 
-        list.innerHTML = insertData.join('');
-      })
-      .catch(error => {
-        alert(error);
-        list.innerHTML = '';
-      })
-      .finally(removeLoader);
+            list.innerHTML = insertData.join('');
+          })
+          .catch(error => {
+            alert(error);
+            list.innerHTML = '';
+          })
+          .finally(() => {
+            removeLoader();
+          });
+      },
+    });
   }
 
   function populatePage() {
     animateLoader();
     api.searchCountryQuery = 'DK';
-
     $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
-        api.page = options.current - 1;
+        api.page = options.current -1;
         api
           .fetchEvents()
           .then(function (data) {
@@ -77,7 +87,6 @@ export default function handleFormChange(form, list, select, input) {
           .catch(alert)
           .finally(() => {
             removeLoader();
-            api.searchCountryQuery = '';
           });
       },
     });
