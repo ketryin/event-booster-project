@@ -51,10 +51,9 @@ export default function handleFormChange(form, list, select, input) {
   function populatePage() {
     animateLoader();
     api.searchCountryQuery = 'DK';
-
     $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
-        api.page = options.current - 1;
+        api.page = options.current -1;
         api
           .fetchEvents()
           .then(function (data) {
@@ -77,7 +76,6 @@ export default function handleFormChange(form, list, select, input) {
           .catch(alert)
           .finally(() => {
             removeLoader();
-            api.searchCountryQuery = '';
           });
       },
     });
