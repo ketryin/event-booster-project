@@ -1,12 +1,16 @@
-<div data-modal-backdrop id="modal-authentication" class="backdrop__modal is--hidden">
+<div data-modal-backdrop-authentication id="modal-authentication" class="authentication-overlay">
     <div class="modal-authentication">
-        <button data-modal-window-close class="modal__btn">
+        <button data-modal-window-close-authentication class="modal__btn">
             <span class="modal__btn_close"></span>
         </button>
-        <input type="email" id='txtEmail' placeholder="Email">
-        <input type="password" id='txtPassword' placeholder="Password">
-        <button id="btnLogin" class='btn-authentication-modal btn-action'>Log in</button>
-        <button id="btnSignUp" class='btn-authentication-modal btn-secondary'>Sign UP</button>
-        <button id='btnLogout' class='btn-authentication-modal btn-action hide'>Log out</button>
+        <div class="input-conteiner">
+            <input type="email" id='txtEmail' class='input-email' placeholder="Email">
+            <input type="password" id='txtPassword' class='input-pass' placeholder="Password">
+        </div>
+        <ul class="btn-list">
+            <li class='btn-list-item'><button id="btnLogin" class='btn-authentication-modal btn-action'>Log in</button></li>
+            <li class='btn-list-item'><button id="btnSignUp" class='btn-authentication-modal btn-secondary'>Sign UP</button></li>
+            <li class='btn-list-item'><button id='btnLogout' class='btn-authentication-modal btn-action hide'>Log out</button></li>
+        </ul>      
     </div>
 </div>
