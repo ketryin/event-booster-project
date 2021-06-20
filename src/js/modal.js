@@ -1,7 +1,7 @@
 import EventApiService from './fetch-events.js';
 import modalTemplate from '../templates/modal-card-details.hbs';
 import onModalButtonMoreClick from './modal-button-more-fetch';
-import filterBiggerImage from './filter-lagest-image.js'
+import filterBiggerImage from './filter-lagest-image.js';
 
 const api = new EventApiService();
 
@@ -53,30 +53,37 @@ function onEventCardClick(e) {
         onCLickBtnClose();
 
         const modalTitleRef = document.querySelector('.modal__text');
-        modalTitleRef.textContent = `${modalTitleRef.textContent.slice(0,150)}...`;
+        modalTitleRef.textContent = `${modalTitleRef.textContent.slice(0, 150)}...`;
         // console.log(modalTitleRef.textContent);
-
 
         const modalButtonMore = document.querySelector('.modal__btn__more');
         modalButtonMore.addEventListener('click', onModalButtonMoreClick);
         // console.log(data.name);
 
-
         const imageElement = document.querySelector('.modal-img-test');
-        // console.dir(data.images)
 
         // let lagestImage = data.images[0];
 
         const biggestImage = filterBiggerImage(data.images);
-        imageElement.setAttribute('src', biggestImage.url);
+        if (biggestImage) {
+          imageElement.setAttribute('src', biggestImage.url);
+        } else {
+          imageElement.setAttribute(
+            'src',
+            'https://image.flaticon.com/icons/png/512/4076/4076525.png',
+          );
+        }
 
         const imageElementCircle = document.querySelector('.modal__circle-img');
-        imageElementCircle.setAttribute('src', biggestImage.url);
-        
-
-
+        if (biggestImage) {
+          imageElementCircle.setAttribute('src', biggestImage.url);
+        } else {
+          imageElementCircle.setAttribute(
+            'src',
+            'https://image.flaticon.com/icons/png/512/4076/4076525.png',
+          );
+        }
       })
       .catch(error => console.log(error));
   }
 }
-
