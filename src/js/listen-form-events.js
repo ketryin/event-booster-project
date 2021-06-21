@@ -66,10 +66,6 @@ export default function handleFormChange(form, list, select, input) {
             });
             list.innerHTML = insertData.join('');
           })
-          .catch(error => {
-            alert("По вашему запросу ничего не найдено")
-            paginationContainer.classList.add('hiden');
-            list.innerHTML = '';
           .catch(er => {
             const myError = error({
               text: 'Oops! Something went wrong :(',
