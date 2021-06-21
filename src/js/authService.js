@@ -12,6 +12,9 @@ import '@firebase/auth';
 import emailValidator from 'email-validator';
 
 class AuthService {
+
+  #CURRENT_USER_KEY = "current-user";
+  
   #firebaseConfig = {
     apiKey: 'AIzaSyDYwXZs_eihXdWAx_yoWc4pt3tmvrkveq4',
     authDomain: 'event-booster-project.firebaseapp.com',
@@ -26,56 +29,49 @@ class AuthService {
   }
 
   getCurrentUser() {
-    return firebase.auth().currentUser;
+    return localStorage.getItem(this.#CURRENT_USER_KEY);
   }
 
   signUp(email, password) {
+
     if (!emailValidator.validate(email)) {
-      // alert(`${email ? email : 'Empty string'} is invalid email.`);
-      const myError = error({
-        text: `${email ? email : 'Empty string'} is invalid email.`,
-      });
+      error({ text: `${email ? email : 'Empty string'} is invalid email.` });
       return Promise.resolve(false);
     }
 
-    return firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(_ => true)
-      .catch(er => {
-        // alert(error.message)
-        const myError = error({
-          text: er.message,
+    return firebase.auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(_ => localStorage.setItem(this.#CURRENT_USER_KEY, firebase.auth().currentUser.uid))
+        .then(_ => true)
+        .catch((er) => {
+          error(er.message);
+          return false;
         });
-      });
+    
   }
 
   signIn(email, password) {
-    if (!emailValidator.validate(email)) {
-      // alert(`${email ? email : 'Empty string'} is invalid email.`);
-      const myError = error({
-        text: `${email ? email : 'Empty string'} is invalid email.`,
-      });
-      return Promise.resolve(false);
-    }
+  
+      if (!emailValidator.validate(email)) {
+          error(`${email ? email : 'Empty string'} is invalid email.`);
+          return Promise.resolve(false);
+      }
 
-    return firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(_ => true)
-      .catch(er => {
-        // alert(error.message)
-        const myError = error({
-          text: er.message,
-        });
-      });
+      return firebase.auth()
+          .signInWithEmailAndPassword(email, password)
+          .then(_ => localStorage.setItem(this.#CURRENT_USER_KEY, firebase.auth().currentUser.uid))
+          .then(_ => true)
+          .catch((er) => {
+            error(er.message);
+            return false;
+          });
   }
 
   logOut() {
-    return firebase
-      .auth()
-      .signOut()
-      .catch(error => console.log(error));
+      return firebase.auth()
+          .signOut()
+          .then(_ => localStorage.removeItem(this.#CURRENT_USER_KEY))
+          .catch((er) => error(er));
   }
 }
 

@@ -22,6 +22,10 @@ refs.btnLogin.addEventListener('click', onClickbtnLogin);
 refs.btnSignUp.addEventListener('click', onClickbtnSignUp);
 refs.btnLogout.addEventListener('click', onClicbtnLogout);
 
+if (auth.getCurrentUser() !== null) {
+    successfulLogin();
+}
+
 function onBtnAuthenticationClick() {
     refs.backdrop.classList.add('is--open');
 }
@@ -78,8 +82,8 @@ function onClicbtnLogout() {
 }
 
 function successfulLogin() {
-    refs.btnOpenModalAuthentication.textContent = 'Hi, our frend!';
-    refs.greeting.textContent = 'Welcom, our frend!';
+    refs.btnOpenModalAuthentication.textContent = 'Hi, our friend!';
+    refs.greeting.textContent = 'Welcome, our friend!';
 
     refs.btnLogin.classList.add('disabled-btn');
     refs.btnSignUp.classList.add('disabled-btn');
