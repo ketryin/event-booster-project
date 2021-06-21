@@ -26,42 +26,17 @@ export default function handleFormChange(form, list, select, input) {
 
   function handleFetch() {
     api.resetPage();
-    $('#pagenumbers').pagination({
-      ajax: function (options, refresh, $target) {
-        api.page = options.current - 1;
-        api
-          .fetchEvents()
-          .then(data => {
-            refresh({
-              total: data.page.totalElements,
-              length: data.page.size,
-            });
-            // list.innerHTML = cardTpl(data._embedded.events);
-            const insertData = data._embedded.events.map(event => {
-              const eventImage = filterBiggerImage(event.images);
-              // console.log(eventImage.url);
-              event.images = [eventImage];
-
-              return cardTpl(event);
-            });
-
-            list.innerHTML = insertData.join('');
-          })
-          .catch(error => {
-            alert(error);
-            list.innerHTML = '';
-          })
-          .finally(() => {
-            removeLoader();
-          });
-      },
-    });
+    pagination()
   }
 
   function populatePage() {
     animateLoader();
-    // api.searchCountryQuery = 'DK';
-    $('#pagenumbers').pagination({
+    pagination();
+  }
+
+
+  function pagination() {
+      $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
         api.page = options.current - 1;
         api
@@ -71,15 +46,12 @@ export default function handleFormChange(form, list, select, input) {
               total: data.page.totalElements,
               length: data.page.size,
             });
-            // list.innerHTML = cardTpl(data._embedded.events);
             const insertData = data._embedded.events.map(event => {
               const eventImage = filterBiggerImage(event.images);
-              // console.log(eventImage.url);
               event.images = [eventImage];
 
               return cardTpl(event);
             });
-
             list.innerHTML = insertData.join('');
           })
           .catch(alert)
