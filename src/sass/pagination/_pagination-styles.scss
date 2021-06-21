@@ -19,7 +19,7 @@
     align-items: center;
     width: 30px;
     height: 30px;
-    background-color: #000;
+    background-color: Transparent;
     color: #FFFFFF;
     appearance: none;
     border: none;
@@ -29,7 +29,7 @@
     transition: 0.1s;
 }
 
-.pagination li:hover {
+.pagination li a:hover {
     border: 1px solid #DC56DC;
     border-radius: 10px 0px 10px 0px;
     color: #DC56C5;
