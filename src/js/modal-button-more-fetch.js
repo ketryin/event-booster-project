@@ -3,6 +3,9 @@ import { defaults } from '@pnotify/core';
 import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
 import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 defaultModules.set(PNotifyMobile, {});
+defaults.addClass = 'animate__animated animate__flip pnotify__position';
+defaults.mode = 'dark';
+defaults.sticker = false;
 
 import ApiService from './fetch-events.js';
 import cardTpl from './../templates/event-card.hbs';
@@ -51,7 +54,6 @@ export default function onModalButtonMoreClick(event) {
           const myError = error({
             text: 'No matches for your query, try to enter correct data',
           });
-          defaults.addClass = 'animate__animated animate__flip';
         })
         .finally(() => {
           removeLoader();
