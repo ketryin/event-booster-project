@@ -1,3 +1,12 @@
+import { error } from '@pnotify/core';
+import { defaults } from '@pnotify/core';
+import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
+import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
+defaultModules.set(PNotifyMobile, {});
+defaults.addClass = 'animate__animated animate__flip pnotify__position';
+defaults.mode = 'dark';
+defaults.sticker = false;
+
 import EventApiService from './fetch-events.js';
 import modalTemplate from '../templates/modal-card-details.hbs';
 import onModalButtonMoreClick from './modal-button-more-fetch';
@@ -51,7 +60,13 @@ function onEventCardClick(e) {
   // console.log(eventSingleCard.id);
   // console.dir(eventSingleCard);
 
-  if (e.target.nodeName === 'IMG' || e.target.nodeName === 'SPAN' || e.target.nodeName === 'H2' || e.target.nodeName === 'P' || e.target.nodeName === 'LI') {
+  if (
+    e.target.nodeName === 'IMG' ||
+    e.target.nodeName === 'SPAN' ||
+    e.target.nodeName === 'H2' ||
+    e.target.nodeName === 'P' ||
+    e.target.nodeName === 'LI'
+  ) {
     api
       .fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
       .then(data => {
@@ -160,7 +175,11 @@ function onEventCardClick(e) {
 
         });
       })
-      .catch(error => console.log(error));
+      .catch(er => {
+        const myError = error({
+          text: 'No matches for your query, try to enter correct data',
+        });
+      });
   }
 }
 

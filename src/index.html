@@ -26,6 +26,16 @@
       href="./../node_modules/choices.js/public/assets/styles/choices.min.css"
     />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="./../node_modules/@pnotify/core/dist/PNotify.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="./../node_modules/@pnotify/mobile/dist/PNotifyMobile.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
@@ -36,6 +46,8 @@
     <include src="./partials/footer.html"></include>
     <include src="./partials/modul-window-card.html"></include>
     <include src="./partials/modul-window-our-team.html"></include>
+    <include src="./partials/modal-window-authentication.html"></include>
+
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./js/pagination.js"></script>
     <script src="./index.js"></script>

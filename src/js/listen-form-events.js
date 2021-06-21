@@ -1,8 +1,19 @@
+import { error } from '@pnotify/core';
+import { defaults } from '@pnotify/core';
+import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
+import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
+defaultModules.set(PNotifyMobile, {});
+defaults.addClass = 'animate__animated animate__flip pnotify__position';
+defaults.mode = 'dark';
+defaults.sticker = false;
+
 import ApiService from './fetch-events.js';
 import cardTpl from './../templates/event-card.hbs';
 import animateLoader from './show-loader';
 import removeLoader from './remove-loader';
 import filterBiggerImage from './filter-lagest-image.js';
+
+const paginationContainer = document.querySelector('#pagenumbers');
 
 export default function handleFormChange(form, list, select, input) {
   const api = new ApiService();
@@ -26,42 +37,17 @@ export default function handleFormChange(form, list, select, input) {
 
   function handleFetch() {
     api.resetPage();
-    $('#pagenumbers').pagination({
-      ajax: function (options, refresh, $target) {
-        api.page = options.current - 1;
-        api
-          .fetchEvents()
-          .then(data => {
-            refresh({
-              total: data.page.totalElements,
-              length: data.page.size,
-            });
-            // list.innerHTML = cardTpl(data._embedded.events);
-            const insertData = data._embedded.events.map(event => {
-              const eventImage = filterBiggerImage(event.images);
-              // console.log(eventImage.url);
-              event.images = [eventImage];
-
-              return cardTpl(event);
-            });
-
-            list.innerHTML = insertData.join('');
-          })
-          .catch(error => {
-            alert(error);
-            list.innerHTML = '';
-          })
-          .finally(() => {
-            removeLoader();
-          });
-      },
-    });
+    initPagination()
   }
 
   function populatePage() {
     animateLoader();
-    // api.searchCountryQuery = 'DK';
-    $('#pagenumbers').pagination({
+    initPagination();
+  }
+
+
+  function initPagination() {
+      $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
         api.page = options.current - 1;
         api
@@ -71,18 +57,23 @@ export default function handleFormChange(form, list, select, input) {
               total: data.page.totalElements,
               length: data.page.size,
             });
-            // list.innerHTML = cardTpl(data._embedded.events);
             const insertData = data._embedded.events.map(event => {
               const eventImage = filterBiggerImage(event.images);
-              // console.log(eventImage.url);
               event.images = [eventImage];
 
+              paginationContainer.classList.remove('hiden');
               return cardTpl(event);
             });
-
             list.innerHTML = insertData.join('');
           })
-          .catch(alert)
+          .catch(er => {
+            const myError = error({
+              text: 'Oops! Something went wrong :(',
+            });
+            paginationContainer.classList.add('hiden');
+            list.innerHTML = '';
+
+          })
           .finally(() => {
             removeLoader();
           });
