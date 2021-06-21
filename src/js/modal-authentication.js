@@ -82,8 +82,8 @@ function onClicbtnLogout() {
 }
 
 function successfulLogin() {
-    refs.btnOpenModalAuthentication.textContent = 'Hi, our frend!';
-    refs.greeting.textContent = 'Welcom, our frend!';
+    refs.btnOpenModalAuthentication.textContent = 'Hi, our friend!';
+    refs.greeting.textContent = 'Welcome, our friend!';
 
     refs.btnLogin.classList.add('disabled-btn');
     refs.btnSignUp.classList.add('disabled-btn');

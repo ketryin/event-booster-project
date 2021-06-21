@@ -3,7 +3,7 @@ import { defaults } from '@pnotify/core';
 import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
 import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 defaultModules.set(PNotifyMobile, {});
-defaults.addClass = 'animate__animated animate__flip pnotify__position';
+defaults.addClass = 'animate__animated animate__pulse pnotify__position';
 defaults.mode = 'dark';
 defaults.sticker = false;
 
@@ -37,7 +37,7 @@ export default function handleFormChange(form, list, select, input) {
 
   function handleFetch() {
     api.resetPage();
-    initPagination()
+    initPagination();
   }
 
   function populatePage() {
@@ -45,9 +45,8 @@ export default function handleFormChange(form, list, select, input) {
     initPagination();
   }
 
-
   function initPagination() {
-      $('#pagenumbers').pagination({
+    $('#pagenumbers').pagination({
       ajax: function (options, refresh, $target) {
         api.page = options.current - 1;
         api
@@ -68,11 +67,10 @@ export default function handleFormChange(form, list, select, input) {
           })
           .catch(er => {
             const myError = error({
-              text: 'Oops! Something went wrong :(',
+              text: 'Incorrect query parameters, please, try again!',
             });
             paginationContainer.classList.add('hiden');
             list.innerHTML = '';
-
           })
           .finally(() => {
             removeLoader();
