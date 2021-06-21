@@ -1,3 +1,10 @@
+import { error } from '@pnotify/core';
+import { defaults } from '@pnotify/core';
+import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
+import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
+
+defaultModules.set(PNotifyMobile, {});
+
 import ApiService from './fetch-events.js';
 import cardTpl from './../templates/event-card.hbs';
 import animateLoader from './show-loader';
@@ -47,8 +54,11 @@ export default function handleFormChange(form, list, select, input) {
 
             list.innerHTML = insertData.join('');
           })
-          .catch(error => {
-            alert(error);
+          .catch(er => {
+            const myError = error({
+              text: 'No matches for your query, try to enter correct data',
+            });
+            defaults.addClass = 'animate__animated animate__flip';
             list.innerHTML = '';
           })
           .finally(() => {
@@ -82,7 +92,12 @@ export default function handleFormChange(form, list, select, input) {
 
             list.innerHTML = insertData.join('');
           })
-          .catch(alert)
+          .catch(er => {
+            const myError = error({
+              text: 'Oops! Something went wrong :(',
+            });
+            defaults.addClass = 'animate__animated animate__flip';
+          })
           .finally(() => {
             removeLoader();
           });
