@@ -4,6 +4,8 @@ import emailValidator from 'email-validator';
 
 class AuthService {
 
+    #CURRENT_USER_KEY = "current-user";
+
     #firebaseConfig = {
         apiKey: "AIzaSyDYwXZs_eihXdWAx_yoWc4pt3tmvrkveq4",
         authDomain: "event-booster-project.firebaseapp.com",
@@ -18,7 +20,7 @@ class AuthService {
     }
 
     getCurrentUser() {
-        return firebase.auth().currentUser;
+        return localStorage.getItem(this.#CURRENT_USER_KEY);
     }
 
     signUp(email, password) {
@@ -30,6 +32,7 @@ class AuthService {
 
         return firebase.auth()
             .createUserWithEmailAndPassword(email, password)
+            .then(_ => localStorage.setItem(this.#CURRENT_USER_KEY, firebase.auth().currentUser.uid))
             .then(_ => true)
             .catch((error) => alert(error.message));
     }
@@ -43,6 +46,7 @@ class AuthService {
 
         return firebase.auth()
             .signInWithEmailAndPassword(email, password)
+            .then(_ => localStorage.setItem(this.#CURRENT_USER_KEY, firebase.auth().currentUser.uid))
             .then(_ => true)
             .catch((error) => alert(error.message));
     }
@@ -50,6 +54,7 @@ class AuthService {
     logOut() {
         return firebase.auth()
             .signOut()
+            .then(_ => localStorage.removeItem(this.#CURRENT_USER_KEY))
             .catch((error) => console.log(error));
     }
 }
