@@ -5,8 +5,12 @@
   position: absolute;
   left: 50%;
   top: 50%;
+
+  border-top-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+
   transform: translate(-50%, -50%);
-  padding: 80px 0;
+  padding: 180px 0;
 
   background-color: #fff2fd;
   font-size: 16px;
@@ -35,10 +39,10 @@
 .input-conteiner {
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
+  margin-bottom: 70px;
   padding: 0 20px;
   @media screen and (min-width: 595px) {
-    padding: 0 100px;
+    padding: 0 150px;
   }
 }
 .input-email {
@@ -60,7 +64,7 @@
   flex-wrap: wrap;
   padding: 0 20px;
   @media screen and (min-width: 595px) {
-    padding: 0 100px;
+    padding: 0 150px;
   }
 }
 .btn-list-item {
@@ -69,16 +73,18 @@
 }
 
 .btn-authentication-modal {
-  padding: 4px;
+  width: 140px;
+  padding: 10px;
   background-color: transparent;
-  border: 1px solid $accent-color;
+  border: 2px solid $accent-color;
+  border-radius: 10px;
   cursor: pointer;
   color: #7c7c7c;
 }
 
 .btn-authentication-modal:hover {
   background-color: $accent-color;
-  color: #939393;
+  color: #fff;
 }
 
 .authentication-overlay.is--open {
@@ -112,4 +118,12 @@
   left: 50%;
   top: 60%;
   transform: translate(-50%, -50%);
+}
+.authorization__input {
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  font-size: 20px;
+  line-height: 1.25;
 }
