@@ -22,12 +22,7 @@
         {{/if}}    
         </p>
         {{#each _embedded.venues}}
-        <p class="event-location">
-            {{#if name}}
-            {{name}}
-            {{else}} Oops! No info here :(
-            {{/if}}
-            </p>
+        <p class="event-location">{{#if name}}{{name}}{{else}} Oops! No info here :({{/if}}</p>
         {{/each}}
     </div>
 </li>

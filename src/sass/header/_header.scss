@@ -109,6 +109,14 @@ body.dark-theme {
   box-shadow: 0 0 0 3px #2196f3;
 }
 
+.header-my-favorites-btn {
+  margin-right: 20px;
+  border: 0;
+  border-radius: 20px;
+  height: 30px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767px) {
   .logo {
     width: 108px;
