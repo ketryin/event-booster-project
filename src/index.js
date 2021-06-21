@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import '@pnotify/core/dist/BrightTheme.css';
 import countries from './js/countries.js';
 import modal from './js/modal.js';
 import populateSelect from './js/select-populating.js';
