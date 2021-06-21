@@ -10,28 +10,31 @@
   border-bottom-right-radius: 300px;
 
   transform: translate(-50%, -50%);
-  padding: 180px 0;
 
   background-color: #fff2fd;
-  font-size: 16px;
+  // font-size: 16px;
 
   @media screen and (max-width: 319px) {
     width: 272px;
+    padding: 100px 0;
     min-height: auto;
   }
   @media screen and (min-width: 320px) {
-    width: 272px;
+    width: 80vw;
+    padding: 100px 0;
     min-height: auto;
   }
   @media screen and (min-width: 595px) {
     width: 595px;
+    padding: 100px 0;
     min-height: auto;
-    font-size: 17px;
+    // font-size: 17px;
   }
   @media screen and (min-width: 1050px) {
+    padding: 180px 0;
     width: 942px;
     min-height: auto;
-    font-size: 20px;
+    // font-size: 20px;
 
     transform: translate(-50%, -50%) scale(0.7);
   }
@@ -44,6 +47,14 @@
   @media screen and (min-width: 595px) {
     padding: 0 150px;
   }
+  @media screen and (max-width: 1049px) {
+    margin-bottom: 40px;
+  }
+  @media screen and (max-width: 595px) {
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .input-email {
   margin-bottom: 20px;
@@ -51,13 +62,13 @@
 
   border: none;
   border-bottom: 3px solid $accent-color;
-  height: 40px;
+  min-height: 40px;
 }
 .input-pass {
   background-color: transparent;
   border: none;
   border-bottom: 3px solid $accent-color;
-  height: 40px;
+  min-height: 40px;
 }
 .btn-list {
   display: flex;
@@ -66,10 +77,25 @@
   @media screen and (min-width: 595px) {
     padding: 0 150px;
   }
+  @media screen and (max-width: 1049px) {
+    flex-direction: column;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+  }
 }
 .btn-list-item {
-  margin-right: 15px;
-  margin-bottom: 10px;
+  @media screen and (max-width: 1049px) {
+    &:nth-child(1) {
+      margin-bottom: 10px;
+    }
+  }
+  @media screen and (min-width: 1050px) {
+    &:nth-child(1) {
+      margin-right: 15px;
+    }
+  }
 }
 
 .btn-authentication-modal {
@@ -80,6 +106,11 @@
   border-radius: 10px;
   cursor: pointer;
   color: #7c7c7c;
+  font-size: 20px;
+
+  // @media screen and(min-width: 1050px) {
+  //   font-size: 30px;
+  // }
 }
 
 .btn-authentication-modal:hover {
@@ -126,4 +157,8 @@
 
   font-size: 20px;
   line-height: 1.25;
+
+  @media screen and(min-width: 1050px) {
+    font-size: 30px;
+  }
 }
