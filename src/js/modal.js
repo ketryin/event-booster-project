@@ -2,7 +2,6 @@ import { error } from '@pnotify/core';
 import { defaults } from '@pnotify/core';
 import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
 import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
-
 defaultModules.set(PNotifyMobile, {});
 
 import EventApiService from './fetch-events.js';
