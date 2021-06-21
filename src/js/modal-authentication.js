@@ -22,6 +22,10 @@ refs.btnLogin.addEventListener('click', onClickbtnLogin);
 refs.btnSignUp.addEventListener('click', onClickbtnSignUp);
 refs.btnLogout.addEventListener('click', onClicbtnLogout);
 
+if (auth.getCurrentUser() !== null) {
+    successfulLogin();
+}
+
 function onBtnAuthenticationClick() {
     refs.backdrop.classList.add('is--open');
 }
