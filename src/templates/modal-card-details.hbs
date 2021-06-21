@@ -48,7 +48,7 @@
                                 {{#each _embedded.venues}}
                                 
                             <li> {{city.name}}, {{country.name}} </li>
-                            <li> {{name}}</li>
+                            <li><a href="https://www.google.com/maps/search/?api=1&query={{location.latitude}},{{location.longitude}}" class="modal__location-link">{{name}}</a></li>
                                 {{/each}}
                                 {{else}}Oops! No location here :(
                                 {{/if}}
