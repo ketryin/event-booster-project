@@ -1,9 +1,14 @@
 const body = document.querySelector('body');
 const checkbox = document.querySelector('.theme-switch__toggle');
+const students = document.querySelector('.students');
+const footerTextColor = document.querySelector('.footer-text');
+
+// const paginationColor = document.getElementById('#pagenumbers');
 
 const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
+  STYLE: 'color-title',
 };
 
 checkbox.addEventListener('change', changeTheme);
@@ -13,29 +18,45 @@ function changeTheme(event) {
 }
 
 function checkedInput() {
-  body.classList.add(Theme.DARK);
-  body.classList.remove(Theme.LIGHT);
-  localStorage.setItem('theme', Theme.DARK);
+  body.classList.add(Theme.LIGHT);
+
+  students.classList.add(Theme.STYLE);
+  footerTextColor.classList.add(Theme.STYLE);
+  localStorage.setItem('theme', Theme.LIGHT);
+
   checkbox.checked = true;
 }
 
 function notCheckedInput() {
-  body.classList.add(Theme.LIGHT);
-  body.classList.remove(Theme.DARK);
-  localStorage.setItem('theme', Theme.LIGHT);
+  body.classList.remove(Theme.LIGHT);
+  students.classList.remove(Theme.STYLE);
+  footerTextColor.classList.remove(Theme.STYLE);
+  localStorage.setItem('theme', Theme.DARK);
   checkbox.checked = false;
 }
 
 function carrentTheme() {
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === Theme.LIGHT || savedTheme === null) {
-    notCheckedInput();
+  if (savedTheme === Theme.LIGHT) {
+    checkedInput();
     return;
   }
-  if (savedTheme === Theme.DARK) {
-    checkedInput();
+  if (savedTheme === Theme.DARK || savedTheme === null) {
+    notCheckedInput();
     return;
   }
 }
 
 carrentTheme();
+
+// export default function changeAllColorTitle(dates, locations) {
+//   if (body.className === Theme.LIGHT) {
+//     for (const date of dates) {
+//       date.classList.add(Theme.STYLE);
+//     }
+//     for (const location of locations) {
+//       console.log(location);
+//       location.classList.add(Theme.STYLE);
+//     }
+//   }
+// }

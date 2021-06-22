@@ -119,3 +119,15 @@
   background-image: url(/images/location-point.svg);
   background-size: 6px 9px;
 }
+.event-location.dark-text::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 9px;
+  margin-right: 3px;
+  border-radius: 50%;
+  background-color: #000;
+  background-image: none;
+  // background-image: url(/images/location-point.svg);
+  // background-size: 6px 9px;
+}
