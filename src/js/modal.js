@@ -38,14 +38,32 @@ export function onClickBackdrop(e) {
   }
   refs.backdrop.classList.toggle('is--hidden');
   refs.body.classList.toggle('modal-open');
+  clearTextContent('.modal__text');
+  clearSrc('.modal-img-test');
+  clearSrc('.modal__circle-img');
+}
+
+function clearTextContent(selector) {
+    const modalInfoRefAll = document.querySelectorAll(selector);
+    modalInfoRefAll.forEach(el => el.textContent ='')
+}
+
+function clearSrc(selector) {
+    const modalSrcRef = document.querySelector(selector);
+    modalSrcRef.src = '';
 }
 
 function onCLickBtnClose() {
   const btnRef = document.querySelector('[data-modal-window-close]');
-
+  
   btnRef.addEventListener('click', () => {
+  
     refs.modalWindow.classList.toggle('is--hidden');
     refs.body.classList.toggle('modal-open');
+    clearTextContent('.modal__text');
+    clearSrc('.modal-img-test');
+    clearSrc('.modal__circle-img');
+
   });
 }
 
