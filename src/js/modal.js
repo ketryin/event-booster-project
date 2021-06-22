@@ -31,6 +31,7 @@ refs.eventCards.addEventListener('click', onEventCardClick);
 refs.backdrop.addEventListener('click', onClickBackdrop);
 
 
+
 export function onClickBackdrop(e) {
   if (!e.target.classList.contains('backdrop__modal')) {
     return;
@@ -50,6 +51,7 @@ function onCLickBtnClose() {
 
 function onEventCardClick(e) {
   const currentCard = e.target;
+  
   if (!currentCard.closest('.events-list__item')) {
     return;
   }
@@ -69,10 +71,12 @@ function onEventCardClick(e) {
     api
       .fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
       .then(data => {
+        // const modalRef = document.querySelector('.modal__window');
+        
         refs.modalWindow.innerHTML = modalTemplate(data);
 
         onCLickBtnClose();
-
+        
         const modalTitleRef = document.querySelector('.modal__text');
         modalTitleRef.textContent = `${modalTitleRef.textContent.slice(0, 150)}...`;
 
