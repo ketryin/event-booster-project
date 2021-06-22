@@ -1,5 +1,5 @@
 <div class="modal-box">
-    <button data-modal-window-close  class="modal__btn">
+    <button data-modal-window-close class="modal__btn">
         <span class="modal__btn_close"></span>
     </button>
     <div class="modal__window">
@@ -8,10 +8,7 @@
         </div>
         <div class="modal__container">
             <div class="modal__img">
-                <img class="modal-img-test" src=""         
-                alt="тест-картинка" 
-                width="180" 
-                height="227"/>
+                <img class="modal-img-test" src="" alt="тест-картинка" width="180" height="227" />
             </div>
             <div class="modal__info">
                 <ul class="modal__list">
@@ -32,7 +29,7 @@
                                 {{dates.start.localDate}}
                                 {{else}}Oops! No date here :(
                                 {{/if}}
-                                </li>
+                            </li>
                             <li>
                                 {{#if dates.start.localTime}}
                                 {{dates.start.localTime}} ({{dates.timezone}})
@@ -45,13 +42,15 @@
                         <b class="modal__title">WHERE </b>
                         <ul class="modal__text">
                             {{#if _embedded.venues}}
-                                {{#each _embedded.venues}}
-                                
+                            {{#each _embedded.venues}}
+
                             <li> {{city.name}}, {{country.name}} </li>
-                            <li> {{name}}</li>
-                                {{/each}}
-                                {{else}}Oops! No location here :(
-                                {{/if}}
+                            <li><a target="blanck"
+                                    href="https://www.google.com/maps/search/?api=1&query={{location.latitude}},{{location.longitude}}"
+                                    class="modal__location-link">{{name}}</a></li>
+                            {{/each}}
+                            {{else}}Oops! No location here :(
+                            {{/if}}
                         </ul>
                     </li>
                     <li class="modal__item">
@@ -62,7 +61,7 @@
                                 {{name}}
                                 {{else}}Oops! No info here :(
                                 {{/if}}
-                                </li>
+                            </li>
                         </ul>
                     </li>
                     <li class="modal__item">
@@ -73,8 +72,9 @@
                             <li class="modal__text">
                                 <span class="modal__barcode"> {{type}} {{min}} - {{max}} {{currency}}</span>
                             </li>
-                            <li class="modal_buy" >
-                                <button class="btn" ><a class="modal_buy--btn-link" href="{{../url}}" target="blanck">BUY TICKETS</a></button>
+                            <li class="modal_buy">
+                                <button class="btn"><a class="modal_buy--btn-link" href="{{../url}}" target="blanck">BUY
+                                        TICKETS</a></button>
                             </li>
                             {{/each}}
                             {{else}}Oops! No tickets available yet :(
