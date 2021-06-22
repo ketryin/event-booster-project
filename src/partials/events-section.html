@@ -2,7 +2,7 @@
   <div class="container events-container">
     <h2 class="visually-hidden">Events</h2>
     <form class="events__search-form">
-      <button class="visually-hidden" type="submit">Send form</button>
+      <button class="visually-hidden" type="submit" aria-label="Send-form button">Send form</button>
       <input
         id="query-input"
         type="text"
@@ -38,6 +38,8 @@
     <ul class="events-list js-list"></ul>
     <div class="spinner opacity"></div>
     <ul id="pagenumbers" class="pagination"></ul>
-    <button class="btn-arrow-up is--hiden--btn" id="btn-arrow-up-js">&#129045;</button>
+    <button class="btn-arrow-up is--hiden--btn" id="btn-arrow-up-js" aria-label="Scroll-up button">
+      &#129045;
+    </button>
   </div>
 </section>
