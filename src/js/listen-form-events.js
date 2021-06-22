@@ -112,7 +112,8 @@ export default function handleFormChange(form, list, select, input) {
           })
           .catch(er => {
             const myError = error({
-              text: 'Incorrect query parameters, please, try again!',
+              text: er,
+              // text: 'Incorrect query parameters, please, try again!',
             });
             paginationContainer.classList.add('hiden');
             list.innerHTML = '';
