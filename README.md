@@ -24,3 +24,4 @@ Technology used:
 Preview:
 
 <a href="https://ketryin.github.io/event-booster-project/" target="_blank"><img src="https://github.com/IamGalexing/Filmoteka/blob/master/src/images/filmoteka.jpg" alt="screenshot of the main page of project"/></a>
+
