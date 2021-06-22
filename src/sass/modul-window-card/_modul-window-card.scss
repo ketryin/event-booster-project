@@ -342,8 +342,11 @@ body.modal-open {
     width: 255px;
     height: 40px;
     margin-top: 15px;
+    
   }
   position: relative;
+
+  text-transform: uppercase;
 }
 .modal__btn__more.favorite-button::before {
   display: block;
