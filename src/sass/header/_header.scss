@@ -20,13 +20,13 @@ body.light-theme {
     background-position: center;
   }
   @media screen and(min-width: $tablet) {
-    background-image: url(../images/svg/EllipseLightTheme-2.svg), url(../images/svg/Ellipse-5.svg),
-      url(../images/svg/Ellipse-6.svg), url(../images/svg/EllipseLightTheme-11.svg),
-      url(../images/svg/Ellipse-10.svg), url(../images/svg/Ellipse-4.svg),
-      url(../images/svg/EllipseLightTheme-2.svg), url(../images/svg/Ellipse-5.svg),
-      url(../images/svg/Ellipse-4.svg), url(../images/svg/Line-1.svg), url(../images/svg/Line-1.svg),
-      url(../images/svg/Line-1.svg), url(../images/svg/Line-1.svg), url(../images/svg/Line-1.svg),
-      url(../images/svg/Line-6.svg), url(../images/svg/Line-6.svg), url(../images/noise-body.png);
+    background-image: url(../images/svg/ellipseLightTheme-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-6.svg), url(../images/svg/ellipseLightTheme-11.svg),
+      url(../images/svg/ellipse-10.svg), url(../images/svg/ellipse-4.svg),
+      url(../images/svg/ellipseLightTheme-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-4.svg), url(../images/svg/line-1.svg), url(../images/svg/line-1.svg),
+      url(../images/svg/line-1.svg), url(../images/svg/line-1.svg), url(../images/svg/line-1.svg),
+      url(../images/svg/line-6.svg), url(../images/svg/line-6.svg), url(../images/noise-body.png);
 
     background-size: 80px, 126px, 237px, 80px, 126px, 237px, 80px, 126px, 237px, 1px, 1px, 1px, 1px,
       1px, 1px, 1px, cover;
@@ -38,13 +38,13 @@ body.light-theme {
       right 86px top 2015px, center;
   }
   @media screen and(min-width: $desktop) {
-    background-image: url(../images/svg/EllipseLightTheme-2.svg), url(../images/svg/Ellipse-5.svg),
-      url(../images/svg/Ellipse-6.svg), url(../images/svg/EllipseLightTheme-11.svg),
-      url(../images/svg/Ellipse-10.svg), url(../images/svg/Ellipse-4.svg),
-      url(../images/svg/EllipseLightTheme-2.svg), url(../images/svg/Ellipse-7.svg),
-      url(../images/svg/Ellipse-9.svg), url(../images/svg/Line-1.svg), url(../images/svg/Line-3.svg),
-      url(../images/svg/Line-3.svg), url(../images/svg/Line-2.svg), url(../images/svg/Line-2.svg),
-      url(../images/svg/Line-2.svg), url(../images/noise-body.png);
+    background-image: url(../images/svg/ellipseLightTheme-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-6.svg), url(../images/svg/ellipseLightTheme-11.svg),
+      url(../images/svg/ellipse-10.svg), url(../images/svg/ellipse-4.svg),
+      url(../images/svg/ellipseLightTheme-2.svg), url(../images/svg/ellipse-7.svg),
+      url(../images/svg/ellipse-9.svg), url(../images/svg/Line-1.svg), url(../images/svg/line-3.svg),
+      url(../images/svg/line-3.svg), url(../images/svg/line-2.svg), url(../images/svg/line-2.svg),
+      url(../images/svg/line-2.svg), url(../images/noise-body.png);
 
     background-size: 136px, 216px, 334px, 136px, 216px, 334px, 136px, 216px, 334px, 1px, 1px, 1px,
       1px, 1px, 1px, cover;
@@ -70,13 +70,13 @@ body.dark-theme {
     background-position: center;
   }
   @media screen and(min-width: $tablet) {
-    background-image: url(../images/svg/Ellipse-2.svg), url(../images/svg/Ellipse-5.svg),
-      url(../images/svg/Ellipse-6.svg), url(../images/svg/Ellipse-11.svg),
-      url(../images/svg/Ellipse-10.svg), url(../images/svg/Ellipse-4.svg),
-      url(../images/svg/Ellipse-2.svg), url(../images/svg/Ellipse-5.svg),
-      url(../images/svg/Ellipse-4.svg), url(../images/svg/Line-1.svg), url(../images/svg/Line-1.svg),
-      url(../images/svg/Line-1.svg), url(../images/svg/Line-1.svg), url(../images/svg/Line-1.svg),
-      url(../images/svg/Line-6.svg), url(../images/svg/Line-6.svg), url(../images/noise-body.png);
+    background-image: url(../images/svg/ellipse-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-6.svg), url(../images/svg/ellipse-11.svg),
+      url(../images/svg/ellipse-10.svg), url(../images/svg/ellipse-4.svg),
+      url(../images/svg/ellipse-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-4.svg), url(../images/svg/line-1.svg), url(../images/svg/line-1.svg),
+      url(../images/svg/line-1.svg), url(../images/svg/line-1.svg), url(../images/svg/line-1.svg),
+      url(../images/svg/line-6.svg), url(../images/svg/line-6.svg), url(../images/noise-body.png);
 
     background-size: 80px, 126px, 237px, 80px, 126px, 237px, 80px, 126px, 237px, 1px, 1px, 1px, 1px,
       1px, 1px, 1px, cover;
@@ -88,13 +88,13 @@ body.dark-theme {
       right 86px top 2015px, center;
   }
   @media screen and(min-width: $desktop) {
-    background-image: url(../images/svg/Ellipse-2.svg), url(../images/svg/Ellipse-5.svg),
-      url(../images/svg/Ellipse-6.svg), url(../images/svg/Ellipse-11.svg),
-      url(../images/svg/Ellipse-10.svg), url(../images/svg/Ellipse-4.svg),
-      url(../images/svg/Ellipse-8.svg), url(../images/svg/Ellipse-7.svg),
-      url(../images/svg/Ellipse-9.svg), url(../images/svg/Line-1.svg), url(../images/svg/Line-3.svg),
-      url(../images/svg/Line-3.svg), url(../images/svg/Line-2.svg), url(../images/svg/Line-2.svg),
-      url(../images/svg/Line-2.svg), url(../images/noise-body.png);
+    background-image: url(../images/svg/ellipse-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-6.svg), url(../images/svg/ellipse-11.svg),
+      url(../images/svg/ellipse-10.svg), url(../images/svg/ellipse-4.svg),
+      url(../images/svg/ellipse-8.svg), url(../images/svg/ellipse-7.svg),
+      url(../images/svg/ellipse-9.svg), url(../images/svg/line-1.svg), url(../images/svg/line-3.svg),
+      url(../images/svg/line-3.svg), url(../images/svg/line-2.svg), url(../images/svg/line-2.svg),
+      url(../images/svg/line-2.svg), url(../images/noise-body.png);
 
     background-size: 136px, 216px, 334px, 136px, 216px, 334px, 136px, 216px, 334px, 1px, 1px, 1px,
       1px, 1px, 1px, cover;
