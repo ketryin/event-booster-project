@@ -11,8 +11,8 @@ import EventApiService from './fetch-events.js';
 import modalTemplate from '../templates/modal-card-details.hbs';
 import onModalButtonMoreClick from './modal-button-more-fetch';
 import filterBiggerImage from './filter-lagest-image.js';
-import './modal-favorite.js';
-import renderFavEvents from './modal-favorite.js'
+import './favorite.js';
+import renderFavEvents from './favorite.js'
 
 const api = new EventApiService();
 
@@ -31,25 +31,45 @@ refs.eventCards.addEventListener('click', onEventCardClick);
 refs.backdrop.addEventListener('click', onClickBackdrop);
 
 
+
 export function onClickBackdrop(e) {
   if (!e.target.classList.contains('backdrop__modal')) {
     return;
   }
   refs.backdrop.classList.toggle('is--hidden');
   refs.body.classList.toggle('modal-open');
+  clearTextContent('.modal__text');
+  clearSrc('.modal-img-test');
+  clearSrc('.modal__circle-img');
+}
+
+function clearTextContent(selector) {
+    const modalInfoRefAll = document.querySelectorAll(selector);
+    modalInfoRefAll.forEach(el => el.textContent ='')
+}
+
+function clearSrc(selector) {
+    const modalSrcRef = document.querySelector(selector);
+    modalSrcRef.src = '';
 }
 
 function onCLickBtnClose() {
   const btnRef = document.querySelector('[data-modal-window-close]');
-
+  
   btnRef.addEventListener('click', () => {
+  
     refs.modalWindow.classList.toggle('is--hidden');
     refs.body.classList.toggle('modal-open');
+    clearTextContent('.modal__text');
+    clearSrc('.modal-img-test');
+    clearSrc('.modal__circle-img');
+
   });
 }
 
 function onEventCardClick(e) {
   const currentCard = e.target;
+  
   if (!currentCard.closest('.events-list__item')) {
     return;
   }
@@ -57,8 +77,7 @@ function onEventCardClick(e) {
   const eventSingleCard = currentCard.closest('.events-list__item');
   refs.modalWindow.classList.toggle('is--hidden');
   refs.body.classList.toggle('modal-open');
-  // console.log(eventSingleCard.id);
-  // console.dir(eventSingleCard);
+
 
   if (
     e.target.nodeName === 'IMG' ||
@@ -70,13 +89,14 @@ function onEventCardClick(e) {
     api
       .fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
       .then(data => {
+        // const modalRef = document.querySelector('.modal__window');
+        
         refs.modalWindow.innerHTML = modalTemplate(data);
 
         onCLickBtnClose();
-
+        
         const modalTitleRef = document.querySelector('.modal__text');
         modalTitleRef.textContent = `${modalTitleRef.textContent.slice(0, 150)}...`;
-        // console.log(modalTitleRef.textContent);
 
         const modalButtonMore = document.querySelector('.modal__btn__more');
         modalButtonMore.addEventListener('click', onModalButtonMoreClick);
@@ -105,7 +125,6 @@ function onEventCardClick(e) {
           );
         }
 
-        // eventSingleCard.setAttribute('in-storage', false);
 
         const favoriteButton = document.querySelector('.favorite-button');
         favoriteButton.textContent = localStorage.getItem(`${eventSingleCard.id}`) || 'Add to favorite';
@@ -119,18 +138,11 @@ function onEventCardClick(e) {
           
           const currentStorage = localStorage.getItem('favoriteEventStorage');
           const currentFavoriteEventOnStorage = JSON.parse(currentStorage);
-          // console.log(currentFavoriteEventOnStorage);
           const filteredCurrentFavoriteEventOnStorage = Array.from(new Set(currentFavoriteEventOnStorage.map(({ id, name, date, location, src }) => JSON.stringify({ id, name, date, location, src }))), JSON.parse);
-          // console.log(filteredCurrentFavoriteEventOnStorage);
-          // console.log(currentFavoriteEventOnStorage);
-    
-          // const eventToRemove = filteredCurrentFavoriteEventOnStorage.find((el, index) => el.id === eventSingleCard.id);
-          // console.log(eventToRemove);
+
           const indexOfEventToRemove = filteredCurrentFavoriteEventOnStorage.map(item => item.id).indexOf(eventSingleCard.id);
-          // console.log(indexOfEventToRemove);
 
           if (indexOfEventToRemove !== -1) {
-            // console.log('remove');
             favoriteButton.classList.remove('actice-add-to-fav');
             filteredCurrentFavoriteEventOnStorage.splice(indexOfEventToRemove, 1);
             localStorage.setItem('favoriteEventStorage', JSON.stringify(filteredCurrentFavoriteEventOnStorage));
@@ -145,18 +157,14 @@ function onEventCardClick(e) {
 
                 renderFavEvents();
                 }
-              // refs.modalWindow.classList.toggle('is--hidden');
-              // refs.body.classList.toggle('modal-open');
+
 
             return;
 
           } else {
-            // console.log('add');
             eventSingleCard.setAttribute('in-storage', true);
-            // console.log(eventSingleCard);
             favoriteButton.textContent = 'Remove from favorite';
             favoriteButton.classList.add('actice-add-to-fav');
-            // console.log(favoriteButton.textContent);
             filteredCurrentFavoriteEventOnStorage.push({
               id: eventSingleCard.id,
               name: data.name,
