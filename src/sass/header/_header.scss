@@ -63,7 +63,6 @@ body {
   display: flex;
   right: 100px;
   top: 20px;
-
   padding: 16px 24px;
 }
 
@@ -75,16 +74,18 @@ body {
 
 .moon {
   position: absolute;
-  background-color: white;
-  right: -90px;
+  background-color: none;
+  color: darkgray;
+  right: -10px;
   z-index: 2;
   border-radius: 50%;
 }
 
 .sun {
   position: absolute;
-  background-color: white;
-  right: 10px;
+  background-color: none;
+  color: darkgray;
+  right: -85px;
   z-index: 2;
   border-radius: 50%;
 }
@@ -95,8 +96,8 @@ body {
   align-items: center;
   flex-shrink: 0;
   position: absolute;
-  width: 64px;
-  height: 32px;
+  width: 50px;
+  height: 26px;
   border-radius: 50em;
   padding: 3px 0;
 }
@@ -130,8 +131,8 @@ body {
 .theme-switch__marker {
   position: relative;
   background-color: #dc56c5;
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
@@ -145,7 +146,7 @@ body {
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateX(35px);
+  transform: translateX(26px);
 }
 
 .theme-switch__toggle:focus + .theme-switch__track,
@@ -174,6 +175,16 @@ body {
 
   .toolbar {
     top: 5px;
+  }
+
+  .moon,
+  .sun {
+    display: none;
+  }
+
+  .theme-switch__track,
+  .theme-switch__marker {
+    left: 25px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),
