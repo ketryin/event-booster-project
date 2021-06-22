@@ -157,8 +157,12 @@ body {
   margin-right: 20px;
   border: 0;
   border-radius: 20px;
-  height: 30px;
+  height: 32px;
+  width: 122px;
   cursor: pointer;
+  background-color: #dc56c5;
+  color: #ffffff;
+  // vertical-align: middle;
 }
 
 @media screen and (max-width: 767px) {
@@ -166,6 +170,10 @@ body {
     width: 108px;
     height: 91px;
     background-image: url('../images/logo-mob.png');
+  }
+
+  .toolbar {
+    top: 5px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -183,6 +191,33 @@ body {
     height: 151px;
     background-image: url('../images/logo-tablet.png');
   }
+
+  .toolbar {
+    top: 0px;
+  }
+
+  .header-my-favorites-btn {
+    height: 26px;
+    width: 112px;
+    font-size: 14px;
+  }
+
+  // .theme-switch__control {
+  //   height: 26px;
+  // }
+
+  // .theme-switch__control {
+  //   height: 26px;
+  // }
+
+  // .theme-switch__marker {
+  //   height: 22px;
+  //   width: 22px;
+  // }
+
+  // .theme-switch__track {
+  //   width: 64px;
+  // }
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
