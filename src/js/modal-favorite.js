@@ -3,6 +3,7 @@ const closeFavModalMtn = document.querySelector('button[data-action="close-modal
 const backDropRef = document.querySelector('.js-backdrop');
 const favList = document.querySelector('.fav-events-list');
 const eventsListRef = document.querySelector('.js-list');
+const paginationContainer = document.querySelector('.pagination')
 
 openFavModalBtn.addEventListener('click', showModalHendler);
 closeFavModalMtn.addEventListener('click', removeModalHendler);
@@ -53,7 +54,7 @@ function getEventsFromLocalStorage() {
 
 getEventsFromLocalStorage();
 
-function createMarkupFav() {
+function loadData() {
     const parcedCurrentStorage = getEventsFromLocalStorage();
     const storage = parcedCurrentStorage.slice(1);
     const filteredStorage = Array.from(
@@ -61,58 +62,46 @@ function createMarkupFav() {
         JSON.parse
     );
     
-    const insertData = filteredStorage.map(el => {
-        return `<li class="events-list__item animate__animated animate__bounceInUp" id="${el.id}" data-type="event">
-            <div class="for-hover">
-                <img class="event-image" src="${el.src}" alt="name"></img>
-                <span class="event-image-span"></span>
-                <h2 class="event-name">${el.name}</h2>
-                <p class="event-date"> ${el.date}  </p>
-                <p class="event-location">${el.location}</p>
-            </div>
-            </li>`
-    })
-    
-    return insertData.join('');
+    initFavPagination(filteredStorage);
 }
 
+const pageSize = 8;
 
-
-function initPagination() { 
-        $('#pagenumbers').pagination({
-      ajax: function (options, refresh, $target) {
-        Promise.resolve()
-          .then(function (data) {
-            refresh({
-              total: data.totalElements,
-              length: data.length,
-            });
-            const insertData = filteredStorage.map(el => {
-                     return `<li class="events-list__item animate__animated animate__bounceInUp" id="${el.id}" data-type="event">
-                 <div class="for-hover">
-                 <img class="event-image" src="${el.src}" alt="name"></img>
-                 <span class="event-image-span"></span>
-                 <h2 class="event-name">${el.name}</h2>
-                 <p class="event-date"> ${el.date}  </p>
-                 <p class="event-location">${el.location}</p>
-                 </div>
-                 </li>`
-                 });
-            return insertData.join('');
-            });
-            list.innerHTML = insertData.join('');
-          })
-          .catch();
-            paginationContainer.classList.add('hiden');
-            list.innerHTML = '';
+function initFavPagination(data) {
+    $('#pagenumbers').pagination({
+        ajax: function (options, refresh, $target) {
+            Promise.resolve(data)
+                .then(function (data) {
+                    let total = data.length;
+                    let page = data.splice((options.current - 1) * pageSize, pageSize);
+                    console.log(page)
+                    refresh({
+                        total: total,
+                        length: 5,
+                    });
+                    const insertData = page.map(el => {
+                        return `<li class="events-list__item animate__animated animate__bounceInUp" id="${el.id}" data-type="event">
+                                <div class="for-hover">
+                                    <img class="event-image" src="${el.src}" alt="name"></img>
+                                    <span class="event-image-span"></span>
+                                    <h2 class="event-name">${el.name}</h2>
+                                    <p class="event-date"> ${el.date}  </p>
+                                    <p class="event-location">${el.location}</p>
+                                </div>
+                                </li>`
+                    }).join('');
+                    eventsListRef.innerHTML = insertData;
+                }).catch((error) => {
+                    console.log(error);
+                    paginationContainer.classList.add('hiden');
+                    eventsListRef.innerHTML = '';
+                });
+        }
     });
 }
 
-
-
 export default function renderFavEvents() {
-    const insertData = createMarkupFav();
-    eventsListRef.innerHTML = insertData;
+    loadData();
 }
 
 
