@@ -64,10 +64,56 @@ export default function handleFormChange(form, list, select, input) {
               return cardTpl(event);
             });
             list.innerHTML = insertData.join('');
+
+            const eventDates = document.querySelectorAll('.event-date');
+            const eventLocations = document.querySelectorAll('.event-location');
+            const themeSwitcher = document.querySelector('#theme-switch-toggle');
+            const paginationPages = document.querySelectorAll('[data-page]');
+
+            if (localStorage.theme === 'light-theme') {
+              eventDates.forEach(eventDate => {
+                eventDate.classList.add('dark-text');
+                // localStorage.currentTextColor = 'dark';
+              });
+              eventLocations.forEach(eventLocation => {
+                eventLocation.classList.add('dark-text');
+                // localStorage.currentTextColor = 'dark';
+              });
+              paginationPages.forEach(pagPage => {
+                pagPage.classList.add('dark-text');
+              });
+            }
+
+            themeSwitcher.addEventListener('change', event => {
+              if (event.currentTarget.checked) {
+                eventDates.forEach(eventDate => {
+                  eventDate.classList.add('dark-text');
+                });
+                eventLocations.forEach(eventLocation => {
+                  eventLocation.classList.add('dark-text');
+                });
+                paginationPages.forEach(pagPage => {
+                  pagPage.classList.add('dark-text');
+                });
+              } else {
+                eventDates.forEach(eventDate => {
+                  eventDate.classList.remove('dark-text');
+                });
+                eventLocations.forEach(eventLocation => {
+                  eventLocation.classList.remove('dark-text');
+                });
+                paginationPages.forEach(pagPage => {
+                  pagPage.classList.remove('dark-text');
+                });
+              }
+            });
+
+            // changeAllColorTitle(dates, locations);
           })
           .catch(er => {
             const myError = error({
-              text: 'Incorrect query parameters, please, try again!',
+              text: er,
+              // text: 'Incorrect query parameters, please, try again!',
             });
             paginationContainer.classList.add('hiden');
             list.innerHTML = '';
