@@ -1,5 +1,6 @@
 .help-container {
   position: relative;
+  z-index: 0;
   padding-top: 78px;
   padding-bottom: 242px;
   @media screen and (min-width: $tablet) {
