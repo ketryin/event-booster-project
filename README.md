@@ -23,4 +23,4 @@ Technology used:
 
 Preview:
 
-![alt text][image.PNG "Preview"]
+![alt text][./image.PNG "Preview"]
