@@ -76,7 +76,7 @@ function initFavPagination(data) {
           let total = data.length;
           let totalPage = Math.floor(total / pageSize);
           let offset = pageNumber * pageSize;
-          let page = pageNumber < totalPage ? data.slice(offset, pageSize) : data.slice(offset);
+          let page = pageNumber +1 < totalPage ? data.slice(offset, pageSize) : data.slice(offset);
           refresh({
             total: total,
             length: pageSize,
