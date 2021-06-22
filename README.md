@@ -23,5 +23,5 @@ Technology used:
 
 Preview:
 
-<a href="https://ketryin.github.io/event-booster-project/" target="_blank"><img src="https://github.com/ketryin/event-booster-project/blob/change-readme/src/images/img.JPG" alt="screenshot of the main page of project"/></a>
+<a href="https://ketryin.github.io/event-booster-project/" target="_blank"><img src="https://github.com/ketryin/event-booster-project/blob/main/src/images/img.JPG" alt="screenshot of the main page of project"/></a>
 
