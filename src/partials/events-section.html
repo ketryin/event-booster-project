@@ -1,5 +1,6 @@
 <section class="events-section">
   <div class="container events-container">
+    <h2 class="visually-hidden">Events</h2>
     <form class="events__search-form">
       <button class="visually-hidden" type="submit">Send form</button>
       <input
@@ -14,7 +15,11 @@
           <use href="./../src/images/svg/gallery-sprite.svg#icon-search"></use>
         </svg>
       </label>
-      <select name="" id="country-select" class="events__search-country events__input">
+      <select
+        name="country-select"
+        id="country-select"
+        class="events__search-country events__input"
+      >
         <option value="">Choose country</option>
       </select>
       <label class="events__select-label" for="country-select">
