@@ -120,5 +120,13 @@
   background-size: 6px 9px;
 }
 .event-location.dark-text::before {
-  display: none;
+  // display: none;
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 12px;
+  margin-right: 3px;
+  background-image: url(/images/svg/location.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
