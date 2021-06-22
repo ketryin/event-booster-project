@@ -8,8 +8,6 @@ openFavModalBtn.addEventListener('click', showModalHendler);
 closeFavModalMtn.addEventListener('click', removeModalHendler);
 backDropRef.addEventListener('click', onBackdropClick);
 
-
-
 function showModalHendler() {
     // document.body.classList.add('show-modal');
     // window.addEventListener('keydown', onEscapePress);
@@ -35,8 +33,6 @@ function onBackdropClick(event) {
     // }
 }
 
-
-
 function setUpCarrentFavoriteItems() {
     const savedCarrentFavoriteItems = localStorage.getItem('favoriteEventStorage');
     const storage = [{}];
@@ -48,7 +44,6 @@ function setUpCarrentFavoriteItems() {
 
 setUpCarrentFavoriteItems();
 
-
 function getEventsFromLocalStorage() {
     const currentStorage = localStorage.getItem('favoriteEventStorage');
     const parcedCurrentStorage = JSON.parse(currentStorage);
@@ -57,7 +52,6 @@ function getEventsFromLocalStorage() {
 }
 
 getEventsFromLocalStorage();
-
 
 function createMarkupFav() {
     const parcedCurrentStorage = getEventsFromLocalStorage();
@@ -68,23 +62,50 @@ function createMarkupFav() {
     );
     
     const insertData = filteredStorage.map(el => {
+        return `<li class="events-list__item animate__animated animate__bounceInUp" id="${el.id}" data-type="event">
+            <div class="for-hover">
+                <img class="event-image" src="${el.src}" alt="name"></img>
+                <span class="event-image-span"></span>
+                <h2 class="event-name">${el.name}</h2>
+                <p class="event-date"> ${el.date}  </p>
+                <p class="event-location">${el.location}</p>
+            </div>
+            </li>`
+    })
+    
+    return insertData.join('');
+}
 
-       
-            return `<li class="events-list__item animate__animated animate__bounceInUp" id="${el.id}" data-type="event">
-                <div class="for-hover">
-                    <img class="event-image" src="${el.src}" alt="name"></img>
-                    <span class="event-image-span"></span>
-                    <h2 class="event-name">${el.name}</h2>
-                    <p class="event-date"> ${el.date}  </p>
-                    <p class="event-location">${el.location}</p>
-                </div>
-                </li>`
-        
 
 
-    }).join(' ');
-
-    return insertData;
+function initPagination() { 
+        $('#pagenumbers').pagination({
+      ajax: function (options, refresh, $target) {
+        Promise.resolve()
+          .then(function (data) {
+            refresh({
+              total: data.totalElements,
+              length: data.length,
+            });
+            const insertData = filteredStorage.map(el => {
+                     return `<li class="events-list__item animate__animated animate__bounceInUp" id="${el.id}" data-type="event">
+                 <div class="for-hover">
+                 <img class="event-image" src="${el.src}" alt="name"></img>
+                 <span class="event-image-span"></span>
+                 <h2 class="event-name">${el.name}</h2>
+                 <p class="event-date"> ${el.date}  </p>
+                 <p class="event-location">${el.location}</p>
+                 </div>
+                 </li>`
+                 });
+            return insertData.join('');
+            });
+            list.innerHTML = insertData.join('');
+          })
+          .catch();
+            paginationContainer.classList.add('hiden');
+            list.innerHTML = '';
+    });
 }
 
 
