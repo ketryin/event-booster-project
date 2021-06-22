@@ -9,10 +9,52 @@
 
 body.light-theme {
   background-color: #dcdcdc;
+
+  & .hero {
+    background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      url('../images/hero-mobile.jpg');
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: $mobile),
+    screen and (min-resolution: 192dpi) and (min-width: $mobile),
+    screen and (min-resolution: 2dppx) and (min-width: $mobile) {
+    .hero {
+      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+        url('../images/hero-mobile@2x.jpg');
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    .hero {
+      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+        url('../images/hero-tablet.jpg');
+    }
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: $tablet),
+    screen and (min-resolution: 192dpi) and (min-width: $tablet),
+    screen and (min-resolution: 2dppx) and (min-width: $tablet) {
+    .hero {
+      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+        url('../images/hero-tablet@2x.jpg');
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    .hero {
+      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+        url('../images/hero.jpg');
+    }
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: $desktop),
+    screen and (min-resolution: 192dpi) and (min-width: $desktop),
+    screen and (min-resolution: 2dppx) and (min-width: $desktop) {
+    .hero {
+      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+        url('../images/hero@2x.jpg');
+    }
+  }
 }
 
-body.dark-theme {
+body {
   background-color: #0e0e0e;
+  transition: background-color 350ms ease;
 }
 
 .toolbar {
@@ -115,8 +157,12 @@ body.dark-theme {
   margin-right: 20px;
   border: 0;
   border-radius: 20px;
-  height: 30px;
+  height: 32px;
+  width: 122px;
   cursor: pointer;
+  background-color: #dc56c5;
+  color: #ffffff;
+  // vertical-align: middle;
 }
 
 @media screen and (max-width: 767px) {
@@ -124,6 +170,10 @@ body.dark-theme {
     width: 108px;
     height: 91px;
     background-image: url('../images/logo-mob.png');
+  }
+
+  .toolbar {
+    top: 5px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -142,6 +192,33 @@ body.dark-theme {
     background-image: url('../images/logo-tablet.png');
   }
 
+  .toolbar {
+    top: 0px;
+  }
+
+  .header-my-favorites-btn {
+    height: 26px;
+    width: 112px;
+    font-size: 14px;
+  }
+
+  // .theme-switch__control {
+  //   height: 26px;
+  // }
+
+  // .theme-switch__control {
+  //   height: 26px;
+  // }
+
+  // .theme-switch__marker {
+  //   height: 22px;
+  //   width: 22px;
+  // }
+
+  // .theme-switch__track {
+  //   width: 64px;
+  // }
+
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
@@ -153,8 +230,8 @@ body.dark-theme {
 
 @media screen and (min-width: 1200px) {
   .logo {
-    width: 239px;
-    height: 200px;
+    width: 241px;
+    height: 202px;
     background-image: url('../images/logo-laptop.png');
   }
 

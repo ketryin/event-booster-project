@@ -1,37 +1,14 @@
 const openFavModalBtn = document.querySelector('button[data-action="open-modal"]');
-const closeFavModalMtn = document.querySelector('button[data-action="close-modal"]');
-const backDropRef = document.querySelector('.js-backdrop');
+
 const favList = document.querySelector('.fav-events-list');
 const eventsListRef = document.querySelector('.js-list');
 const paginationContainer = document.querySelector('.pagination')
 
 openFavModalBtn.addEventListener('click', showModalHendler);
-closeFavModalMtn.addEventListener('click', removeModalHendler);
-backDropRef.addEventListener('click', onBackdropClick);
+
 
 function showModalHendler() {
-    // document.body.classList.add('show-modal');
-    // window.addEventListener('keydown', onEscapePress);
     renderFavEvents();
-
-}
-// щоб зняти ESC треба винести його в окрему функцію
-
-// function onEscapePress(event) {
-//     if (event.code === 'Escape') {
-//             removeModalHendler()
-//         }
-// }
-
-function removeModalHendler() {
-    document.body.classList.remove('show-modal');
-    window.removeEventListener('keydown', onEscapePress)
-}
-
-function onBackdropClick(event) {
-    // if (event.target === event.currentTarget) {
-    //     // removeModalHendler()
-    // }
 }
 
 function setUpCarrentFavoriteItems() {
