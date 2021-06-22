@@ -1,11 +1,4 @@
-import { error } from '@pnotify/core';
-import { defaults } from '@pnotify/core';
-import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
-import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
-defaultModules.set(PNotifyMobile, {});
-defaults.addClass = 'animate__animated animate__pulse pnotify__position';
-defaults.mode = 'dark';
-defaults.sticker = false;
+import createError from './customAlert.js';
 
 import ApiService from './fetch-events.js';
 import cardTpl from './../templates/event-card.hbs';
@@ -111,10 +104,7 @@ export default function handleFormChange(form, list, select, input) {
             // changeAllColorTitle(dates, locations);
           })
           .catch(er => {
-            const myError = error({
-              text: er,
-              // text: 'Incorrect query parameters, please, try again!',
-            });
+            createError('Incorrect query parameters, please, try again!');
             paginationContainer.classList.add('hiden');
             list.innerHTML = '';
           })
