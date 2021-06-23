@@ -21,7 +21,6 @@ const favoriteStorageBtn = document.querySelector('.header-my-favorites-btn');
 
 favoriteStorageBtn.addEventListener('click', onFavoriteStorageBtnClick)
 
-
 function onFavoriteStorageBtnClick() {
   favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
 
@@ -193,8 +192,8 @@ function onEventCardClick(e) {
                 favoriteButton.classList.add('actice-remove-to-fav');
                 favoriteButton.textContent = 'removed';
                 favoriteButton.removeAttribute('on-fav-btn-click')
-                favoriteStorageBtn.removeAttribute('on-fav-btn-click');
                 renderFavEvents();
+                favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
                 }
 
 
