@@ -23,7 +23,6 @@ favoriteStorageBtn.addEventListener('click', onFavoriteStorageBtnClick)
 
 
 function onFavoriteStorageBtnClick() {
-  console.log(favoriteStorageBtn);
   favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
 
 }
@@ -108,7 +107,6 @@ function onEventCardClick(e) {
         
         const modalInfoRef = document.querySelector('.modal__text');
         const fullInfo = modalInfoRef.textContent;
-        console.log(fullInfo);
         const cutInfo = `${modalInfoRef.textContent.slice(0, 150)}...`;
         modalInfoRef.innerHTML = `${cutInfo}`;
         
