@@ -12,6 +12,7 @@ const refs = {
     btnSignUp: document.querySelector('#btnSignUp'),
     btnLogout: document.querySelector('#btnLogout'),
     greeting: document.querySelector('.greeting-authentication'),
+    body: document.querySelector('body'),
 };
 
 refs.btnOpenModalAuthentication.addEventListener('click', onBtnAuthenticationClick);
@@ -28,6 +29,7 @@ if (auth.getCurrentUser() !== null) {
 
 function onBtnAuthenticationClick() {
     refs.backdrop.classList.add('is--open');
+    refs.body.classList.toggle('modal-open');
 }
 function onClickBackdrop(evt) {
     if (evt.currentTarget === evt.target) {
@@ -36,6 +38,7 @@ function onClickBackdrop(evt) {
 }
 function onClickBtnClose() {
     refs.backdrop.classList.remove('is--open');
+    refs.body.classList.toggle('modal-open');
 }
 
 function onClickbtnLogin() {
