@@ -8,7 +8,8 @@
 }
 
 body.light-theme {
-  background-color: #dcdcdc;
+  background-color: #ffffff;
+
   @media screen and(max-width: $to-mobile) {
     background-image: url(../images/noise-body.png);
     background-size: cover;
@@ -57,20 +58,38 @@ body.light-theme {
   }
 
   & .hero {
-    background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+    background-image: linear-gradient(
+        165deg,
+        rgba(14, 14, 14, 1) 0%,
+        rgba(14, 14, 14, 1) 18%,
+        rgba(207, 36, 168, 0.4042661009716386) 72%,
+        rgba(62, 62, 62, 1) 100%
+      ),
       url('../images/hero-mobile.jpg');
   }
   @media screen and (min-device-pixel-ratio: 2) and (min-width: $mobile),
     screen and (min-resolution: 192dpi) and (min-width: $mobile),
     screen and (min-resolution: 2dppx) and (min-width: $mobile) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero-mobile@2x.jpg');
     }
   }
   @media screen and (min-width: $tablet) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero-tablet.jpg');
     }
   }
@@ -78,13 +97,25 @@ body.light-theme {
     screen and (min-resolution: 192dpi) and (min-width: $tablet),
     screen and (min-resolution: 2dppx) and (min-width: $tablet) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero-tablet@2x.jpg');
     }
   }
   @media screen and (min-width: $desktop) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero.jpg');
     }
   }
@@ -92,7 +123,13 @@ body.light-theme {
     screen and (min-resolution: 192dpi) and (min-width: $desktop),
     screen and (min-resolution: 2dppx) and (min-width: $desktop) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero@2x.jpg');
     }
   }
