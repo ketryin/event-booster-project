@@ -95,13 +95,39 @@ function onEventCardClick(e) {
 
         onCLickBtnClose();
         
-        const modalTitleRef = document.querySelector('.modal__text');
-        modalTitleRef.textContent = `${modalTitleRef.textContent.slice(0, 150)}...`;
+        const modalInfoRef = document.querySelector('.modal__text');
+        const fullInfo = modalInfoRef.textContent;
+        console.log(fullInfo);
+        const cutInfo = `${modalInfoRef.textContent.slice(0, 150)}...`;
+        modalInfoRef.innerHTML = `${cutInfo}`;
+        
+        
+        const showMoreBtn = document.querySelector('.show-more');
+        showMoreBtn.setAttribute('info', true);
 
+        showMoreBtn.addEventListener('click', () => {
+          
+          if (showMoreBtn.hasAttribute('info')) {
+            modalInfoRef.textContent = fullInfo;
+            modalInfoRef.classList.add('active-show-more');
+            showMoreBtn.textContent = 'show less';
+            showMoreBtn.removeAttribute('info');
+            return;
+          }
+
+          if (!showMoreBtn.hasAttribute('info')) {
+            
+            modalInfoRef.textContent = cutInfo;
+            showMoreBtn.textContent = 'show more';
+            showMoreBtn.setAttribute('info', true);
+
+          }
+  
+        })
+        
+        
         const modalButtonMore = document.querySelector('.modal__btn__more');
         modalButtonMore.addEventListener('click', onModalButtonMoreClick);
-        
-        
 
         const imageElement = document.querySelector('.modal-img-test');
 
