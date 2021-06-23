@@ -36,7 +36,7 @@ body.modal_open {
     left: 50%;
     overflow-y: auto;
     transform: translate(-50%, -50px) scale(1);
-        height: 640px;
+        height: 620px;
         margin-top: 10px;
         border-radius: 80px 0;
         background-color: #FFF2FD;
@@ -136,8 +136,9 @@ body.modal_open {
   }
 .modalTitle {
     @media screen and (min-width: 320px) {
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 10px;
+    margin-bottom: 20px;
     }
     @media screen and (min-width: 595px) {
         font-size: 23px;
@@ -154,9 +155,14 @@ body.modal_open {
 
 .personal-item {
     @media screen and (min-width: 320px) {
-        display: inline-block;
-    margin: 0 0 10px 0;
+    display: inline-block;
+    margin: 0 0 20px 0;
+    padding: 0;
+    width: 200px;
+    height: 30px;
+    justify-content: left;
     }
+    @media screen and (min-width: 595px) {
     position: relative;
     width: 180px;
     height: 260px;
@@ -170,18 +176,33 @@ body.modal_open {
         border-radius: 15px 0;
     }
 }
+}
 
 .personal-item:nth-child(5n) {
     margin-right: 0%;
 }
+
 .personal-photo {
+    @media screen and (min-width: 320px) {
+    display: none;
+    }
+    @media screen and (min-width: 595px) {
     width: 150px;
     display: block;
     margin: 0 auto;
     border-radius: 8px 0;
     margin-top: 12px;
+    }
 }
 .headlines-name {
+    @media screen and (min-width: 320px) {
+    display: inherit ;
+    margin: 0;
+    color: #DC56C5;
+    font-weight: 700;
+    font-size: 14px;
+    }
+    @media screen and (min-width: 595px) {
     font-family: Montserrat;
     margin-top: 12px;
     margin-bottom: 5px;
@@ -190,6 +211,7 @@ body.modal_open {
     font-size: 14px;
     line-height: 1.19;
     text-align: center;
+}
 }
 .position {
     font-family: Montserrat;
@@ -221,8 +243,14 @@ body.modal_open {
     text-align: center;
 }
 .social-item {
+    // @media screen and (min-width: 320px) {
+    //     width: 26px;
+    //     height: 26px;
+    //     border-radius: 0;
+    // }
+    @media screen and (min-width: 595px) {
     display: flex;
-    align-items: center;
+    align-items: center ;
     justify-content: center;
     width: 28px;
     height: 28px;
@@ -238,18 +266,28 @@ body.modal_open {
         fill: wheat;
     }
 }
+}
 .social>li:nth-child(1) {
     margin-right: 10px;
 }
 .social {
+    @media screen and (min-width: 320px) {
+    display: inline-flex;
+    align-items: center ;
+    justify-content: center;
+    margin-bottom: 8px;
+    }
+    @media screen and (min-width: 595px) {
+    
     display: flex;
-    position: absolute;
+    position: relative;
     bottom: 10px;
     left: 50%;
     right: 50%;
     margin-top: 8px;
     justify-content: center;
     align-items: center;
+    }
 }
 .closeLogo {
     display: flex;
