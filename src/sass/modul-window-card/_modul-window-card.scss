@@ -40,6 +40,11 @@ body.modal-open {
   text-align: right;
 }
 
+.active-show-more {
+  overflow: auto;
+  max-height: 130px;
+}
+
 .show-more:hover {
   background-color: #4c00fe;
   color: #ffffff;

@@ -109,6 +109,7 @@ function onEventCardClick(e) {
           
           if (showMoreBtn.hasAttribute('info')) {
             modalInfoRef.textContent = fullInfo;
+            modalInfoRef.classList.add('active-show-more');
             showMoreBtn.textContent = 'show less';
             showMoreBtn.removeAttribute('info');
             return;
