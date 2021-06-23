@@ -24,7 +24,6 @@ export default class EventApiService {
     }&countryCode=${this.searchCountryQuery}&apikey=${this.#CONSUMER_KEY}`;
 
     return fetch(url).then(response => {
-      console.log(response);
       return response.json().then(this.normalizeEventsListResponse.bind(this));
     });
   }
