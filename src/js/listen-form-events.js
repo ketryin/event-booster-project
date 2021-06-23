@@ -14,6 +14,7 @@ import removeLoader from './remove-loader';
 import filterBiggerImage from './filter-lagest-image.js';
 
 const paginationContainer = document.querySelector('#pagenumbers');
+const favoriteStorageBtn = document.querySelector('.header-my-favorites-btn');
 
 export default function handleFormChange(form, list, select, input) {
   const api = new ApiService();
@@ -64,6 +65,7 @@ export default function handleFormChange(form, list, select, input) {
               return cardTpl(event);
             });
             list.innerHTML = insertData.join('');
+            favoriteStorageBtn.removeAttribute('on-fav-btn-click');
 
             const eventDates = document.querySelectorAll('.event-date');
             const eventLocations = document.querySelectorAll('.event-location');

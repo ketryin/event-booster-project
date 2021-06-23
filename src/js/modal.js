@@ -17,6 +17,15 @@ import renderFavEvents from './favorite.js'
 const api = new EventApiService();
 
 const favList = document.querySelector('.fav-events-list');
+const favoriteStorageBtn = document.querySelector('.header-my-favorites-btn');
+
+favoriteStorageBtn.addEventListener('click', onFavoriteStorageBtnClick)
+
+function onFavoriteStorageBtnClick() {
+  favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
+
+}
+
 
 
 const refs = {
@@ -97,7 +106,6 @@ function onEventCardClick(e) {
         
         const modalInfoRef = document.querySelector('.modal__text');
         const fullInfo = modalInfoRef.textContent;
-        console.log(fullInfo);
         const cutInfo = `${modalInfoRef.textContent.slice(0, 150)}...`;
         modalInfoRef.innerHTML = `${cutInfo}`;
         
@@ -151,6 +159,9 @@ function onEventCardClick(e) {
           );
         }
 
+        
+
+
 
         const favoriteButton = document.querySelector('.favorite-button');
         favoriteButton.textContent = localStorage.getItem(`${eventSingleCard.id}`) || 'Add to favorite';
@@ -175,13 +186,14 @@ function onEventCardClick(e) {
             favoriteButton.textContent = 'Add to favorite';
             localStorage.setItem(`${eventSingleCard.id}`, 'Add to favorite');
 
-              if (!eventSingleCard.getAttribute('in-storage')) {
+              if (!eventSingleCard.getAttribute('in-storage') && favoriteStorageBtn.hasAttribute('on-fav-btn-click')) {
                 eventSingleCard.removeAttribute('in-storage');
                 favoriteButton.setAttribute('disabled', true);
                 favoriteButton.classList.add('actice-remove-to-fav');
-                favoriteButton.textContent = 'removed'
-
+                favoriteButton.textContent = 'removed';
+                favoriteButton.removeAttribute('on-fav-btn-click')
                 renderFavEvents();
+                favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
                 }
 
 
