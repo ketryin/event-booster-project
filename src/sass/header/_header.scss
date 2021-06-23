@@ -193,7 +193,6 @@ body {
   display: flex;
   right: 100px;
   top: 20px;
-
   padding: 16px 24px;
 }
 
@@ -205,16 +204,18 @@ body {
 
 .moon {
   position: absolute;
-  background-color: white;
-  right: -90px;
+  background-color: none;
+  color: darkgray;
+  right: -10px;
   z-index: 2;
   border-radius: 50%;
 }
 
 .sun {
   position: absolute;
-  background-color: white;
-  right: 10px;
+  background-color: none;
+  color: darkgray;
+  right: -85px;
   z-index: 2;
   border-radius: 50%;
 }
@@ -225,8 +226,8 @@ body {
   align-items: center;
   flex-shrink: 0;
   position: absolute;
-  width: 64px;
-  height: 32px;
+  width: 50px;
+  height: 26px;
   border-radius: 50em;
   padding: 3px 0;
 }
@@ -251,7 +252,7 @@ body {
   height: 100%;
   color: transparent;
   user-select: none;
-  background-color: white;
+  background-color: #333;
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
@@ -260,8 +261,8 @@ body {
 .theme-switch__marker {
   position: relative;
   background-color: #dc56c5;
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
@@ -271,11 +272,11 @@ body {
 }
 
 .theme-switch__toggle:checked + .theme-switch__track {
-  background-color: #333;
+  background-color: white;
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateX(35px);
+  transform: translateX(26px);
 }
 
 .theme-switch__toggle:focus + .theme-switch__track,
@@ -284,6 +285,9 @@ body {
 }
 
 .header-my-favorites-btn {
+  position: absolute;
+  top: 0px;
+  right: 10px;
   margin-right: 20px;
   border: 0;
   border-radius: 20px;
@@ -304,6 +308,22 @@ body {
 
   .toolbar {
     top: 5px;
+  }
+
+  .moon,
+  .sun {
+    display: none;
+  }
+
+  .theme-switch__track,
+  .theme-switch__marker {
+    left: 25px;
+    top: 10px;
+  }
+
+  .header-my-favorites-btn {
+    top: 10px;
+    right: -40px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -330,6 +350,17 @@ body {
     height: 26px;
     width: 112px;
     font-size: 14px;
+    top: 10px;
+  }
+
+  .theme-switch__track,
+  .theme-switch__marker {
+    top: 8px;
+  }
+
+  .moon,
+  .sun {
+    top: 12px;
   }
 
   // .theme-switch__control {
