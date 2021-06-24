@@ -8,23 +8,88 @@
 }
 
 body.light-theme {
-  background-color: #dcdcdc;
+  background-color: #ffffff;
+
+  @media screen and(max-width: $to-mobile) {
+    background-image: url(../images/noise-body.png);
+    background-size: cover;
+    background-position: center;
+  }
+  @media screen and(min-width: $mobile) {
+    background-image: url(../images/noise-body.png);
+    background-size: cover;
+    background-position: center;
+  }
+  @media screen and(min-width: $tablet) {
+    background-image: url(../images/svg/ellipseLightTheme-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-6.svg), url(../images/svg/ellipseLightTheme-11.svg),
+      url(../images/svg/ellipse-10.svg), url(../images/svg/ellipse-4.svg),
+      url(../images/svg/ellipseLightTheme-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-4.svg), url(../images/svg/line-1.svg), url(../images/svg/line-1.svg),
+      url(../images/svg/line-1.svg), url(../images/svg/line-1.svg), url(../images/svg/line-1.svg),
+      url(../images/svg/line-6.svg), url(../images/svg/line-6.svg), url(../images/noise-body.png);
+
+    background-size: 80px, 126px, 237px, 80px, 126px, 237px, 80px, 126px, 237px, 1px, 1px, 1px, 1px,
+      1px, 1px, 1px, cover;
+    background-repeat: no-repeat;
+    background-position: left 46px top 602px, left 26px top 582px, left 26px top 1882px,
+      left 46px bottom 0px, left 26px bottom 0px, right 25px top 1010px, right 45px top 1910px,
+      right 25px top 1890px, right 25px top 3020px, left 86px top -160px, left 86px top 708px,
+      left 86px top 1450px, left 86px top 2150px, left 86px top 2651px, right 86px top -405px,
+      right 86px top 2015px, center;
+  }
+  @media screen and(min-width: $desktop) {
+    background-image: url(../images/svg/ellipseLightTheme-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-6.svg), url(../images/svg/ellipseLightTheme-11.svg),
+      url(../images/svg/ellipse-10.svg), url(../images/svg/ellipse-4.svg),
+      url(../images/svg/ellipseLightTheme-2.svg), url(../images/svg/ellipse-7.svg),
+      url(../images/svg/ellipse-9.svg), url(../images/svg/line-1.svg), url(../images/svg/line-3.svg),
+      url(../images/svg/line-3.svg), url(../images/svg/line-2.svg), url(../images/svg/line-2.svg),
+      url(../images/svg/line-2.svg), url(../images/noise-body.png);
+
+    background-size: 136px, 216px, 334px, 136px, 216px, 334px, 136px, 216px, 334px, 1px, 1px, 1px,
+      1px, 1px, 1px, cover;
+    background-repeat: no-repeat;
+    background-position: left 47px top 882px, left 7px top 842px, left 23px top 1554px,
+      left 47px bottom 0px, left 7px bottom 0px, right 36px top 528px, right 96px top 1989px,
+      right 56px top 1949px, right 36px top 2252px, left 115px top 100px, left 115px top 1057px,
+      left 115px top 1287px, right 163px top 110px, right 163px top 754px, right 163px top 1860px,
+      center;
+  }
 
   & .hero {
-    background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+    background-image: linear-gradient(
+        165deg,
+        rgba(14, 14, 14, 1) 0%,
+        rgba(14, 14, 14, 1) 18%,
+        rgba(207, 36, 168, 0.4042661009716386) 72%,
+        rgba(62, 62, 62, 1) 100%
+      ),
       url('../images/hero-mobile.jpg');
   }
   @media screen and (min-device-pixel-ratio: 2) and (min-width: $mobile),
     screen and (min-resolution: 192dpi) and (min-width: $mobile),
     screen and (min-resolution: 2dppx) and (min-width: $mobile) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero-mobile@2x.jpg');
     }
   }
   @media screen and (min-width: $tablet) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero-tablet.jpg');
     }
   }
@@ -32,13 +97,25 @@ body.light-theme {
     screen and (min-resolution: 192dpi) and (min-width: $tablet),
     screen and (min-resolution: 2dppx) and (min-width: $tablet) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero-tablet@2x.jpg');
     }
   }
   @media screen and (min-width: $desktop) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero.jpg');
     }
   }
@@ -46,7 +123,13 @@ body.light-theme {
     screen and (min-resolution: 192dpi) and (min-width: $desktop),
     screen and (min-resolution: 2dppx) and (min-width: $desktop) {
     .hero {
-      background-image: linear-gradient(rgba(211, 211, 211, 0.5), rgba(211, 211, 211, 0.5)),
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
         url('../images/hero@2x.jpg');
     }
   }
@@ -55,6 +138,53 @@ body.light-theme {
 body {
   background-color: #0e0e0e;
   transition: background-color 350ms ease;
+
+  @media screen and(max-width: $to-mobile) {
+    background-image: url(../images/noise-body.png);
+    background-size: cover;
+    background-position: center;
+  }
+  @media screen and(min-width: $mobile) {
+    background-image: url(../images/noise-body.png);
+    background-size: cover;
+    background-position: center;
+  }
+  @media screen and(min-width: $tablet) {
+    background-image: url(../images/svg/ellipse-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-6.svg), url(../images/svg/ellipse-11.svg),
+      url(../images/svg/ellipse-10.svg), url(../images/svg/ellipse-4.svg),
+      url(../images/svg/ellipse-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-4.svg), url(../images/svg/line-1.svg), url(../images/svg/line-1.svg),
+      url(../images/svg/line-1.svg), url(../images/svg/line-1.svg), url(../images/svg/line-1.svg),
+      url(../images/svg/line-6.svg), url(../images/svg/line-6.svg), url(../images/noise-body.png);
+
+    background-size: 80px, 126px, 237px, 80px, 126px, 237px, 80px, 126px, 237px, 1px, 1px, 1px, 1px,
+      1px, 1px, 1px, cover;
+    background-repeat: no-repeat;
+    background-position: left 46px top 602px, left 26px top 582px, left 26px top 1882px,
+      left 46px bottom 0px, left 26px bottom 0px, right 25px top 1010px, right 45px top 1910px,
+      right 25px top 1890px, right 25px top 3020px, left 86px top -160px, left 86px top 708px,
+      left 86px top 1450px, left 1007px top 2150px, left 86px top 2651px, right 86px top -405px,
+      right 86px top 2015px, center;
+  }
+  @media screen and(min-width: $desktop) {
+    background-image: url(../images/svg/ellipse-2.svg), url(../images/svg/ellipse-5.svg),
+      url(../images/svg/ellipse-6.svg), url(../images/svg/ellipse-11.svg),
+      url(../images/svg/ellipse-10.svg), url(../images/svg/ellipse-4.svg),
+      url(../images/svg/ellipse-8.svg), url(../images/svg/ellipse-7.svg),
+      url(../images/svg/ellipse-9.svg), url(../images/svg/line-1.svg), url(../images/svg/line-3.svg),
+      url(../images/svg/line-3.svg), url(../images/svg/line-2.svg), url(../images/svg/line-2.svg),
+      url(../images/svg/line-2.svg), url(../images/noise-body.png);
+
+    background-size: 136px, 216px, 334px, 136px, 216px, 334px, 136px, 216px, 334px, 1px, 1px, 1px,
+      1px, 1px, 1px, cover;
+    background-repeat: no-repeat;
+    background-position: left 47px top 882px, left 7px top 842px, left 23px top 1554px,
+      left 47px bottom 0px, left 7px bottom 0px, right 36px top 528px, right 96px top 1989px,
+      right 56px top 1949px, right 36px top 2252px, left 115px top 100px, left 115px top 1057px,
+      left 115px top 1287px, right 163px top 110px, right 163px top 754px, right 163px top 1860px,
+      center;
+  }
 }
 
 .toolbar {
@@ -63,7 +193,6 @@ body {
   display: flex;
   right: 100px;
   top: 20px;
-
   padding: 16px 24px;
 }
 
@@ -75,16 +204,18 @@ body {
 
 .moon {
   position: absolute;
-  background-color: white;
-  right: -90px;
+  background-color: none;
+  color: darkgray;
+  right: -10px;
   z-index: 2;
   border-radius: 50%;
 }
 
 .sun {
   position: absolute;
-  background-color: white;
-  right: 10px;
+  background-color: none;
+  color: darkgray;
+  right: -85px;
   z-index: 2;
   border-radius: 50%;
 }
@@ -95,8 +226,8 @@ body {
   align-items: center;
   flex-shrink: 0;
   position: absolute;
-  width: 64px;
-  height: 32px;
+  width: 50px;
+  height: 26px;
   border-radius: 50em;
   padding: 3px 0;
 }
@@ -121,7 +252,7 @@ body {
   height: 100%;
   color: transparent;
   user-select: none;
-  background-color: white;
+  background-color: #333;
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
@@ -130,8 +261,8 @@ body {
 .theme-switch__marker {
   position: relative;
   background-color: #dc56c5;
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
@@ -141,11 +272,11 @@ body {
 }
 
 .theme-switch__toggle:checked + .theme-switch__track {
-  background-color: #333;
+  background-color: white;
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateX(35px);
+  transform: translateX(26px);
 }
 
 .theme-switch__toggle:focus + .theme-switch__track,
@@ -154,6 +285,9 @@ body {
 }
 
 .header-my-favorites-btn {
+  position: absolute;
+  top: 0px;
+  right: 10px;
   margin-right: 20px;
   border: 0;
   border-radius: 20px;
@@ -174,6 +308,22 @@ body {
 
   .toolbar {
     top: 5px;
+  }
+
+  .moon,
+  .sun {
+    display: none;
+  }
+
+  .theme-switch__track,
+  .theme-switch__marker {
+    left: 25px;
+    top: 10px;
+  }
+
+  .header-my-favorites-btn {
+    top: 10px;
+    right: -40px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -200,6 +350,17 @@ body {
     height: 26px;
     width: 112px;
     font-size: 14px;
+    top: 10px;
+  }
+
+  .theme-switch__track,
+  .theme-switch__marker {
+    top: 8px;
+  }
+
+  .moon,
+  .sun {
+    top: 12px;
   }
 
   // .theme-switch__control {

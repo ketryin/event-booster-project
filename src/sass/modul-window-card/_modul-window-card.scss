@@ -25,23 +25,56 @@ body.modal-open {
   transition: opacity 250ms linear;
 }
 
+.show-less,
+.show-more {
+  display: block;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: auto;
+  width: max-content;
+  font-size: 15px;
+  background-color: #f1aaff;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-top: -10px;
+  text-align: right;
+}
+
+.active-show-more {
+  overflow: auto;
+  max-height: 130px;
+}
+
+.show-more:hover {
+  background-color: #4c00fe;
+  color: #ffffff;
+}
+
 .modal-box {
   @media screen and (max-width: 319px) {
+    transform: translate(-50%, -50%) scale(0.7, 0.8);
+
     width: 272px;
     min-height: auto;
     border-radius: 150px 0 150px 0;
   }
   @media screen and (min-width: 320px) {
+    transform: translate(-50%, -50%) scale(0.8, 0.7);
+
     width: 272px;
     min-height: auto;
     border-radius: 150px 0 150px 0;
   }
   @media screen and (min-width: 595px) {
+    transform: translate(-50%, -50%) scale(0.7);
+
     width: 595px;
     min-height: auto;
     border-radius: 300px 0 300px 0;
   }
   @media screen and (min-width: 1050px) {
+    transform: translate(-50%, -50%) scale(0.6);
+
     width: 942px;
     min-height: auto;
 
@@ -50,7 +83,7 @@ body.modal-open {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.6);
+
   transition: transform 250ms linear;
   background-color: rgba(255, 242, 253, 1);
 }
@@ -243,6 +276,20 @@ body.modal-open {
   color: $accent-color;
 }
 
+.modal__location-link::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 20px;
+  margin-right: 3px;
+  background-image: url(/images/svg/location.svg);
+  background-size: 12px 20px;
+}
+
+.modal__location-link:hover:before {
+  background-image: url(/images/svg/location-accent.svg);
+}
+
 .modal_buy:not(:last-child) {
   @media screen and (max-width: 319px) {
     margin-bottom: 20px;
@@ -322,6 +369,7 @@ body.modal-open {
   border-radius: 5px;
   border-color: #4c00fe;
 }
+
 .modal__btn__more.favorite-button {
   @media screen and (max-width: 319px) {
     width: 226px;
@@ -344,9 +392,9 @@ body.modal-open {
     margin-top: 15px;
   }
   position: relative;
-
   text-transform: uppercase;
 }
+
 // .modal__btn__more.favorite-button::before {
 //   display: block;
 //   content: '';
@@ -354,10 +402,8 @@ body.modal-open {
 //   top: 50%;
 //   left: 92%;
 //   transform: translate(-50%, -50%);
-
 //   width: 30px;
 //   height: 30px;
-
 //   background-image: url('../images/favorit_btn.svg');
 //   background-position: center;
 //   background-repeat: no-repeat;
