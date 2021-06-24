@@ -1,55 +1,55 @@
 .pagination {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    // width: 233px;
-    height: 33px;
-    @media screen and (max-width: $to-desktop) {
-        margin-top: 60px;
-    }
-    @media screen and (min-width: $desktop) {
-        margin-top: 80px;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  // width: 233px;
+  height: 33px;
+  @media screen and (max-width: $to-desktop) {
+    margin-top: 60px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-top: 80px;
+  }
 }
 
 .hiden {
-    visibility:hidden
+  visibility: hidden;
 }
 
 .pagination li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background-color: Transparent;
-    color: #FFFFFF;
-    appearance: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 5px;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: Transparent;
+  color: #ffffff;
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pagination li a:hover {
-    border: 1px solid #DC56DC;
-    border-radius: 10px 0px 10px 0px;
-    color: #DC56C5;
+  border: 1px solid #dc56dc;
+  border-radius: 10px 0px 10px 0px;
+  color: #dc56c5;
 }
 
 .pagination li.active {
-    border: 1px solid #DC56DC;
-    border-radius: 10px 0px 10px 0px;
-    color: #DC56C5;
+  border: 1px solid #dc56dc;
+  border-radius: 10px 0px 10px 0px;
+  color: #dc56c5;
 }
 
 .pagination li a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 12px;
 }
