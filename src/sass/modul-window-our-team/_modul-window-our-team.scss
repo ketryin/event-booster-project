@@ -40,9 +40,13 @@ body.modal_open {
         margin-top: 10px;
         border-radius: 80px 0;
         background-color: #FFF2FD;
+        text-align: center;
         // transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
       }
       @media screen and (min-width: 595px) {
+        width: 595px;
+        height: 420px;
+    }
           position: relative;
           margin: 0;
           left: 50%;
@@ -51,32 +55,35 @@ body.modal_open {
           bottom: 50%;
           transform: translate(-50%, -50%) scale(1);
         width: 595px;
-        height: 350px;
+        height: 320px;
         border-radius: 100px 0;
         background-color: #FFF2FD;
-      }
-      @media screen and (min-width: 1050px) {
+    @media screen and (min-width: 1050px) {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     width: 1100px;
-    height: 650px;
+    height: 610px;
+    margin-top: 0;
     background-color: #FFF2FD;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 120px 0;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    // overflow: hidden;
 }
 }
 .modal_btn_close {
     @media screen and (max-width: 319px) {
-        position: fixed;
+        
+        position: absolute;
         padding: 0;
         background-color: #FFF2FD;
 
     }
     @media screen and (min-width: 320px) {
-    position: fixed;
+        
+    position: absolute;
     padding: 0;
     background-color: #FFF2FD;
     top: 4px;
@@ -139,18 +146,24 @@ body.modal_open {
     font-size: 18px;
     margin-left: 10px;
     margin-bottom: 20px;
+    color: #DC56C5;
+    font-family: Montserrat;
     }
     @media screen and (min-width: 595px) {
-        font-size: 23px;
+        font-size: 22px;
+        margin: 0 0 20px 0;
     }
+    @media screen and (min-width: 1050px) {
     font-family: Montserrat;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
     color: #DC56C5;
     font-weight: 700;
     font-size: 25px;
     line-height: 1.19;
     text-align: center;
+    
+}
 }
 
 .personal-item {
@@ -160,14 +173,22 @@ body.modal_open {
     padding: 0;
     width: 200px;
     height: 30px;
-    justify-content: left;
+    justify-content: center;
+    text-align: center;
     }
     @media screen and (min-width: 595px) {
+        
+    width: 100px;
+    height: 140px;
+    margin: 0 10px 0 0;
+    justify-content:flex-start ;
+    }
+    @media screen and (min-width: 1050px) {
     position: relative;
     width: 180px;
     height: 260px;
     margin-right: 20px;
-    padding-bottom: 30px;
+    margin-bottom: 15px;
     
     background: #FFF2FD;
     &:hover,
@@ -187,6 +208,14 @@ body.modal_open {
     display: none;
     }
     @media screen and (min-width: 595px) {
+        display: block;
+    width: 90px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    vertical-align: top;
+    }
+    @media screen and (min-width: 1050px) {
     width: 150px;
     display: block;
     margin: 0 auto;
@@ -203,6 +232,11 @@ body.modal_open {
     font-size: 14px;
     }
     @media screen and (min-width: 595px) {
+    margin: 0;
+    font-size: 11px;
+    height: 22.5px;
+    }
+        @media screen and (min-width: 1050px) {
     font-family: Montserrat;
     margin-top: 12px;
     margin-bottom: 5px;
@@ -226,21 +260,32 @@ body.modal_open {
     display: block;
     margin: 0;
     }
+    @media screen and (min-width: 595px) {
+    margin-bottom: 20px;
+    }
+    @media screen and (min-width: 1050px) {
     display: flex;
     flex-wrap: wrap;
     margin-left: 80px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     text-align: center;
+}
 }
 .headlines-list2 {
     @media screen and (min-width: 320px) {
         display: block;
-        margin: 0 0 30px 0;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
         }
+        @media screen and (min-width: 1050px) {
     display: flex;
     flex-wrap: wrap;
     margin-left: 35px;
+    margin-bottom: 0;
+    
     text-align: center;
+}
 }
 .social-item {
     // @media screen and (min-width: 320px) {
@@ -279,8 +324,10 @@ body.modal_open {
     }
     @media screen and (min-width: 595px) {
     
+    }
+        @media screen and (min-width: 1050px) {
     display: flex;
-    position: relative;
+    position: absolute;
     bottom: 10px;
     left: 50%;
     right: 50%;
@@ -288,11 +335,8 @@ body.modal_open {
     justify-content: center;
     align-items: center;
     }
+
 }
-.closeLogo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    fill: black;
+button {
+    border: none;
 }
