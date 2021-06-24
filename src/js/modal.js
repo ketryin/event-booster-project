@@ -12,13 +12,11 @@ const api = new EventApiService();
 const favList = document.querySelector('.fav-events-list');
 const favoriteStorageBtn = document.querySelector('.header-my-favorites-btn');
 
-favoriteStorageBtn.addEventListener('click', onFavoriteStorageBtnClick)
+favoriteStorageBtn.addEventListener('click', onFavoriteStorageBtnClick);
 
 function onFavoriteStorageBtnClick() {
   favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
-
 }
-
 
 const refs = {
   eventCards: document.querySelector('.events-list'),
@@ -91,18 +89,18 @@ function onEventCardClick(e) {
 
         onCLickBtnClose();
 
-        
         const modalInfoRef = document.querySelector('.modal__text');
         const fullInfo = modalInfoRef.textContent;
         const cutInfo = `${modalInfoRef.textContent.slice(0, 150)}...`;
         modalInfoRef.innerHTML = `${cutInfo}`;
-        
-        
+
         const showMoreBtn = document.querySelector('.show-more');
+        if (modalInfoRef.textContent.includes('Oops')) {
+          showMoreBtn.classList.add('visually-hidden');
+        }
         showMoreBtn.setAttribute('info', true);
 
         showMoreBtn.addEventListener('click', () => {
-          
           if (showMoreBtn.hasAttribute('info')) {
             modalInfoRef.textContent = fullInfo;
             modalInfoRef.classList.add('active-show-more');
@@ -112,15 +110,12 @@ function onEventCardClick(e) {
           }
 
           if (!showMoreBtn.hasAttribute('info')) {
-            
             modalInfoRef.textContent = cutInfo;
             showMoreBtn.textContent = 'show more';
             showMoreBtn.setAttribute('info', true);
-
           }
-  
-        })
-        
+        });
+
         const modalButtonMore = document.querySelector('.modal__btn__more');
         modalButtonMore.addEventListener('click', onModalButtonMoreClick);
 
@@ -145,7 +140,6 @@ function onEventCardClick(e) {
             'https://image.flaticon.com/icons/png/512/4076/4076525.png',
           );
         }
-
 
         const favoriteButton = document.querySelector('.favorite-button');
         favoriteButton.textContent =
@@ -183,17 +177,18 @@ function onEventCardClick(e) {
             favoriteButton.textContent = 'Add to favorite';
             localStorage.setItem(`${eventSingleCard.id}`, 'Add to favorite');
 
-
-              if (!eventSingleCard.getAttribute('in-storage') && favoriteStorageBtn.hasAttribute('on-fav-btn-click')) {
-                eventSingleCard.removeAttribute('in-storage');
-                favoriteButton.setAttribute('disabled', true);
-                favoriteButton.classList.add('actice-remove-to-fav');
-                favoriteButton.textContent = 'removed';
-                favoriteButton.removeAttribute('on-fav-btn-click')
-                renderFavEvents();
-                favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
-                }
-
+            if (
+              !eventSingleCard.getAttribute('in-storage') &&
+              favoriteStorageBtn.hasAttribute('on-fav-btn-click')
+            ) {
+              eventSingleCard.removeAttribute('in-storage');
+              favoriteButton.setAttribute('disabled', true);
+              favoriteButton.classList.add('actice-remove-to-fav');
+              favoriteButton.textContent = 'removed';
+              favoriteButton.removeAttribute('on-fav-btn-click');
+              renderFavEvents();
+              favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
+            }
 
             return;
           } else {
