@@ -1,20 +1,12 @@
-import { error } from '@pnotify/core';
-import { defaults } from '@pnotify/core';
-import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
-import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
-defaultModules.set(PNotifyMobile, {});
-defaults.addClass = 'animate__animated animate__pulse pnotify__position';
-defaults.mode = 'dark';
-defaults.sticker = false;
+import createError from './customAlert.js';
 
 import firebase from '@firebase/app';
 import '@firebase/auth';
 import emailValidator from 'email-validator';
 
 class AuthService {
+  #CURRENT_USER_KEY = 'current-user';
 
-  #CURRENT_USER_KEY = "current-user";
-  
   #firebaseConfig = {
     apiKey: 'AIzaSyDYwXZs_eihXdWAx_yoWc4pt3tmvrkveq4',
     authDomain: 'event-booster-project.firebaseapp.com',
@@ -33,45 +25,52 @@ class AuthService {
   }
 
   signUp(email, password) {
-
     if (!emailValidator.validate(email)) {
-      error({ text: `${email ? email : 'Empty string'} is invalid email.` });
+      createError(`${email ? email : 'Empty string'} is invalid email.`);
+      // error({ text: `${email ? email : 'Empty string'} is invalid email.` });
       return Promise.resolve(false);
     }
 
-    return firebase.auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(_ => localStorage.setItem(this.#CURRENT_USER_KEY, firebase.auth().currentUser.uid))
-        .then(_ => true)
-        .catch((er) => {
-          error(er.message);
-          return false;
-        });
-    
+    return firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(_ => localStorage.setItem(this.#CURRENT_USER_KEY, firebase.auth().currentUser.uid))
+      .then(_ => true)
+      .catch(er => {
+        createError(er.message);
+        // error(er.message);
+        return false;
+      });
   }
 
   signIn(email, password) {
-  
-      if (!emailValidator.validate(email)) {
-          error(`${email ? email : 'Empty string'} is invalid email.`);
-          return Promise.resolve(false);
-      }
+    if (!emailValidator.validate(email)) {
+      createError(`${email ? email : 'Empty string'} is invalid email.`);
+      // error(`${email ? email : 'Empty string'} is invalid email.`);
+      return Promise.resolve(false);
+    }
 
-      return firebase.auth()
-          .signInWithEmailAndPassword(email, password)
-          .then(_ => localStorage.setItem(this.#CURRENT_USER_KEY, firebase.auth().currentUser.uid))
-          .then(_ => true)
-          .catch((er) => {
-            error(er.message);
-            return false;
-          });
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(_ => localStorage.setItem(this.#CURRENT_USER_KEY, firebase.auth().currentUser.uid))
+      .then(_ => true)
+      .catch(er => {
+        createError(er.message);
+        // error(er.message);
+        return false;
+      });
   }
 
   logOut() {
-      return firebase.auth()
-          .signOut()
-          .then(_ => localStorage.removeItem(this.#CURRENT_USER_KEY))
-          .catch((er) => error(er));
+    return firebase
+      .auth()
+      .signOut()
+      .then(_ => localStorage.removeItem(this.#CURRENT_USER_KEY))
+      .catch(er => {
+        createError(er);
+        // error(er)
+      });
   }
 }
 

@@ -1,32 +1,22 @@
-import { error } from '@pnotify/core';
-import { defaults } from '@pnotify/core';
-import { defaultModules } from './../../node_modules/@pnotify/core/dist/PNotify.js';
-import * as PNotifyMobile from './../../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
-defaultModules.set(PNotifyMobile, {});
-defaults.addClass = 'animate__animated animate__pulse pnotify__position';
-defaults.mode = 'dark';
-defaults.sticker = false;
+import createError from './customAlert.js';
 
 import EventApiService from './fetch-events.js';
 import modalTemplate from '../templates/modal-card-details.hbs';
 import onModalButtonMoreClick from './modal-button-more-fetch';
 import filterBiggerImage from './filter-lagest-image.js';
 import './favorite.js';
-import renderFavEvents from './favorite.js'
+import renderFavEvents from './favorite.js';
 
 const api = new EventApiService();
 
 const favList = document.querySelector('.fav-events-list');
 const favoriteStorageBtn = document.querySelector('.header-my-favorites-btn');
 
-favoriteStorageBtn.addEventListener('click', onFavoriteStorageBtnClick)
+favoriteStorageBtn.addEventListener('click', onFavoriteStorageBtnClick);
 
 function onFavoriteStorageBtnClick() {
   favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
-
 }
-
-
 
 const refs = {
   eventCards: document.querySelector('.events-list'),
@@ -38,8 +28,6 @@ const refs = {
 
 refs.eventCards.addEventListener('click', onEventCardClick);
 refs.backdrop.addEventListener('click', onClickBackdrop);
-
-
 
 export function onClickBackdrop(e) {
   if (!e.target.classList.contains('backdrop__modal')) {
@@ -53,32 +41,30 @@ export function onClickBackdrop(e) {
 }
 
 function clearTextContent(selector) {
-    const modalInfoRefAll = document.querySelectorAll(selector);
-    modalInfoRefAll.forEach(el => el.textContent ='')
+  const modalInfoRefAll = document.querySelectorAll(selector);
+  modalInfoRefAll.forEach(el => (el.textContent = ''));
 }
 
 function clearSrc(selector) {
-    const modalSrcRef = document.querySelector(selector);
-    modalSrcRef.src = '';
+  const modalSrcRef = document.querySelector(selector);
+  modalSrcRef.src = '';
 }
 
 function onCLickBtnClose() {
   const btnRef = document.querySelector('[data-modal-window-close]');
-  
+
   btnRef.addEventListener('click', () => {
-  
     refs.modalWindow.classList.toggle('is--hidden');
     refs.body.classList.toggle('modal-open');
     clearTextContent('.modal__text');
     clearSrc('.modal-img-test');
     clearSrc('.modal__circle-img');
-
   });
 }
 
 function onEventCardClick(e) {
   const currentCard = e.target;
-  
+
   if (!currentCard.closest('.events-list__item')) {
     return;
   }
@@ -86,7 +72,6 @@ function onEventCardClick(e) {
   const eventSingleCard = currentCard.closest('.events-list__item');
   refs.modalWindow.classList.toggle('is--hidden');
   refs.body.classList.toggle('modal-open');
-
 
   if (
     e.target.nodeName === 'IMG' ||
@@ -99,22 +84,23 @@ function onEventCardClick(e) {
       .fetchModalDetails(eventSingleCard.id, eventSingleCard.dataset.type)
       .then(data => {
         // const modalRef = document.querySelector('.modal__window');
-        
+
         refs.modalWindow.innerHTML = modalTemplate(data);
 
         onCLickBtnClose();
-        
+
         const modalInfoRef = document.querySelector('.modal__text');
         const fullInfo = modalInfoRef.textContent;
         const cutInfo = `${modalInfoRef.textContent.slice(0, 150)}...`;
         modalInfoRef.innerHTML = `${cutInfo}`;
-        
-        
+
         const showMoreBtn = document.querySelector('.show-more');
+        if (modalInfoRef.textContent.includes('Oops')) {
+          showMoreBtn.classList.add('visually-hidden');
+        }
         showMoreBtn.setAttribute('info', true);
 
         showMoreBtn.addEventListener('click', () => {
-          
           if (showMoreBtn.hasAttribute('info')) {
             modalInfoRef.textContent = fullInfo;
             modalInfoRef.classList.add('active-show-more');
@@ -124,16 +110,12 @@ function onEventCardClick(e) {
           }
 
           if (!showMoreBtn.hasAttribute('info')) {
-            
             modalInfoRef.textContent = cutInfo;
             showMoreBtn.textContent = 'show more';
             showMoreBtn.setAttribute('info', true);
-
           }
-  
-        })
-        
-        
+        });
+
         const modalButtonMore = document.querySelector('.modal__btn__more');
         modalButtonMore.addEventListener('click', onModalButtonMoreClick);
 
@@ -159,12 +141,9 @@ function onEventCardClick(e) {
           );
         }
 
-        
-
-
-
         const favoriteButton = document.querySelector('.favorite-button');
-        favoriteButton.textContent = localStorage.getItem(`${eventSingleCard.id}`) || 'Add to favorite';
+        favoriteButton.textContent =
+          localStorage.getItem(`${eventSingleCard.id}`) || 'Add to favorite';
         if (favoriteButton.textContent === 'Remove from favorite') {
           favoriteButton.classList.add('actice-add-to-fav');
         }
@@ -172,33 +151,46 @@ function onEventCardClick(e) {
         favoriteButton.addEventListener('click', () => {
           const eventContainer = document.querySelector(`[id='${eventSingleCard.id}']`);
           const location = eventContainer.querySelector('.event-location');
-          
+
           const currentStorage = localStorage.getItem('favoriteEventStorage');
           const currentFavoriteEventOnStorage = JSON.parse(currentStorage);
-          const filteredCurrentFavoriteEventOnStorage = Array.from(new Set(currentFavoriteEventOnStorage.map(({ id, name, date, location, src }) => JSON.stringify({ id, name, date, location, src }))), JSON.parse);
+          const filteredCurrentFavoriteEventOnStorage = Array.from(
+            new Set(
+              currentFavoriteEventOnStorage.map(({ id, name, date, location, src }) =>
+                JSON.stringify({ id, name, date, location, src }),
+              ),
+            ),
+            JSON.parse,
+          );
 
-          const indexOfEventToRemove = filteredCurrentFavoriteEventOnStorage.map(item => item.id).indexOf(eventSingleCard.id);
+          const indexOfEventToRemove = filteredCurrentFavoriteEventOnStorage
+            .map(item => item.id)
+            .indexOf(eventSingleCard.id);
 
           if (indexOfEventToRemove !== -1) {
             favoriteButton.classList.remove('actice-add-to-fav');
             filteredCurrentFavoriteEventOnStorage.splice(indexOfEventToRemove, 1);
-            localStorage.setItem('favoriteEventStorage', JSON.stringify(filteredCurrentFavoriteEventOnStorage));
+            localStorage.setItem(
+              'favoriteEventStorage',
+              JSON.stringify(filteredCurrentFavoriteEventOnStorage),
+            );
             favoriteButton.textContent = 'Add to favorite';
             localStorage.setItem(`${eventSingleCard.id}`, 'Add to favorite');
 
-              if (!eventSingleCard.getAttribute('in-storage') && favoriteStorageBtn.hasAttribute('on-fav-btn-click')) {
-                eventSingleCard.removeAttribute('in-storage');
-                favoriteButton.setAttribute('disabled', true);
-                favoriteButton.classList.add('actice-remove-to-fav');
-                favoriteButton.textContent = 'removed';
-                favoriteButton.removeAttribute('on-fav-btn-click')
-                renderFavEvents();
-                favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
-                }
-
+            if (
+              !eventSingleCard.getAttribute('in-storage') &&
+              favoriteStorageBtn.hasAttribute('on-fav-btn-click')
+            ) {
+              eventSingleCard.removeAttribute('in-storage');
+              favoriteButton.setAttribute('disabled', true);
+              favoriteButton.classList.add('actice-remove-to-fav');
+              favoriteButton.textContent = 'removed';
+              favoriteButton.removeAttribute('on-fav-btn-click');
+              renderFavEvents();
+              favoriteStorageBtn.setAttribute('on-fav-btn-click', true);
+            }
 
             return;
-
           } else {
             eventSingleCard.setAttribute('in-storage', true);
             favoriteButton.textContent = 'Remove from favorite';
@@ -209,24 +201,21 @@ function onEventCardClick(e) {
               date: data.dates.start.localDate,
               location: location.textContent,
               src: biggestImage.url,
-            })
-            localStorage.setItem('favoriteEventStorage', JSON.stringify(filteredCurrentFavoriteEventOnStorage));
+            });
+            localStorage.setItem(
+              'favoriteEventStorage',
+              JSON.stringify(filteredCurrentFavoriteEventOnStorage),
+            );
             localStorage.setItem(`${eventSingleCard.id}`, `Remove from favorite`);
             return;
           }
-    
-
-          
-          
-
         });
       })
       .catch(er => {
-        const myError = error({
-          text: 'No matches for your query, try to enter correct data',
-        });
+        createError('No matches for your query, try to enter correct data');
+        // const myError = error({
+        //   text: 'No matches for your query, try to enter correct data',
+        // });
       });
   }
 }
-
-

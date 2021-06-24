@@ -270,6 +270,7 @@ body.modal-open {
 
 .modal__location-link {
   color: $light-theme-main-text-color;
+  display: inline-flex;
 }
 
 .modal__location-link:hover {
